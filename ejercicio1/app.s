@@ -161,7 +161,7 @@ siguiente_barandal:
 // === POSTES ===
     mov x0, x20
     ldr x6, =tabla_postes
-    mov x7, 3
+    mov x7, 5 // el ultimo digito cambia segun cuantos .word tenga 
 loop_postes:
     ldr w1, [x6], 4    // X
     ldr w2, [x6], 4    // Y
@@ -208,9 +208,12 @@ estrellas:
     .word 150, 100
 
 tabla_postes:
-    .word 100, 375
-    .word 160, 360
-    .word 220, 390
+    .word 0, 375
+    .word 50, 375
+    .word 100, 360
+    .word 100, 375 // para hacerlo mas largo al poste re croto pero happens 
+    .word 150, 375
+    .word 200, 375
 
 tabla_barandales:
     .word 360

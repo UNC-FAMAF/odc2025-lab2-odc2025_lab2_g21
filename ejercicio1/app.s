@@ -96,9 +96,9 @@ no_pintar_luna:
     cmp x6, x5
     ble luna_y
 
-// === SOMBRA (MEDIA LUNA OSCURA) ===
-    movz x11, 0x00, lsl 16
-    movk x11, 0x0020, lsl 0
+// === SOMBRA (MEDIA LUNA con color del fondo) ===
+    movz x11, 0x66, lsl 16     // mismo color que el fondo
+    movk x11, 0x66CC, lsl 0
 
     mov x3, 100    // mismo centro Y
     mov x4, 510    // X más a la derecha
@@ -140,7 +140,7 @@ no_pintar_sombra:
     cmp x6, x5
     ble sombra_y
 
-// === BARANDALES NUEVOS ===
+// === BARANDALES ===
     mov x0, x20
     ldr x6, =tabla_barandales
     mov x7, 8    // cantidad de barandales
@@ -174,7 +174,7 @@ siguiente_barandal:
 // === POSTES ===
     mov x0, x20
     ldr x6, =tabla_postes
-    mov x7, 9 // el último dígito cambia según cuántos .word tenga
+    mov x7, 18
 loop_postes:
     ldr w1, [x6], 4    // X
     ldr w2, [x6], 4    // Y
@@ -221,28 +221,31 @@ estrellas:
     .word 150, 100
 
 tabla_postes:
-    .word 0, 375
-    .word 50, 375
-    .word 100, 340
-    .word 100, 375
-    .word 150, 375
-    .word 200, 375
-    .word 200, 375
-    .word 250, 375    
-    .word 300, 375
-    // === barandal derecha ===
+    .word 0, 395
+    .word 50, 395
+    .word 100, 360
+    .word 100, 395
+    .word 150, 395
+    .word 200, 395
+    .word 200, 395
+    .word 250, 395    
+    .word 270, 360
+    .word 270, 395
+    .word 389, 360
+    .word 389, 395
+    .word 410, 395
+    .word 460, 360
+    .word 460, 395
+    .word 510, 395
+    .word 560, 395
+    .word 610, 395
 
 tabla_barandales:
-    // === abajo izquierda ===
-    .word 0, 362
-    .word 60, 362
-    // === abajo derecha ===
-    .word 480, 362
-    .word 410, 362
-    // === arriba derecha ===
-    .word 480, 328
-    .word 360, 328
-    // === arriba izquierda ===
-    .word 0, 328
-    .word 100, 328
-
+    .word 0, 382
+    .word 60, 382
+    .word 480, 382
+    .word 410, 382
+    .word 480, 348
+    .word 360, 348
+    .word 0, 348
+    .word 100, 348

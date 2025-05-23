@@ -143,7 +143,7 @@ no_pintar_sombra:
 // === figuaras para decorar ===
     mov x0, x20                // framebuffer
     ldr x6, =tabla_detalles
-    mov x7, 8                  // cambio el ult numero segun tantas cosas ponga 
+    mov x7, 19                  // cambio el ult numero segun tantas cosas ponga 
 loop_detalles:
     ldr w1, [x6], 4            // X
     ldr w2, [x6], 4            // Y
@@ -236,6 +236,77 @@ siguiente_fila:
 fin_poste:
     subs x7, x7, 1
     b.ne loop_postes
+    // === COLORES PARA EDIFICIOS ===
+movz x14, 0x2A2A, lsl 0      // Gris oscuro (mismo que poste)
+movk x14, 0x002A, lsl 16
+
+movz x15, 0xFFFF, lsl 16     // Amarillo
+movk x15, 0x00FF, lsl 0
+mov x0, x20          // framebuffer base
+mov x16, SCREEN_WIDTH
+
+// edificio 1
+mov x3, 30
+mov x1, 320
+sub x1, x1, x3, lsr #1
+mov x2, 100
+bl dibujar_edificio
+
+// edificio 2
+mov x3, 25
+mov x1, 320
+add x1, x1, 40
+sub x1, x1, x3, lsr #1
+mov x2, 80
+bl dibujar_edificio
+
+// edificio 3
+mov x3, 20
+mov x1, 320
+sub x1, x1, 70
+sub x1, x1, x3, lsr #1
+mov x2, 90
+bl dibujar_edificio
+
+// edificio 4
+mov x3, 25
+mov x1, 320
+add x1, x1, 90
+sub x1, x1, x3, lsr #1
+mov x2, 120
+bl dibujar_edificio
+
+// edificio 5
+mov x3, 30
+mov x1, 320
+sub x1, x1, 120
+sub x1, x1, x3, lsr #1
+mov x2, 110
+bl dibujar_edificio
+
+// edificio 6
+mov x3, 20
+mov x1, 320
+add x1, x1, 140
+sub x1, x1, x3, lsr #1
+mov x2, 85
+bl dibujar_edificio
+
+// edificio 7
+mov x3, 25
+mov x1, 320
+sub x1, x1, 160
+sub x1, x1, x3, lsr #1
+mov x2, 95
+bl dibujar_edificio
+
+// edificio 8
+mov x3, 30
+mov x1, 320
+add x1, x1, 190
+sub x1, x1, x3, lsr #1
+mov x2, 105
+bl dibujar_edificio
 
 // === LOOP INFINITO ===
 InfLoop:
@@ -256,53 +327,145 @@ estrellas:
     .word 150, 100
 
 tabla_postes:
-    .word 0, 395
-    .word 50, 395
-    .word 100, 360
-    .word 100, 395
-    .word 150, 395
-    .word 200, 395
-    .word 200, 395
-    .word 250, 395    
-    .word 270, 360
-    .word 270, 395
-    //=== postes derecha ===
-    .word 339, 360
-    .word 339, 395
-    .word 357, 395//2 primeros barandales 
+    .word 0, 395  
+    .word 50, 360   
+    .word 50, 395   
+    .word 100, 395  
+    .word 150, 395  
+    .word 150, 395  
+    .word 200, 395      
+    .word 220, 360  
+    .word 220, 395  
 
-    .word 407, 395
-    .word 457, 395
-    .word 507, 395
-    .word 557, 395
-    .word 607, 395
+    //=== postes derecha ===
+    .word 289, 360
+    .word 289, 395  
+    .word 307, 395 
+
+    .word 357, 395 
+
+    .word 437, 395   
+    .word 487, 395  
+    .word 537, 395  
+    .word 587, 395  
 
 tabla_barandales:
     //=== barandal izquierda abajo  ===
     .word 0, 382
-    .word 60, 382
+    .word 10, 382
 
     //=== barandal izquierda arriba  ===
     .word 0, 348
-    .word 100, 348
+    .word 50, 348
 
     //=== barandal derecha abajo  ===
-    .word 357, 382
-    .word 480, 382
+    .word 307, 382
+    .word 392, 382
 
     //=== barandal derecha arriba  ===
-    .word 320, 348
+    .word 270, 348
     .word 460, 348
 
 tabla_detalles:
     //    x     y    ancho alto    color
-    .word 300, 350,    5,    10,   0x004C4C4C   // barandal izquierda 
-    .word 315, 350,    5,    10,   0x004C4C4C   // barandal derecha
+    .word 250, 350,    5,    10,   0x004C4C4C   // barandal izquierda 
+    .word 265, 350,    5,    10,   0x004C4C4C   // barandal derecha
 
-    .word 270, 425,   20,   30,   0x004C4C4C   // unión entre barandales izquierda
-    .word 260, 428,    20,    8,   0x002A2A2A   // unión entre barandales izquierda
-    .word 260, 444,    20,    8,   0x002A2A2A   // unión entre barandales izquierda
+    .word 220, 425,   20,   30,   0x004C4C4C   // unión entre barandales izquierda
+    .word 210, 428,    20,    8,   0x002A2A2A  // unión entre barandales izquierda
+    .word 210, 444,    20,    8,   0x002A2A2A  // unión entre barandales izquierda
 
-    .word 330, 425,   10,   30,   0x004C4C4C   // unión entre barandales derecha
-    .word 340, 428,    20,    8,   0x002A2A2A   // unión entre barandales derecha
-    .word 340, 444,    20,    8,   0x002A2A2A   // unión entre barandales derecha
+    .word 280, 425,   10,   30,   0x004C4C4C   // unión entre barandales derecha
+    .word 290, 428,    20,    8,   0x002A2A2A  // unión entre barandales derecha
+    .word 290, 444,    20,    8,   0x002A2A2A  // unión entre barandales derecha
+
+    .word 592, 385,   5,   20,   0x003A4A58  // final poste derecha
+
+    .word 366, 0,   50,   600,   0x003A4A58  // poste enorme 
+
+    .word 400, 0,   240,  50,   0x003A4A58   // techo derecha 
+
+    .word 0, 0,   440,  30,   0x003A4A58     // techo izquierda 
+    .word 0, 35,   410,  8,   0x003A4A58     // techo izquierda palo
+
+    .word  50, 30,   15,  20,   0x003A4A58   // techo izquierda soporte 
+    .word 100, 30,   15,  20,   0x003A4A58   // techo izquierda soporte 
+    .word 150, 30,   15,  20,   0x003A4A58   // techo izquierda soporte 
+    .word 200, 30,   15,  20,   0x003A4A58   // techo izquierda soporte 
+    .word 250, 30,   15,  20,   0x003A4A58   // techo izquierda soporte 
+    .word 300, 30,   15,  20,   0x003A4A58   // techo izquierda soporte 
+
+// Dibujar edificio con ventanas
+// x0: framebuffer
+// x1: x inicial
+// x2: alto (desde abajo)
+// x3: ancho
+// ============================
+dibujar_edificio:
+    mov x4, x1            // x inicial (posición horizontal)
+    mov x5, x2            // altura del edificio
+    mov x6, x3            // ancho del edificio
+    mov x7, 0             // fila actual (altura desde la base)
+
+.fila_edificio:
+    cmp x7, x5
+    b.ge .fin_edificio
+
+    mov x8, 0             // columna actual (ancho)
+.col_edificio:
+    cmp x8, x6
+    b.ge .sig_fila
+
+    add x9, x4, x8       // coordenada X en pantalla
+    mov x10, SCREEN_HEIGH
+    lsr x10, x10, 1      // base vertical: SCREEN_HEIGH / 2 (mitad pantalla)
+    sub x11, x10, x7     // y pantalla = base - fila (de abajo hacia arriba)
+
+    // Validar que no salga del área visible
+    cmp x11, #0
+    blt .salto_pixel     // si y < 0, saltar
+
+    cmp x9, #0
+    blt .salto_pixel     // si x < 0, saltar
+
+    cmp x11, SCREEN_HEIGH
+    bge .salto_pixel     // si y >= alto pantalla, saltar
+
+    cmp x9, SCREEN_WIDTH
+    bge .salto_pixel     // si x >= ancho pantalla, saltar
+
+    mul x12, x11, x16    // fila * ancho pantalla
+    add x12, x12, x9     // offset total en pixeles
+    lsl x12, x12, 2      // *4 bytes (32bpp)
+    add x12, x0, x12     // dirección en memoria framebuffer
+
+    // ventanas cada 6 px (misma lógica que antes)
+    mov x13, 6
+    udiv x17, x7, x13
+    msub x18, x17, x13, x7
+    cmp x18, 0
+    b.ne .pintar_muro
+
+    udiv x17, x8, x13
+    msub x18, x17, x13, x8
+    cmp x18, 0
+    b.ne .pintar_muro
+
+    // Pintar ventana (amarillo)
+    str w15, [x12]
+    b .salto_pixel
+
+.pintar_muro:
+    // Pintar muro (gris oscuro)
+    str w14, [x12]
+
+.salto_pixel:
+    add x8, x8, 1
+    b .col_edificio
+
+.sig_fila:
+    add x7, x7, 1
+    b .fila_edificio
+
+.fin_edificio:
+    ret

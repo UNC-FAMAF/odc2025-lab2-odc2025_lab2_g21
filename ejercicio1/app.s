@@ -1,18 +1,21 @@
-    .equ SCREEN_WIDTH,     640
-    .equ SCREEN_HEIGH,     480
-    .equ BITS_PER_PIXEL,   32
+.equ SCREEN_WIDTH,     640
+.equ SCREEN_HEIGH,     480
+.equ BITS_PER_PIXEL,   32
 
-    .equ POSTE_ALTO,       105
-    .equ POSTE_ANCHO,      10
+.equ POSTE_ALTO,       105
+.equ POSTE_ANCHO,      10
 
-    .globl main
+.equ BARANDAL_ANCHO,   200
+.equ BARANDAL_ALTO,    14
+
+.globl main
 
 main:
     mov x20, x0                  // Guardar framebuffer base
 
-// === FONDO (gris oscuro) ===
-    movz x10, 0x00, lsl 16
-    movk x10, 0x0020, lsl 0
+// === FONDO (azul claro) ===
+    movz x10, 0x66, lsl 16
+    movk x10, 0x66CC, lsl 0
 
     mov x2, SCREEN_HEIGH
 fondo_loop_y:
@@ -29,8 +32,8 @@ fondo_loop_x:
     movz x11, 0xFF, lsl 16     // Blanco (estrellas y luna)
     movk x11, 0xFFFF, lsl 0
 
-    movz x12, 0x3C3C, lsl 0    // Barandal (gris claro)
-    movk x12, 0x003C, lsl 16
+    movz x12, 0x4C4C, lsl 0    // Barandal (gris claro)
+    movk x12, 0x004C, lsl 16
 
     movz x13, 0x2A2A, lsl 0    // Poste (gris oscuro)
     movk x13, 0x002A, lsl 16
@@ -137,23 +140,33 @@ no_pintar_sombra:
     cmp x6, x5
     ble sombra_y
 
-// === BARANDALES ===
+// === BARANDALES NUEVOS ===
     mov x0, x20
     ldr x6, =tabla_barandales
-    mov x7, 2
+    mov x7, 8    // cantidad de barandales
 loop_barandales:
-    ldr w1, [x6], 4    // Y
-    mov x2, 0
-barandal_dibujo_x:
-    cmp x2, SCREEN_WIDTH
+    ldr w1, [x6], 4    // X
+    ldr w2, [x6], 4    // Y
+    mov x8, 0
+barandal_loop_y:
+    cmp x8, BARANDAL_ALTO
     b.ge siguiente_barandal
-    mul x3, x1, x15
-    add x3, x3, x2
-    lsl x3, x3, 2
-    add x4, x0, x3
-    str w12, [x4]
-    add x2, x2, 1
-    b barandal_dibujo_x
+    mov x9, 0
+barandal_loop_x:
+    cmp x9, BARANDAL_ANCHO
+    b.ge siguiente_fila_barandal
+    add x3, x1, x9
+    add x4, x2, x8
+    mul x5, x4, x15
+    add x5, x5, x3
+    lsl x5, x5, 2
+    add x5, x0, x5
+    str w12, [x5]
+    add x9, x9, 1
+    b barandal_loop_x
+siguiente_fila_barandal:
+    add x8, x8, 1
+    b barandal_loop_y
 siguiente_barandal:
     subs x7, x7, 1
     b.ne loop_barandales
@@ -161,7 +174,7 @@ siguiente_barandal:
 // === POSTES ===
     mov x0, x20
     ldr x6, =tabla_postes
-    mov x7, 5 // el ultimo digito cambia segun cuantos .word tenga 
+    mov x7, 9 // el último dígito cambia según cuántos .word tenga
 loop_postes:
     ldr w1, [x6], 4    // X
     ldr w2, [x6], 4    // Y
@@ -210,11 +223,26 @@ estrellas:
 tabla_postes:
     .word 0, 375
     .word 50, 375
-    .word 100, 360
-    .word 100, 375 // para hacerlo mas largo al poste re croto pero happens 
+    .word 100, 340
+    .word 100, 375
     .word 150, 375
     .word 200, 375
+    .word 200, 375
+    .word 250, 375    
+    .word 300, 375
+    // === barandal derecha ===
 
 tabla_barandales:
-    .word 360
-    .word 370
+    // === abajo izquierda ===
+    .word 0, 362
+    .word 60, 362
+    // === abajo derecha ===
+    .word 480, 362
+    .word 410, 362
+    // === arriba derecha ===
+    .word 480, 328
+    .word 360, 328
+    // === arriba izquierda ===
+    .word 0, 328
+    .word 100, 328
+

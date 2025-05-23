@@ -140,6 +140,41 @@ no_pintar_sombra:
     cmp x6, x5
     ble sombra_y
 
+// === figuaras para decorar ===
+    mov x0, x20                // framebuffer
+    ldr x6, =tabla_detalles
+    mov x7, 8                  // cambio el ult numero segun tantas cosas ponga 
+loop_detalles:
+    ldr w1, [x6], 4            // X
+    ldr w2, [x6], 4            // Y
+    ldr w3, [x6], 4            // ANCHO
+    ldr w4, [x6], 4            // ALTO
+    ldr w5, [x6], 4            // COLOR
+
+    mov x8, 0
+detalle_loop_y:
+    cmp x8, x4
+    b.ge siguiente_detalle
+    mov x9, 0
+detalle_loop_x:
+    cmp x9, x3
+    b.ge siguiente_fila_detalle
+    add x10, x1, x9
+    add x11, x2, x8
+    mul x12, x11, x15
+    add x12, x12, x10
+    lsl x12, x12, 2
+    add x12, x0, x12
+    str w5, [x12]
+    add x9, x9, 1
+    b detalle_loop_x
+siguiente_fila_detalle:
+    add x8, x8, 1
+    b detalle_loop_y
+siguiente_detalle:
+    subs x7, x7, 1
+    b.ne loop_detalles
+
 // === BARANDALES ===
     mov x0, x20
     ldr x6, =tabla_barandales
@@ -174,7 +209,7 @@ siguiente_barandal:
 // === POSTES ===
     mov x0, x20
     ldr x6, =tabla_postes
-    mov x7, 18
+    mov x7, 18 // cambio segun tantos postes tenga 
 loop_postes:
     ldr w1, [x6], 4    // X
     ldr w2, [x6], 4    // Y
@@ -231,21 +266,42 @@ tabla_postes:
     .word 250, 395    
     .word 270, 360
     .word 270, 395
-    .word 389, 360
-    .word 389, 395
-    .word 410, 395
-    .word 460, 360
-    .word 460, 395
-    .word 510, 395
-    .word 560, 395
-    .word 610, 395
+    //=== postes derecha ===
+    .word 339, 360
+    .word 339, 395
+    .word 370, 395
+    .word 420, 360
+    .word 420, 395
+    .word 470, 395
+    .word 520, 395
+    .word 570, 395
 
 tabla_barandales:
+    //=== barandal izquierda abajo  ===
     .word 0, 382
     .word 60, 382
-    .word 480, 382
-    .word 410, 382
-    .word 480, 348
-    .word 360, 348
+
+    //=== barandal izquierda arriba  ===
     .word 0, 348
     .word 100, 348
+
+    //=== barandal derecha abajo  ===
+    .word 340, 382
+    .word 480, 382
+
+    //=== barandal derecha arriba  ===
+    .word 320, 348
+    .word 460, 348
+
+tabla_detalles:
+    //    x     y    ancho alto    color
+    .word 300, 350,    5,    10,   0x004C4C4C   // barandal izquierda 
+    .word 315, 350,    5,    10,   0x004C4C4C   // barandal derecha
+
+    .word 270, 425,   20,   30,   0x004C4C4C   // unión entre barandales izquierda
+    .word 260, 428,    20,    8,   0x002A2A2A   // unión entre barandales izquierda
+    .word 260, 444,    20,    8,   0x002A2A2A   // unión entre barandales izquierda
+
+    .word 380, 425,   20,   30,   0x004C4C4C   // unión entre barandales derecha
+    .word 390, 428,    20,    8,   0x002A2A2A   // unión entre barandales derecha
+    .word 390, 444,    20,    8,   0x002A2A2A   // unión entre barandales derecha

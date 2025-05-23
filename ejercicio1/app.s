@@ -269,12 +269,13 @@ tabla_postes:
     //=== postes derecha ===
     .word 339, 360
     .word 339, 395
-    .word 370, 395
-    .word 420, 360
-    .word 420, 395
-    .word 470, 395
-    .word 520, 395
-    .word 570, 395
+    .word 357, 395//2 primeros barandales 
+
+    .word 407, 395
+    .word 457, 395
+    .word 507, 395
+    .word 557, 395
+    .word 607, 395
 
 tabla_barandales:
     //=== barandal izquierda abajo  ===
@@ -286,7 +287,7 @@ tabla_barandales:
     .word 100, 348
 
     //=== barandal derecha abajo  ===
-    .word 340, 382
+    .word 357, 382
     .word 480, 382
 
     //=== barandal derecha arriba  ===
@@ -302,6 +303,6 @@ tabla_detalles:
     .word 260, 428,    20,    8,   0x002A2A2A   // unión entre barandales izquierda
     .word 260, 444,    20,    8,   0x002A2A2A   // unión entre barandales izquierda
 
-    .word 380, 425,   20,   30,   0x004C4C4C   // unión entre barandales derecha
-    .word 390, 428,    20,    8,   0x002A2A2A   // unión entre barandales derecha
-    .word 390, 444,    20,    8,   0x002A2A2A   // unión entre barandales derecha
+    .word 330, 425,   10,   30,   0x004C4C4C   // unión entre barandales derecha
+    .word 340, 428,    20,    8,   0x002A2A2A   // unión entre barandales derecha
+    .word 340, 444,    20,    8,   0x002A2A2A   // unión entre barandales derecha

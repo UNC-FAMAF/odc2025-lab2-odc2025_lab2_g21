@@ -308,12 +308,63 @@ sub x1, x1, x3, lsr #1
 mov x2, 105
 bl dibujar_edificio
 
+// === Texto "OdC 2025" ===
+mov x0, x20          // framebuffer base
+mov x4, 0xFFFFFFFF   // color blanco
+
+// Posición inicial (ajustá si querés centrar más)
+mov x1, 0      // x
+mov x2, 0      // y
+
+ldr x3, =letra_O
+bl dibujar_letra
+
+add x1, x1, 12    // salto entre letras
+ldr x3, =letra_d
+bl dibujar_letra
+
+add x1, x1, 12
+ldr x3, =letra_C
+bl dibujar_letra
+
+add x1, x1, 12
+ldr x3, =letra_2
+bl dibujar_letra
+
+add x1, x1, 12
+ldr x3, =letra_0
+bl dibujar_letra
+
+add x1, x1, 12
+ldr x3, =letra_2
+bl dibujar_letra
+
+add x1, x1, 12
+ldr x3, =letra_5
+bl dibujar_letra
+
+
 // === LOOP INFINITO ===
 InfLoop:
     b InfLoop
 
 // === DATOS ===
 .section .data
+
+// Letras bitmap 5x7
+letra_O: 
+    .word 0b01110, 0b10001, 0b10001, 0b10001, 0b10001, 0b10001, 0b01110
+letra_d: 
+    .word 0b10000, 0b10000, 0b11110, 0b10001, 0b10001, 0b10001, 0b11110
+letra_C:
+    .word 0b01110, 0b10001, 0b00001, 0b00001, 0b00001, 0b10001, 0b01110
+letra_2: 
+    .word 0b01110, 0b10001, 0b10000, 0b01000, 0b00100, 0b00010, 0b11111
+letra_0: 
+    .word 0b01110, 0b10001, 0b10011, 0b10101, 0b11001, 0b10001, 0b01110
+letra_5: 
+    .word 0b11111, 0b00001, 0b01111, 0b10000, 0b10000, 0b10001, 0b01110
+
 estrellas:
     .word 100, 50
     .word 300, 120
@@ -468,4 +519,52 @@ dibujar_edificio:
     b .fila_edificio
 
 .fin_edificio:
+    ret
+
+// ============================
+// Dibuja letra bitmap 5x7
+// x0 = framebuffer
+// x1 = coordenada X
+// x2 = coordenada Y
+// x3 = puntero a bitmap (7 palabras)
+// x4 = color
+// ============================
+dibujar_letra:
+    mov x5, #0          // fila
+.letra_fila:
+    cmp x5, #7
+    b.ge .fin_letra
+
+    ldr w6, [x3, x5, lsl #2]   // bitmap de fila
+    mov x7, #0                 // columna
+.letra_col:
+    cmp x7, #5
+    b.ge .sig_fila_letra
+
+    // test bit
+    mov x8, #1
+    lsl x8, x8, x7
+    and x9, x6, x8
+    cbz x9, .no_pixel
+
+    // calcular dirección de píxel
+    add x10, x1, x7
+    add x11, x2, x5
+    mov x15, SCREEN_WIDTH 
+    mul x12, x11, x15       
+
+    add x12, x12, x10
+    lsl x12, x12, #2
+    add x12, x0, x12
+    str w4, [x12]
+
+.no_pixel:
+    add x7, x7, #1
+    b .letra_col
+
+.sig_fila_letra:
+    add x5, x5, #1
+    b .letra_fila
+
+.fin_letra:
     ret

@@ -13,11 +13,13 @@
 main:
     mov x20, x0                  // Guardar framebuffer base
 
-// === FONDO (azul claro) ===
-    movz x10, 0x66, lsl 16
-    movk x10, 0x66CC, lsl 0
+/// === FONDO (azul cielo profundo de imagen) ===
+    movz x10, 0x2661, lsl 16    // Rojo 0x26, Verde 0x61
+movk x10, 0x00D0, lsl 0     // Azul 0xD0
+    
+    mov x0, x20  // volver al inicio del framebuffer
 
-    mov x2, SCREEN_HEIGH
+mov x2, SCREEN_HEIGH
 fondo_loop_y:
     mov x1, SCREEN_WIDTH
 fondo_loop_x:
@@ -28,17 +30,22 @@ fondo_loop_x:
     sub x2, x2, 1
     cbnz x2, fondo_loop_y
 
-// === COLORES ===
-    movz x11, 0xFF, lsl 16     // Blanco (estrellas y luna)
-    movk x11, 0xFFFF, lsl 0
 
-    movz x12, 0x4C4C, lsl 0    // Barandal (gris claro)
-    movk x12, 0x004C, lsl 16
 
-    movz x13, 0x2A2A, lsl 0    // Poste (gris oscuro)
-    movk x13, 0x002A, lsl 16
+/// === COLORES ===
+movz x11, 0xFFFF, lsl 0        // Blanco (estrellas y luna)
+movk x11, 0x00FF, lsl 16       // 0x00FFFFFF
 
-    mov x15, SCREEN_WIDTH      // Para cálculos de dirección
+movz x12, 0x0C40, lsl 0        // Azul oscuro (barandal)
+movk x12, 0xFF0C, lsl 16       // BGRA = 0xFF0C0C40
+
+movz x13, 0x0C40, lsl 0        // Azul oscuro (poste)
+movk x13, 0xFF0C, lsl 16
+
+mov x15, SCREEN_WIDTH
+
+
+
 
 // === ESTRELLAS ===
     mov x0, x20
@@ -143,7 +150,7 @@ no_pintar_sombra:
 // === figuaras para decorar ===
     mov x0, x20                // framebuffer
     ldr x6, =tabla_detalles
-    mov x7, 19                 // cambio el ult numero segun tantas cosas ponga 
+    mov x7, 43                // cambio el ult numero segun tantas cosas ponga 
 loop_detalles:
     ldr w1, [x6], 4            // X
     ldr w2, [x6], 4            // Y
@@ -236,142 +243,6 @@ siguiente_fila:
 fin_poste:
     subs x7, x7, 1
     b.ne loop_postes
-
-   
-
-   
-  // === COLORES PARA EDIFICIOS ===
-
-movz x14, 0x2A2A, lsl 0     // Gris oscuro (mismo que poste)
-movk x14, 0x002A, lsl 16
-
-movz x15, 0xFFFF, lsl 16     // Amarillo
-movk x15, 0x00FF, lsl 0
-mov x0, x20          // framebuffer base
-mov x16, SCREEN_WIDTH
-
-// Edificio 2
-mov x3, 25
-mov x1, 320
-add x1, x1, 30
-sub x1, x1, x3, lsr #1
-mov x2, 70
-bl dibujar_edificio
-
-// Edificio 3
-mov x3, 40
-mov x1, 320
-sub x1, x1, 30
-sub x1, x1, x3, lsr #1
-mov x2, 80
-bl dibujar_edificio
-
-// Edificio 7
-mov x3, 30
-mov x1, 320
-sub x1, x1, 90
-sub x1, x1, x3, lsr #1
-mov x2, 85
-bl dibujar_edificio
-
-
-// Edificio 9
-mov x3, 26
-mov x1, 320
-sub x1, x1, 120
-sub x1, x1, x3, lsr #1
-mov x2, 80
-bl dibujar_edificio
-
-// Edificio 10
-mov x3, 30
-mov x1, 320
-add x1, x1, 130
-sub x1, x1, x3, lsr #1
-mov x2, 70
-bl dibujar_edificio
-
-// Edificio 11
-mov x3, 20
-mov x1, 320
-sub x1, x1, 140
-sub x1, x1, x3, lsr #1
-mov x2, 90
-bl dibujar_edificio
-
-// Edificio 12
-mov x3, 33
-mov x1, 320
-add x1, x1, 150
-sub x1, x1, x3, lsr #1
-mov x2, 65
-bl dibujar_edificio
-
-// Edificio 13
-mov x3, 28
-mov x1, 320
-sub x1, x1, 170
-sub x1, x1, x3, lsr #1
-mov x2, 80
-bl dibujar_edificio
-
-// Edificio 14
-mov x3, 32
-mov x1, 320
-add x1, x1, 180
-sub x1, x1, x3, lsr #1
-mov x2, 60
-bl dibujar_edificio
-
-// Edificio 15
-mov x3, 25
-mov x1, 320
-sub x1, x1, 200
-sub x1, x1, x3, lsr #1
-mov x2, 85
-bl dibujar_edificio
-
-// Edificio 16
-mov x3, 27
-mov x1, 320
-add x1, x1, 210
-sub x1, x1, x3, lsr #1
-mov x2, 70
-bl dibujar_edificio
-
-// Edificio 17
-mov x3, 20
-mov x1, 320
-sub x1, x1, 230
-sub x1, x1, x3, lsr #1
-mov x2, 90
-bl dibujar_edificio
-
-// Edificio 18
-mov x3, 25
-mov x1, 320
-add x1, x1, 240
-sub x1, x1, x3, lsr #1
-mov x2, 65
-bl dibujar_edificio
-
-// Edificio 19
-mov x3, 32
-mov x1, 320
-sub x1, x1, 260
-sub x1, x1, x3, lsr #1
-mov x2, 80
-bl dibujar_edificio
-
-// Edificio 20
-mov x3, 30
-mov x1, 320
-add x1, x1, 270
-sub x1, x1, x3, lsr #1
-mov x2, 70
-bl dibujar_edificio
-
-
 // === Texto "OdC 2025" ===
 mov x0, x20         // framebuffer base
 mov x4, 0xFFFFFFFF   // color blanco
@@ -430,16 +301,19 @@ letra_5:
     .word 0b11111, 0b00001, 0b01111, 0b10000, 0b10000, 0b10001, 0b01110
 
 estrellas:
-    .word 100, 50
     .word 300, 120
     .word 500, 200
-    .word 250, 400
-    .word 80, 300
-    .word 400, 60
-    .word 600, 30
-    .word 50, 450
-    .word 320, 240
-    .word 150, 100
+    .word 250, 109
+    .word 80, 108
+    .word 400, 105
+    .word 600, 103
+    .word 50, 120
+    .word 320, 130
+    .word 150, 140
+    .word 190, 109
+    .word 124, 110
+    .word 139,100
+    .word 145, 109
 
 tabla_postes:
     .word 0, 395  
@@ -483,6 +357,22 @@ tabla_barandales:
 
 tabla_detalles:
     //    x     y    ancho alto    color
+    //estrellas 
+    .word 50,   60,     2,    2,   0xFFFFFFFF   // estrella 
+    .word 100, 110,     2,    2,   0xFFFFFFFF   // estrella 
+    .word 200, 70,     2,    2,   0xFFFFFFFF   // estrella 
+    .word   70, 75,     2,    2,   0xFFFFFFFF   // estrella 
+    .word   300, 114,     2,    2,   0xFFFFFFFF   // estrella 
+    .word   280, 1,     2,    2,   0xFFFFFFFF   // estrella 
+    .word   0, 0,     2,    2,   0xFFFFFFFF   // estrella 
+    .word   0, 0,     2,    2,   0xFFFFFFFF   // estrella 
+    .word   0, 0,     2,    2,   0xFFFFFFFF   // estrella 
+    .word   0, 0,     2,    2,   0xFFFFFFFF   // estrella 
+    .word   0, 0,     2,    2,   0xFFFFFFFF   // estrella 
+    .word   0, 0,     2,    2,   0xFFFFFFFF   // estrella 
+    .word   0, 0,     2,    2,   0xFFFFFFFF   // estrella 
+    .word   0, 0,     2,    2,   0xFFFFFFFF   // estrella 
+
     .word 250, 350,    5,    10,   0x004C4C4C   // barandal izquierda 
     .word 265, 350,    5,    10,   0x004C4C4C   // barandal derecha
 
@@ -496,7 +386,7 @@ tabla_detalles:
 
     .word 592, 385,   5,   20,   0x003A4A58  // final poste derecha
 
-    .word 366, 0,   50,   600,   0x003A4A58  // poste enorme 
+    .word 366, 0,   50,   600,   0x004C4C4C  // poste enorme 
 
     .word 400, 0,   240,  50,   0x003A4A58    // techo derecha 
 
@@ -510,81 +400,20 @@ tabla_detalles:
     .word 250, 30,   15,  20,   0x003A4A58   // techo izquierda soporte 
     .word 300, 30,   15,  20,   0x003A4A58   // techo izquierda soporte 
 
-// Dibujar edificio con ventanas
-// x0: framebuffer
-// x1: x inicial
-// x2: alto (desde abajo)
-// x3: ancho
+    .word 0, 290,   640,  10,   0xFFFFFFFF   // calle 
 
-dibujar_edificio:
-    mov x4, x1            // x inicial (posición horizontal)
-    mov x5, x2            // altura del edificio
-    mov x6, x3            // ancho del edificio
-    mov x7, 0             // fila actual (altura desde la base)
+    .word 50,  170,   50,  120,   0x003A4A58   // edificio 
+    .word 100, 220,   25,   70,   0x003A4A58   // edificio 
+    .word 125, 185,   50,  105,   0x003A4A58   // edificio 
+    .word 155, 250,   70,   40,   0x003A4A58   // edificio 
+    .word 220, 130,   40,  160,   0x003A4A58   // edificio 
+    .word 265, 130,   40,  160,   0x003A4A58   // edificio
+    .word 295, 260,   40,   30,   0x003A4A58   // edificio 
+    .word 320, 150,   50,  140,   0x003A4A58   // edificio 
 
-.fila_edificio:
-    cmp x7, x5
-    b.ge .fin_edificio
+    .word 370, 190,   80,  100,   0x003A4A58   // edificio 
+    .word 430, 210,   50,   80,   0x002A2A2A   // edificio 
 
-    mov x8, 0             // columna actual (ancho)
-.col_edificio:
-    cmp x8, x6
-    b.ge .sig_fila
-
-    add x9, x4, x8       // coordenada X en pantalla
-    mov x10, SCREEN_HEIGH
-    lsr x10, x10, 1      // base vertical: SCREEN_HEIGH / 2 (mitad pantalla)
-    add x10, x10, 50     // <--- AÑADIDO: Bajar 50 píxeles la base
-    sub x11, x10, x7     // y pantalla = (base+50) - fila (de abajo hacia arriba)
-
-    // Validar que no salga del área visible
-    cmp x11, #0
-    blt .salto_pixel     // 
-
-    cmp x9, #0
-    blt .salto_pixel     // 
-
-    cmp x11, SCREEN_HEIGH
-    bge .salto_pixel     // 
-
-    cmp x9, SCREEN_WIDTH
-    bge .salto_pixel     // 
-
-    mul x12, x11, x16    // fila * ancho pantalla
-    add x12, x12, x9     // offset total en pixeles
-    lsl x12, x12, 2      // *4 bytes (32bpp)
-    add x12, x0, x12     // dirección en memoria framebuffer
-
-    // ventanas cada 6 px (misma lógica que antes)
-    mov x13, 6
-    udiv x17, x7, x13
-    msub x18, x17, x13, x7
-    cmp x18, 0
-    b.ne .pintar_muro
-
-    udiv x17, x8, x13
-    msub x18, x17, x13, x8
-    cmp x18, 0
-    b.ne .pintar_muro
-
-    // Pintar ventana (amarillo)
-    str w15, [x12]
-    b .salto_pixel
-
-.pintar_muro:
-    // Pintar muro (gris oscuro)
-    str w14, [x12]
-
-.salto_pixel:
-    add x8, x8, 1
-    b .col_edificio
-
-.sig_fila:
-    add x7, x7, 1
-    b .fila_edificio
-
-.fin_edificio:
-    ret
 
 // ============================
 // Dibuja letra bitmap 5x7
@@ -633,3 +462,5 @@ dibujar_letra:
 
 .fin_letra:
     ret
+
+

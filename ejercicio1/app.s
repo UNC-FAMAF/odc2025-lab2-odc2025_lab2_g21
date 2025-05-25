@@ -143,11 +143,7 @@ no_pintar_sombra:
 // === figuaras para decorar ===
     mov x0, x20                // framebuffer
     ldr x6, =tabla_detalles
-<<<<<<< HEAD
-    mov x7, 19                  // cambio el ult numero segun tantas cosas ponga 
-=======
     mov x7, 30                // cambio el ult numero segun tantas cosas ponga 
->>>>>>> ec5ee61 (mejores edificios q los ootros que eran kekw)
 loop_detalles:
     ldr w1, [x6], 4            // X
     ldr w2, [x6], 4            // Y
@@ -240,79 +236,6 @@ siguiente_fila:
 fin_poste:
     subs x7, x7, 1
     b.ne loop_postes
-<<<<<<< HEAD
-    // === COLORES PARA EDIFICIOS ===
-movz x14, 0x2A2A, lsl 0      // Gris oscuro (mismo que poste)
-movk x14, 0x002A, lsl 16
-
-movz x15, 0xFFFF, lsl 16     // Amarillo
-movk x15, 0x00FF, lsl 0
-mov x0, x20          // framebuffer base
-mov x16, SCREEN_WIDTH
-
-// edificio 1
-mov x3, 30
-mov x1, 320
-sub x1, x1, x3, lsr #1
-mov x2, 100
-bl dibujar_edificio
-
-// edificio 2
-mov x3, 25
-mov x1, 320
-add x1, x1, 40
-sub x1, x1, x3, lsr #1
-mov x2, 80
-bl dibujar_edificio
-
-// edificio 3
-mov x3, 20
-mov x1, 320
-sub x1, x1, 70
-sub x1, x1, x3, lsr #1
-mov x2, 90
-bl dibujar_edificio
-
-// edificio 4
-mov x3, 25
-mov x1, 320
-add x1, x1, 90
-sub x1, x1, x3, lsr #1
-mov x2, 120
-bl dibujar_edificio
-
-// edificio 5
-mov x3, 30
-mov x1, 320
-sub x1, x1, 120
-sub x1, x1, x3, lsr #1
-mov x2, 110
-bl dibujar_edificio
-
-// edificio 6
-mov x3, 20
-mov x1, 320
-add x1, x1, 140
-sub x1, x1, x3, lsr #1
-mov x2, 85
-bl dibujar_edificio
-
-// edificio 7
-mov x3, 25
-mov x1, 320
-sub x1, x1, 160
-sub x1, x1, x3, lsr #1
-mov x2, 95
-bl dibujar_edificio
-
-// edificio 8
-mov x3, 30
-mov x1, 320
-add x1, x1, 190
-sub x1, x1, x3, lsr #1
-mov x2, 105
-bl dibujar_edificio
-=======
 // === Texto "OdC 2025" ===
 mov x0, x20         // framebuffer base
 mov x4, 0xFFFFFFFF   // color blanco
@@ -348,7 +271,6 @@ add x1, x1, 12
 ldr x3, =letra_5
 bl dibujar_letra
 
->>>>>>> ec5ee61 (mejores edificios q los ootros que eran kekw)
 
 // === LOOP INFINITO ===
 InfLoop:
@@ -356,6 +278,21 @@ InfLoop:
 
 // === DATOS ===
 .section .data
+
+// Letras bitmap 5x7
+letra_O: 
+    .word 0b01110, 0b10001, 0b10001, 0b10001, 0b10001, 0b10001, 0b01110
+letra_d: 
+    .word 0b10000, 0b10000, 0b11110, 0b10001, 0b10001, 0b10001, 0b11110
+letra_C:
+    .word 0b01110, 0b10001, 0b00001, 0b00001, 0b00001, 0b10001, 0b01110
+letra_2: 
+    .word 0b01110, 0b10001, 0b10000, 0b01000, 0b00100, 0b00010, 0b11111
+letra_0: 
+    .word 0b01110, 0b10001, 0b10011, 0b10101, 0b11001, 0b10001, 0b01110
+letra_5: 
+    .word 0b11111, 0b00001, 0b01111, 0b10000, 0b10000, 0b10001, 0b01110
+
 estrellas:
     .word 100, 50
     .word 300, 120
@@ -375,16 +312,16 @@ tabla_postes:
     .word 100, 395  
     .word 150, 395  
     .word 150, 395  
-    .word 200, 395      
+    .word 200, 395     
     .word 220, 360  
     .word 220, 395  
 
     //=== postes derecha ===
     .word 289, 360
     .word 289, 395  
-    .word 307, 395 
+    .word 307, 395  
 
-    .word 357, 395 
+    .word 357, 395  
 
     .word 437, 395   
     .word 487, 395  
@@ -425,7 +362,7 @@ tabla_detalles:
 
     .word 366, 0,   50,   600,   0x004C4C4C  // poste enorme 
 
-    .word 400, 0,   240,  50,   0x003A4A58   // techo derecha 
+    .word 400, 0,   240,  50,   0x003A4A58    // techo derecha 
 
     .word 0, 0,   440,  30,   0x003A4A58     // techo izquierda 
     .word 0, 35,   410,  8,   0x003A4A58     // techo izquierda palo
@@ -437,19 +374,6 @@ tabla_detalles:
     .word 250, 30,   15,  20,   0x003A4A58   // techo izquierda soporte 
     .word 300, 30,   15,  20,   0x003A4A58   // techo izquierda soporte 
 
-<<<<<<< HEAD
-// Dibujar edificio con ventanas
-// x0: framebuffer
-// x1: x inicial
-// x2: alto (desde abajo)
-// x3: ancho
-// ============================
-dibujar_edificio:
-    mov x4, x1            // x inicial (posición horizontal)
-    mov x5, x2            // altura del edificio
-    mov x6, x3            // ancho del edificio
-    mov x7, 0             // fila actual (altura desde la base)
-=======
     .word 0, 290,   640,  10,   0xFFFFFFFF   // calle 
 
     .word 50, 170,   50,  120,   0x003A4A58   // edificio 
@@ -460,71 +384,10 @@ dibujar_edificio:
     .word 265, 130,   40,  160,   0x003A4A58   // edificio
     .word 295, 260,   40,  30,   0x003A4A58   // edificio 
     .word 320, 150,   50,  140,   0x003A4A58   // edificio 
->>>>>>> ec5ee61 (mejores edificios q los ootros que eran kekw)
 
     .word 370, 190,   80,  100,   0x003A4A58   // edificio 
     .word 430, 210,   50,  80,   0x002A2A2A   // edificio 
 
-<<<<<<< HEAD
-    mov x8, 0             // columna actual (ancho)
-.col_edificio:
-    cmp x8, x6
-    b.ge .sig_fila
-
-    add x9, x4, x8       // coordenada X en pantalla
-    mov x10, SCREEN_HEIGH
-    lsr x10, x10, 1      // base vertical: SCREEN_HEIGH / 2 (mitad pantalla)
-    sub x11, x10, x7     // y pantalla = base - fila (de abajo hacia arriba)
-
-    // Validar que no salga del área visible
-    cmp x11, #0
-    blt .salto_pixel     // si y < 0, saltar
-
-    cmp x9, #0
-    blt .salto_pixel     // si x < 0, saltar
-
-    cmp x11, SCREEN_HEIGH
-    bge .salto_pixel     // si y >= alto pantalla, saltar
-
-    cmp x9, SCREEN_WIDTH
-    bge .salto_pixel     // si x >= ancho pantalla, saltar
-
-    mul x12, x11, x16    // fila * ancho pantalla
-    add x12, x12, x9     // offset total en pixeles
-    lsl x12, x12, 2      // *4 bytes (32bpp)
-    add x12, x0, x12     // dirección en memoria framebuffer
-
-    // ventanas cada 6 px (misma lógica que antes)
-    mov x13, 6
-    udiv x17, x7, x13
-    msub x18, x17, x13, x7
-    cmp x18, 0
-    b.ne .pintar_muro
-
-    udiv x17, x8, x13
-    msub x18, x17, x13, x8
-    cmp x18, 0
-    b.ne .pintar_muro
-
-    // Pintar ventana (amarillo)
-    str w15, [x12]
-    b .salto_pixel
-
-.pintar_muro:
-    // Pintar muro (gris oscuro)
-    str w14, [x12]
-
-.salto_pixel:
-    add x8, x8, 1
-    b .col_edificio
-
-.sig_fila:
-    add x7, x7, 1
-    b .fila_edificio
-
-.fin_edificio:
-    ret
-=======
 
 // ============================
 // Dibuja letra bitmap 5x7
@@ -574,4 +437,3 @@ dibujar_letra:
 .fin_letra:
     ret
 
->>>>>>> ec5ee61 (mejores edificios q los ootros que eran kekw)

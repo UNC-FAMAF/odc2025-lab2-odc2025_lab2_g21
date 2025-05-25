@@ -12,33 +12,39 @@
 
 main:
     mov x20, x0                  // Guardar framebuffer base
+/// === FONDO (nuevo color azul francé) ===
 
-// === FONDO (azul claro) ===
-    movz x10, 0x66, lsl 16
-    movk x10, 0x66CC, lsl 0
+  
+movk x10, 0xFF, lsl 16  
+movz x10, 0x009F, lsl 0
 
-    mov x2, SCREEN_HEIGH
+mov x0, x20  // volver al inicio del framebuffer
+
+mov x2, SCREEN_HEIGH
 fondo_loop_y:
     mov x1, SCREEN_WIDTH
 fondo_loop_x:
-    stur w10, [x0]
-    add x0, x0, 4
+    stur w10, [x0]       // Almacenar el valor de color en el framebuffer
+    add x0, x0, 4        // Avanzar al siguiente píxel (4 bytes por píxel)
     sub x1, x1, 1
     cbnz x1, fondo_loop_x
     sub x2, x2, 1
     cbnz x2, fondo_loop_y
 
+
+
 // === COLORES ===
-    movz x11, 0xFF, lsl 16     // Blanco (estrellas y luna)
-    movk x11, 0xFFFF, lsl 0
+movz x11, 0xFFFF, lsl 0        // Blanco (estrellas y luna)
+movk x11, 0x00FF, lsl 16       // 0x00FFFFFF
 
-    movz x12, 0x4C4C, lsl 0    // Barandal (gris claro)
-    movk x12, 0x004C, lsl 16
+movz x12, 0x0C40, lsl 0        // Azul oscuro (barandal)
+movk x12, 0xFF0C, lsl 16       // BGRA = 0xFF0C0C40
 
-    movz x13, 0x2A2A, lsl 0    // Poste (gris oscuro)
-    movk x13, 0x002A, lsl 16
+movz x13, 0x0C40, lsl 0        // Azul oscuro (poste)
+movk x13, 0xFF0C, lsl 16
 
-    mov x15, SCREEN_WIDTH      // Para cálculos de dirección
+mov x15, SCREEN_WIDTH
+
 
 // === ESTRELLAS ===
     mov x0, x20
@@ -97,8 +103,8 @@ no_pintar_luna:
     ble luna_y
 
 // === SOMBRA (MEDIA LUNA con color del fondo) ===
-    movz x11, 0x66, lsl 16     // mismo color que el fondo
-    movk x11, 0x66CC, lsl 0
+    movk x11, 0xFF, lsl 16     // mismo color que el fondo
+    movz x11, 0x009F, lsl 0
 
     mov x3, 100    // mismo centro Y
     mov x4, 510    // X más a la derecha
@@ -143,7 +149,7 @@ no_pintar_sombra:
 // === figuaras para decorar ===
     mov x0, x20                // framebuffer
     ldr x6, =tabla_detalles
-    mov x7, 30                // cambio el ult numero segun tantas cosas ponga 
+    mov x7, 46                // cambio el ult numero segun tantas cosas ponga 
 loop_detalles:
     ldr w1, [x6], 4            // X
     ldr w2, [x6], 4            // Y
@@ -179,6 +185,9 @@ siguiente_detalle:
     mov x0, x20
     ldr x6, =tabla_barandales
     mov x7, 8    // cantidad de barandales
+    //color 
+    movz x12, 0x0052, lsl 0      // B = 82 (0x52), G = 0 (0x00)
+    movk x12, 0x0000, lsl 16     // R = 0 (0x00) -> 0x00000052
 loop_barandales:
     ldr w1, [x6], 4    // X
     ldr w2, [x6], 4    // Y
@@ -209,7 +218,9 @@ siguiente_barandal:
 // === POSTES ===
     mov x0, x20
     ldr x6, =tabla_postes
-    mov x7, 18 // cambio segun tantos postes tenga 
+    mov x7, 18 // cambio segun tantos postes tenga
+    movz x13, 0x0052, lsl 0      // B = 82 (0x52), G = 0 (0x00)
+    movk x13, 0x0000, lsl 16     // R = 0 (0x00) -> 0x000052 (O el color que quieras) 
 loop_postes:
     ldr w1, [x6], 4    // X
     ldr w2, [x6], 4    // Y
@@ -294,16 +305,19 @@ letra_5:
     .word 0b11111, 0b00001, 0b01111, 0b10000, 0b10000, 0b10001, 0b01110
 
 estrellas:
-    .word 100, 50
     .word 300, 120
     .word 500, 200
-    .word 250, 400
-    .word 80, 300
-    .word 400, 60
-    .word 600, 30
-    .word 50, 450
-    .word 320, 240
-    .word 150, 100
+    .word 250, 109
+    .word 80, 108
+    .word 400, 105
+    .word 600, 103
+    .word 50, 120
+    .word 320, 130
+    .word 150, 140
+    .word 190, 109
+    .word 124, 110
+    .word 139,100
+    .word 145, 109
 
 tabla_postes:
     .word 0, 395  
@@ -346,48 +360,68 @@ tabla_barandales:
     .word 460, 348
 
 tabla_detalles:
-    //    x     y    ancho alto    color
-    .word 250, 350,    5,    10,   0x004C4C4C   // barandal izquierda 
-    .word 265, 350,    5,    10,   0x004C4C4C   // barandal derecha
+//    x     y    ancho alto    color
+//estrellas 
+.word  50,  60,     2,    2,   0xFFFFFFFF   // estrella 
+.word  70,  75,     2,    2,   0xFFFFFFFF   // estrella 
+.word 100, 110,     2,    2,   0xFFFFFFFF   // estrella 
+.word 200,  70,     2,    2,   0xFFFFFFFF   // estrella 
+.word 280, 114,     2,    2,   0xFFFFFFFF   // estrella 
+.word 300, 100,     2,    2,   0xFFFFFFFF   // estrella 
+.word 320, 170,     2,    2,   0xFFFFFFFF   // estrella 
+.word 245, 115,     2,    2,   0xFFFFFFFF   // estrella 
+.word 120, 76,     2,    2,   0xFFFFFFFF   // estrella 
+.word 444, 115,     2,    2,   0xFFFFFFFF   // estrella 
+.word 477, 70,     2,    2,   0xFFFFFFFF   // estrella 
+.word 520, 152,     2,    2,   0xFFFFFFFF   // estrella 
+.word 560, 110,     2,    2,   0xFFFFFFFF   // estrella 
+.word 620, 50,     2,    2,   0xFFFFFFFF   // estrella 
 
-    .word 220, 425,   20,   30,   0x004C4C4C   // unión entre barandales izquierda
-    .word 210, 428,    20,    8,   0x002A2A2A  // unión entre barandales izquierda
-    .word 210, 444,    20,    8,   0x002A2A2A  // unión entre barandales izquierda
+.word 250, 350,    5,    10,   0x000052   // barandal izquierda 
+.word 265, 350,    5,    10,   0x000052   // barandal derecha
 
-    .word 280, 425,   10,   30,   0x004C4C4C   // unión entre barandales derecha
-    .word 290, 428,    20,    8,   0x002A2A2A  // unión entre barandales derecha
-    .word 290, 444,    20,    8,   0x002A2A2A  // unión entre barandales derecha
+.word 220, 425,   20,   30,   0x000052   // unión entre barandales izquierda
+.word 210, 428,    20,    8,   0x000052  // unión entre barandales izquierda
+.word 210, 444,    20,    8,   0x000052  // unión entre barandales izquierda
 
-    .word 592, 385,   5,   20,   0x003A4A58  // final poste derecha
+.word 270, 425,   20,   30,   0x000052   // unión entre barandales derecha
+.word 290, 428,    20,    8,   0x000052  // unión entre barandales derecha
+.word 290, 444,    20,    8,   0x000052  // unión entre barandales derecha
 
-    .word 366, 0,   50,   600,   0x004C4C4C  // poste enorme 
+.word 290, 444,    6,    58,   0x42ff8e  // unión entre barandales derecha boton
+.word 290, 444,    6,    55,   0x42ff8e  // unión entre barandales derecha boton
 
-    .word 400, 0,   240,  50,   0x003A4A58    // techo derecha 
 
-    .word 0, 0,   440,  30,   0x003A4A58     // techo izquierda 
-    .word 0, 35,   410,  8,   0x003A4A58     // techo izquierda palo
+.word 592, 385,   5,   20,   0x092554  // final poste derecha
 
-    .word  50, 30,   15,  20,   0x003A4A58   // techo izquierda soporte 
-    .word 100, 30,   15,  20,   0x003A4A58   // techo izquierda soporte 
-    .word 150, 30,   15,  20,   0x003A4A58   // techo izquierda soporte 
-    .word 200, 30,   15,  20,   0x003A4A58   // techo izquierda soporte 
-    .word 250, 30,   15,  20,   0x003A4A58   // techo izquierda soporte 
-    .word 300, 30,   15,  20,   0x003A4A58   // techo izquierda soporte 
 
-    .word 0, 290,   640,  10,   0xFFFFFFFF   // calle 
 
-    .word 50, 170,   50,  120,   0x003A4A58   // edificio 
-    .word 100, 220,   25,  70,   0x003A4A58   // edificio 
-    .word 125, 185,   50,  105,   0x003A4A58   // edificio 
-    .word 155, 250,   70,  40,   0x003A4A58   // edificio 
-    .word 220, 130,   40,  160,   0x003A4A58   // edificio 
-    .word 265, 130,   40,  160,   0x003A4A58   // edificio
-    .word 295, 260,   40,  30,   0x003A4A58   // edificio 
-    .word 320, 150,   50,  140,   0x003A4A58   // edificio 
+.word 400, 0,   240,  50,   0x000052    // techo derecha 
 
-    .word 370, 190,   80,  100,   0x003A4A58   // edificio 
-    .word 430, 210,   50,  80,   0x002A2A2A   // edificio 
+.word 0, 0,   440,  30,   0x000052     // techo izquierda 
+.word 0, 35,   410,  8,   0x000052     // techo izquierda palo
 
+.word  50, 30,   15,  20,   0x000052   // techo izquierda soporte 
+.word 100, 30,   15,  20,   0x000052   // techo izquierda soporte 
+.word 150, 30,   15,  20,   0x000052   // techo izquierda soporte 
+.word 200, 30,   15,  20,   0x000052   // techo izquierda soporte 
+.word 250, 30,   15,  20,   0x000052   // techo izquierda soporte 
+.word 300, 30,   15,  20,   0x000052   // techo izquierda soporte 
+
+.word 0, 290,   640,  5,   0x42ff8e   // calle 
+
+.word 50,  170,   50,  120,  0x0040cb // edificio 
+.word 100, 220,   25,   70,  0x0040cb // edificio 
+.word 125, 185,   50,  105,  0x0040cb // edificio 
+.word 155, 250,   70,   40,  0x0040cb // edificio 
+.word 220, 130,   40,  160,  0x0040cb // edificio 
+.word 265, 130,   40,  160,  0x0040cb // edificio
+.word 295, 260,   40,   30,  0x0040cb // edificio 
+.word 320, 150,   50,  140,  0x0040cb // edificio 
+.word 370, 190,   80,  100,  0x0040cb   // edificio 
+.word 430, 210,   50,   80,  0x0040cb   // edificio 
+
+.word 366, 0,   50,   600,   0x000052  // poste enorme 
 
 // ============================
 // Dibuja letra bitmap 5x7

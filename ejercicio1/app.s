@@ -236,12 +236,12 @@ siguiente_fila:
 fin_poste:
     subs x7, x7, 1
     b.ne loop_postes
-<<<<<<< HEAD
+
     // === COLORES PARA EDIFICIOS ===
-=======
+
    
    // === COLORES PARA EDIFICIOS ===
->>>>>>> cf915bd (MAS edificiios distintas formas)
+
 movz x14, 0x2A2A, lsl 0      // Gris oscuro (mismo que poste)
 movk x14, 0x002A, lsl 16
 
@@ -409,8 +409,8 @@ sub x1, x1, x3, lsr #1
 mov x2, 70  // Más bajo
 bl dibujar_edificio
 
-<<<<<<< HEAD
-=======
+
+
 // Edificio 21
 mov x3, 25
 mov x1, 320
@@ -653,7 +653,7 @@ sub x1, x1, x3, lsr #1
 mov x2, 70  // Más alto (ajustado a 70)
 bl dibujar_edificio
 
->>>>>>> cf915bd (MAS edificiios distintas formas)
+
 // === Texto "OdC 2025" ===
 mov x0, x20          // framebuffer base
 mov x4, 0xFFFFFFFF   // color blanco
@@ -797,7 +797,7 @@ tabla_detalles:
 // x1: x inicial
 // x2: alto (desde abajo)
 // x3: ancho
-// ============================
+
 dibujar_edificio:
     mov x4, x1            // x inicial (posición horizontal)
     mov x5, x2            // altura del edificio
@@ -820,16 +820,16 @@ dibujar_edificio:
 
     // Validar que no salga del área visible
     cmp x11, #0
-    blt .salto_pixel     // si y < 0, saltar
+    blt .salto_pixel     // 
 
     cmp x9, #0
-    blt .salto_pixel     // si x < 0, saltar
+    blt .salto_pixel     // 
 
     cmp x11, SCREEN_HEIGH
-    bge .salto_pixel     // si y >= alto pantalla, saltar
+    bge .salto_pixel     // 
 
     cmp x9, SCREEN_WIDTH
-    bge .salto_pixel     // si x >= ancho pantalla, saltar
+    bge .salto_pixel     // 
 
     mul x12, x11, x16    // fila * ancho pantalla
     add x12, x12, x9     // offset total en pixeles

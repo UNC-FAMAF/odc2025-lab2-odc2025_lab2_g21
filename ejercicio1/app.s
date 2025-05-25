@@ -143,7 +143,11 @@ no_pintar_sombra:
 // === figuaras para decorar ===
     mov x0, x20                // framebuffer
     ldr x6, =tabla_detalles
+<<<<<<< HEAD
     mov x7, 19                  // cambio el ult numero segun tantas cosas ponga 
+=======
+    mov x7, 30                // cambio el ult numero segun tantas cosas ponga 
+>>>>>>> ec5ee61 (mejores edificios q los ootros que eran kekw)
 loop_detalles:
     ldr w1, [x6], 4            // X
     ldr w2, [x6], 4            // Y
@@ -236,6 +240,7 @@ siguiente_fila:
 fin_poste:
     subs x7, x7, 1
     b.ne loop_postes
+<<<<<<< HEAD
     // === COLORES PARA EDIFICIOS ===
 movz x14, 0x2A2A, lsl 0      // Gris oscuro (mismo que poste)
 movk x14, 0x002A, lsl 16
@@ -307,6 +312,43 @@ add x1, x1, 190
 sub x1, x1, x3, lsr #1
 mov x2, 105
 bl dibujar_edificio
+=======
+// === Texto "OdC 2025" ===
+mov x0, x20         // framebuffer base
+mov x4, 0xFFFFFFFF   // color blanco
+
+// Posición inicial (ajustá si querés centrar más)
+mov x1, 0      // x
+mov x2, 0      // y
+
+ldr x3, =letra_O
+bl dibujar_letra
+
+add x1, x1, 12     // salto entre letras
+ldr x3, =letra_d
+bl dibujar_letra
+
+add x1, x1, 12
+ldr x3, =letra_C
+bl dibujar_letra
+
+add x1, x1, 12
+ldr x3, =letra_2
+bl dibujar_letra
+
+add x1, x1, 12
+ldr x3, =letra_0
+bl dibujar_letra
+
+add x1, x1, 12
+ldr x3, =letra_2
+bl dibujar_letra
+
+add x1, x1, 12
+ldr x3, =letra_5
+bl dibujar_letra
+
+>>>>>>> ec5ee61 (mejores edificios q los ootros que eran kekw)
 
 // === LOOP INFINITO ===
 InfLoop:
@@ -381,7 +423,7 @@ tabla_detalles:
 
     .word 592, 385,   5,   20,   0x003A4A58  // final poste derecha
 
-    .word 366, 0,   50,   600,   0x003A4A58  // poste enorme 
+    .word 366, 0,   50,   600,   0x004C4C4C  // poste enorme 
 
     .word 400, 0,   240,  50,   0x003A4A58   // techo derecha 
 
@@ -395,6 +437,7 @@ tabla_detalles:
     .word 250, 30,   15,  20,   0x003A4A58   // techo izquierda soporte 
     .word 300, 30,   15,  20,   0x003A4A58   // techo izquierda soporte 
 
+<<<<<<< HEAD
 // Dibujar edificio con ventanas
 // x0: framebuffer
 // x1: x inicial
@@ -406,11 +449,23 @@ dibujar_edificio:
     mov x5, x2            // altura del edificio
     mov x6, x3            // ancho del edificio
     mov x7, 0             // fila actual (altura desde la base)
+=======
+    .word 0, 290,   640,  10,   0xFFFFFFFF   // calle 
 
-.fila_edificio:
-    cmp x7, x5
-    b.ge .fin_edificio
+    .word 50, 170,   50,  120,   0x003A4A58   // edificio 
+    .word 100, 220,   25,  70,   0x003A4A58   // edificio 
+    .word 125, 185,   50,  105,   0x003A4A58   // edificio 
+    .word 155, 250,   70,  40,   0x003A4A58   // edificio 
+    .word 220, 130,   40,  160,   0x003A4A58   // edificio 
+    .word 265, 130,   40,  160,   0x003A4A58   // edificio
+    .word 295, 260,   40,  30,   0x003A4A58   // edificio 
+    .word 320, 150,   50,  140,   0x003A4A58   // edificio 
+>>>>>>> ec5ee61 (mejores edificios q los ootros que eran kekw)
 
+    .word 370, 190,   80,  100,   0x003A4A58   // edificio 
+    .word 430, 210,   50,  80,   0x002A2A2A   // edificio 
+
+<<<<<<< HEAD
     mov x8, 0             // columna actual (ancho)
 .col_edificio:
     cmp x8, x6
@@ -469,3 +524,54 @@ dibujar_edificio:
 
 .fin_edificio:
     ret
+=======
+
+// ============================
+// Dibuja letra bitmap 5x7
+// x0 = framebuffer
+// x1 = coordenada X
+// x2 = coordenada Y
+// x3 = puntero a bitmap (7 palabras)
+// x4 = color
+// ============================
+dibujar_letra:
+    mov x5, #0            // fila
+.letra_fila:
+    cmp x5, #7
+    b.ge .fin_letra
+
+    ldr w6, [x3, x5, lsl #2]   // bitmap de fila
+    mov x7, #0               // columna
+.letra_col:
+    cmp x7, #5
+    b.ge .sig_fila_letra
+
+    // test bit
+    mov x8, #1
+    lsl x8, x8, x7
+    and x9, x6, x8
+    cbz x9, .no_pixel
+
+    // calcular dirección de píxel
+    add x10, x1, x7
+    add x11, x2, x5
+    mov x15, SCREEN_WIDTH 
+    mul x12, x11, x15      
+
+    add x12, x12, x10
+    lsl x12, x12, #2
+    add x12, x0, x12
+    str w4, [x12]
+
+.no_pixel:
+    add x7, x7, #1
+    b .letra_col
+
+.sig_fila_letra:
+    add x5, x5, #1
+    b .letra_fila
+
+.fin_letra:
+    ret
+
+>>>>>>> ec5ee61 (mejores edificios q los ootros que eran kekw)

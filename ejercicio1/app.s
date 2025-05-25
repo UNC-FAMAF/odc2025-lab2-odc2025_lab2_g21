@@ -236,7 +236,12 @@ siguiente_fila:
 fin_poste:
     subs x7, x7, 1
     b.ne loop_postes
+<<<<<<< HEAD
     // === COLORES PARA EDIFICIOS ===
+=======
+   
+   // === COLORES PARA EDIFICIOS ===
+>>>>>>> cf915bd (MAS edificiios distintas formas)
 movz x14, 0x2A2A, lsl 0      // Gris oscuro (mismo que poste)
 movk x14, 0x002A, lsl 16
 
@@ -245,69 +250,410 @@ movk x15, 0x00FF, lsl 0
 mov x0, x20          // framebuffer base
 mov x16, SCREEN_WIDTH
 
-// edificio 1
+// Edificio 1
 mov x3, 30
 mov x1, 320
 sub x1, x1, x3, lsr #1
-mov x2, 100
+mov x2, 90  // Más alto
 bl dibujar_edificio
 
-// edificio 2
+// Edificio 2
 mov x3, 25
 mov x1, 320
-add x1, x1, 40
+add x1, x1, 30   // Más cerca
 sub x1, x1, x3, lsr #1
-mov x2, 80
+mov x2, 70  // Más bajo
 bl dibujar_edificio
 
-// edificio 3
+// Edificio 3
+mov x3, 40   // Más ancho
+mov x1, 320
+sub x1, x1, 30   // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 80  // Más alto
+bl dibujar_edificio
+
+// Edificio 4
+mov x3, 20   // Más estrecho
+mov x1, 320
+add x1, x1, 40  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 60  // Más bajo
+bl dibujar_edificio
+
+// Edificio 5
+mov x3, 35   // Más ancho
+mov x1, 320
+sub x1, x1, 60  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 90   // Más alto
+bl dibujar_edificio
+
+// Edificio 6
+mov x3, 28
+mov x1, 320
+add x1, x1, 70  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 65  // Más bajo
+bl dibujar_edificio
+
+// Edificio 7
+mov x3, 30
+mov x1, 320
+sub x1, x1, 90  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 85   // Más alto
+bl dibujar_edificio
+
+// Edificio 8
+mov x3, 22
+mov x1, 320
+add x1, x1, 100   // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 60  // Más bajo
+bl dibujar_edificio
+
+// Edificio 9
+mov x3, 26
+mov x1, 320
+sub x1, x1, 120  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 80   // Más alto
+bl dibujar_edificio
+
+// Edificio 10
+mov x3, 30
+mov x1, 320
+add x1, x1, 130   // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70  // Más bajo
+bl dibujar_edificio
+
+// Edificio 11
 mov x3, 20
 mov x1, 320
-sub x1, x1, 70
+sub x1, x1, 140   // Más cerca
 sub x1, x1, x3, lsr #1
-mov x2, 90
+mov x2, 90  // Más alto
 bl dibujar_edificio
 
-// edificio 4
+// Edificio 12
+mov x3, 33
+mov x1, 320
+add x1, x1, 150  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 65  // Más bajo
+bl dibujar_edificio
+
+// Edificio 13
+mov x3, 28
+mov x1, 320
+sub x1, x1, 170  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 80   // Más alto
+bl dibujar_edificio
+
+// Edificio 14
+mov x3, 32
+mov x1, 320
+add x1, x1, 180   // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 60  // Más bajo
+bl dibujar_edificio
+
+// Edificio 15
 mov x3, 25
 mov x1, 320
-add x1, x1, 90
+sub x1, x1, 200   // Más cerca
 sub x1, x1, x3, lsr #1
-mov x2, 120
+mov x2, 85  // Más alto
 bl dibujar_edificio
 
-// edificio 5
-mov x3, 30
+// Edificio 16
+mov x3, 27
 mov x1, 320
-sub x1, x1, 120
+add x1, x1, 210   // Más cerca
 sub x1, x1, x3, lsr #1
-mov x2, 110
+mov x2, 70  // Más bajo
 bl dibujar_edificio
 
-// edificio 6
+// Edificio 17
 mov x3, 20
 mov x1, 320
-add x1, x1, 140
+sub x1, x1, 230  // Más cerca
 sub x1, x1, x3, lsr #1
-mov x2, 85
+mov x2, 90   // Más alto
 bl dibujar_edificio
 
-// edificio 7
+// Edificio 18
 mov x3, 25
 mov x1, 320
-sub x1, x1, 160
+add x1, x1, 240   // Más cerca
 sub x1, x1, x3, lsr #1
-mov x2, 95
+mov x2, 65  // Más bajo
 bl dibujar_edificio
 
-// edificio 8
+// Edificio 19
+mov x3, 32
+mov x1, 320
+sub x1, x1, 260   // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 80  // Más alto
+bl dibujar_edificio
+
+// Edificio 20
 mov x3, 30
 mov x1, 320
-add x1, x1, 190
+add x1, x1, 270   // Más cerca
 sub x1, x1, x3, lsr #1
-mov x2, 105
+mov x2, 70  // Más bajo
 bl dibujar_edificio
 
+<<<<<<< HEAD
+=======
+// Edificio 21
+mov x3, 25
+mov x1, 320
+sub x1, x1, 290   // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 90   // Más alto
+bl dibujar_edificio
+
+// Edificio 22
+mov x3, 28
+mov x1, 320
+add x1, x1, 300   // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 60  // Más bajo
+bl dibujar_edificio
+
+// Edificio 23
+mov x3, 20
+mov x1, 320
+sub x1, x1, 320   // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 80  // Más alto
+bl dibujar_edificio
+
+// Edificio 24
+mov x3, 30
+mov x1, 320
+add x1, x1, 330   // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70  // Más bajo
+bl dibujar_edificio
+
+// Edificio 25
+mov x3, 35
+mov x1, 320
+sub x1, x1, 350   // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 90   // Más alto
+bl dibujar_edificio
+
+
+
+// Edificio 26
+mov x3, 28
+mov x1, 320
+add x1, x1, 390  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70  // Más alto (ajustado a 70)
+bl dibujar_edificio
+
+// Edificio 27
+mov x3, 32
+mov x1, 320
+sub x1, x1, 420  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70   // Más bajo
+bl dibujar_edificio
+
+// Edificio 28
+mov x3, 20
+mov x1, 320
+add x1, x1, 420  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70  // Más alto (ajustado a 70)
+bl dibujar_edificio
+
+// Edificio 29
+mov x3, 30
+mov x1, 320
+sub x1, x1, 450  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70   // Más bajo
+bl dibujar_edificio
+
+// Edificio 30
+mov x3, 27
+mov x1, 320
+add x1, x1, 450  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70  // Más alto (ajustado a 70)
+bl dibujar_edificio
+
+// Edificio 31
+mov x3, 35
+mov x1, 320
+sub x1, x1, 480  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70   // Más bajo
+bl dibujar_edificio
+
+// Edificio 32
+mov x3, 30
+mov x1, 320
+add x1, x1, 480  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70  // Más alto (ajustado a 70)
+bl dibujar_edificio
+
+// Edificio 33
+mov x3, 25
+mov x1, 320
+sub x1, x1, 510  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70   // Más bajo
+bl dibujar_edificio
+
+// Edificio 34
+mov x3, 28
+mov x1, 320
+add x1, x1, 510  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70  // Más alto (ajustado a 70)
+bl dibujar_edificio
+
+// Edificio 35
+mov x3, 30
+mov x1, 320
+sub x1, x1, 540  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70   // Más bajo
+bl dibujar_edificio
+
+// Edificio 36
+mov x3, 22
+mov x1, 320
+add x1, x1, 540  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70  // Más alto (ajustado a 70)
+bl dibujar_edificio
+
+// Edificio 37
+mov x3, 30
+mov x1, 320
+sub x1, x1, 570  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70   // Más bajo
+bl dibujar_edificio
+
+// Edificio 38
+mov x3, 35
+mov x1, 320
+add x1, x1, 570  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70   // Más alto (ajustado a 70)
+bl dibujar_edificio
+
+// Edificio 39
+mov x3, 20
+mov x1, 320
+sub x1, x1, 600  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70   // Más bajo
+bl dibujar_edificio
+
+// Edificio 40
+mov x3, 30
+mov x1, 320
+add x1, x1, 600  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70  // Más alto (ajustado a 70)
+bl dibujar_edificio
+
+// Edificio 41
+mov x3, 22
+mov x1, 320
+sub x1, x1, 630  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70   // Más bajo
+bl dibujar_edificio
+
+// Edificio 42
+mov x3, 30
+mov x1, 320
+add x1, x1, 630  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70  // Más alto (ajustado a 70)
+bl dibujar_edificio
+
+// Edificio 43
+mov x3, 20
+mov x1, 320
+sub x1, x1, 660  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70   // Más bajo
+bl dibujar_edificio
+
+// Edificio 44
+mov x3, 28
+mov x1, 320
+add x1, x1, 660  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70  // Más alto (ajustado a 70)
+bl dibujar_edificio
+
+// Edificio 45
+mov x3, 30
+mov x1, 320
+sub x1, x1, 690  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70   // Más bajo
+bl dibujar_edificio
+
+// Edificio 46
+mov x3, 32
+mov x1, 320
+add x1, x1, 690  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70  // Más alto (ajustado a 70)
+bl dibujar_edificio
+
+// Edificio 47
+mov x3, 25
+mov x1, 320
+sub x1, x1, 720  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70   // Más bajo
+bl dibujar_edificio
+
+// Edificio 48
+mov x3, 30
+mov x1, 320
+add x1, x1, 720  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70  // Más alto (ajustado a 70)
+bl dibujar_edificio
+
+// Edificio 49
+mov x3, 25
+mov x1, 320
+sub x1, x1, 750  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70   // Más bajo
+bl dibujar_edificio
+
+// Edificio 50
+mov x3, 35
+mov x1, 320
+add x1, x1, 750  // Más cerca
+sub x1, x1, x3, lsr #1
+mov x2, 70  // Más alto (ajustado a 70)
+bl dibujar_edificio
+
+>>>>>>> cf915bd (MAS edificiios distintas formas)
 // === Texto "OdC 2025" ===
 mov x0, x20          // framebuffer base
 mov x4, 0xFFFFFFFF   // color blanco

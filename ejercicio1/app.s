@@ -388,11 +388,11 @@ tabla_detalles:
 .word 290, 428,    20,    8,   0x000052  // unión entre barandales derecha
 .word 290, 444,    20,    8,   0x000052  // unión entre barandales derecha
 
-.word 290, 444,    6,    58,   0x42ff8e  // unión entre barandales derecha boton
-.word 290, 444,    6,    55,   0x42ff8e  // unión entre barandales derecha boton
+.word 280, 430,    5,    5,   0x42ff8e  // unión entre barandales derecha boton
+.word 280, 444,    5,    5,   0x42ff8e  // unión entre barandales derecha boton
 
+.word 592, 385,   5,   20,   0x000052  // final poste derecha
 
-.word 592, 385,   5,   20,   0x092554  // final poste derecha
 
 
 
@@ -422,6 +422,7 @@ tabla_detalles:
 .word 430, 210,   50,   80,  0x0040cb   // edificio 
 
 .word 366, 0,   50,   600,   0x000052  // poste enorme 
+
 
 // ============================
 // Dibuja letra bitmap 5x7

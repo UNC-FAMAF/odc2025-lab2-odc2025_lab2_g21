@@ -18,16 +18,57 @@ main:
 movk x10, 0xFF, lsl 16  
 movz x10, 0x009F, lsl 0
 
-mov x0, x20  // volver al inicio del framebuffer
+mov x0, x20              // volver al inicio del framebuffer
 
-mov x2, SCREEN_HEIGH
+mov x2, SCREEN_HEIGH     // contador de filas (y)
+mov x9, SCREEN_HEIGH     // alto total para interpolación
+
 fondo_loop_y:
+    // Proporción: y / SCREEN_HEIGH, en enteros de 0 a 255
+    // x3 = (SCREEN_HEIGH - x2) * 255 / SCREEN_HEIGH
+    mov x3, x9
+    sub x3, x3, x2        // (SCREEN_HEIGH - y)
+    mov x4, 255
+    mul x3, x3, x4
+    udiv x3, x3, x9       // x3 ahora tiene el valor de interpolación (0 a 255)
+
+    // Color base: Azul francés (R=159, G=0, B=255)
+    // Interpolamos hacia negro (R=0, G=0, B=0)
+
+    // Red (159 -> 0)
+    mov x4, 159
+    mul x5, x3, x4
+    mov x6, 255
+    udiv x5, x5, x6       // x5 = R interpolado
+    sub x4, x4, x5        // x4 = nuevo R
+
+    // Green (0 -> 0)
+    mov x5, 0             // verde sigue siendo 0
+
+    // Blue (255 -> 0)
+    mov x6, 255
+    mul x7, x3, x6
+    udiv x7, x7, x6       // x7 = B interpolado
+    sub x6, x6, x7        // x6 = nuevo B
+
+    // Alpha = 0xFF
+    lsl x8, x6, 0         // B
+    lsl x8, x8, 8
+    orr x8, x8, x5        // G
+    lsl x8, x8, 8
+    orr x8, x8, x4        // R
+    lsl x8, x8, 8
+    orr x8, x8, 0xFF      // A
+
+    mov w10, w8           // guardar color resultante
+
     mov x1, SCREEN_WIDTH
 fondo_loop_x:
-    stur w10, [x0]       // Almacenar el valor de color en el framebuffer
-    add x0, x0, 4        // Avanzar al siguiente píxel (4 bytes por píxel)
+    stur w10, [x0]        // escribir píxel
+    add x0, x0, 4         // avanzar píxel
     sub x1, x1, 1
     cbnz x1, fondo_loop_x
+
     sub x2, x2, 1
     cbnz x2, fondo_loop_y
 
@@ -103,8 +144,9 @@ no_pintar_luna:
     ble luna_y
 
 // === SOMBRA (MEDIA LUNA con color del fondo) ===
-    movk x11, 0xFF, lsl 16     // mismo color que el fondo
-    movz x11, 0x009F, lsl 0
+    movz x11, 0x7fFF, lsl 0       // parte baja: 0x0085FF
+    movk x11, 0x00,   lsl 16      // parte R (0x00), ya está
+    movk x11, 0xFF,   lsl 32      // parte Alpha (0xFF)
 
     mov x3, 100    // mismo centro Y
     mov x4, 510    // X más a la derecha
@@ -379,18 +421,18 @@ tabla_detalles:
  
 .word 0, 290,   640,  5,   0x46f8a6   // calle 
 
-.word 50 ,  170,   50,  120,  0x024fea // edificio 
-.word 100, 220,   25,   70,  0x024fea // edificio 
-.word 125, 185,   50,  105,  0x024fea // edificio 
-.word 155, 250,   70,   40,  0x024fea // edificio 
-.word 220, 130,   40,  160,  0x024fea // edificio 
-.word 265, 130,   40,  160,  0x024fea // edificio
-.word 295, 260,   40,   30,  0x024fea // edificio 
-.word 320, 150,   50,  140,  0x024fea // edificio 
-.word 370, 190,   80,  100,  0x024fea // edificio 
-.word 430, 210,   50,   80,  0x024fea // edificio 
-.word 240, 240,   50,  50,  0x024fea // edificio
-.word 240, 240,   50,  5,  0x0080ff // edificio
+.word 50 ,  170,   50,  120, 0x0202d4 // edificio 
+.word 100, 220,   25,   70,  0x0202d4 // edificio 
+.word 125, 185,   50,  105,  0x0202d4 // edificio 
+.word 155, 250,   70,   40,  0x0202d4 // edificio 
+.word 220, 130,   40,  160,  0x0202d4 // edificio 
+.word 265, 130,   40,  160,  0x0202d4 // edificio
+.word 295, 260,   40,   30,  0x0202d4 // edificio 
+.word 320, 150,   50,  140,  0x0202d4 // edificio 
+.word 370, 190,   80,  100,  0x0202d4 // edificio 
+.word 430, 210,   50,   80,  0x0202d4 // edificio 
+.word 240, 240,   50,  50,   0x0202d4// edificio
+.word 240, 240,   50,  5,    0x0202d4 // edificio
 //ventanas 
 .word 325, 155,   5,   120,  0x0080ff // ventana larga 
 .word 345, 155,   5,   120,  0x0080ff // ventana  larga 2  

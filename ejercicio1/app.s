@@ -36,20 +36,20 @@ fondo_loop_y:
     // Interpolamos hacia negro (R=0, G=0, B=0)
 
     // Red (159 -> 0)
+      // Red (0 -> 159)
     mov x4, 159
     mul x5, x3, x4
     mov x6, 255
-    udiv x5, x5, x6       // x5 = R interpolado
-    sub x4, x4, x5        // x4 = nuevo R
+    udiv x4, x5, x6        // x4 = nuevo R
 
-    // Green (0 -> 0)
-    mov x5, 0             // verde sigue siendo 0
+    // Green (0 → 0)
+    mov x5, 0
 
-    // Blue (255 -> 0)
+    // Blue (0 -> 255)
     mov x6, 255
     mul x7, x3, x6
-    udiv x7, x7, x6       // x7 = B interpolado
-    sub x6, x6, x7        // x6 = nuevo B
+    udiv x6, x7, x6        // x6 = nuevo B
+
 
     // Alpha = 0xFF
     lsl x8, x6, 0         // B
@@ -144,7 +144,7 @@ no_pintar_luna:
     ble luna_y
 
 // === SOMBRA (MEDIA LUNA con color del fondo) ===
-    movz x11, 0x7fFF, lsl 0       // parte baja: 0x0085FF
+    movz x11, 0x20FF, lsl 0       // parte baja: 0x0085FF
     movk x11, 0x00,   lsl 16      // parte R (0x00), ya está
     movk x11, 0xFF,   lsl 32      // parte Alpha (0xFF)
 
@@ -295,6 +295,114 @@ mov x1, 100
 mov x2, 100
 bl dibujar_cocodrilo
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mov x0,x20
+movz x5, 0x8e, lsl 16
+movk x5, 0x42ff, lsl 0
+bl dibujar_luces_verdes
+
+
+
+
+
+
+
+mov x0,x20
+movz x5, 0xff, lsl 16
+movk x5, 0xffff, lsl 0
+bl dibujar_luces_blancas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // === LOOP INFINITO ===
 InfLoop:
     b InfLoop
@@ -302,6 +410,7 @@ InfLoop:
 // === DATOS ===
 .section .data
 
+.word  50,  60,     2,    2,   0xFFFFFFFF   // estrella 
 // Letras bitmap 5x7
 letra_O: 
     .word 0b01110, 0b10001, 0b10001, 0b10001, 0b10001, 0b10001, 0b01110
@@ -373,6 +482,7 @@ tabla_barandales:
 
 tabla_detalles:
 //    x     y    ancho alto    color
+.word  0,  295,     640,    185,   0x014fed   // mar  
 //estrellas 
 .word  50,  60,     2,    2,   0x0050ec   // estrella 
 
@@ -421,37 +531,36 @@ tabla_detalles:
  
 .word 0, 290,   640,  5,   0x46f8a6   // calle 
 
-.word 50 ,  170,   50,  120, 0x0202d4 // edificio 
-.word 100, 220,   25,   70,  0x0202d4 // edificio 
-.word 125, 185,   50,  105,  0x0202d4 // edificio 
-.word 155, 250,   70,   40,  0x0202d4 // edificio 
-.word 220, 130,   40,  160,  0x0202d4 // edificio 
-.word 265, 130,   40,  160,  0x0202d4 // edificio
-.word 295, 260,   40,   30,  0x0202d4 // edificio 
-.word 320, 150,   50,  140,  0x0202d4 // edificio 
-.word 370, 190,   80,  100,  0x0202d4 // edificio 
-.word 430, 210,   50,   80,  0x0202d4 // edificio 
-.word 240, 240,   50,  50,   0x0202d4// edificio
-.word 240, 240,   50,  5,    0x0202d4 // edificio
-//ventanas 
-.word 325, 155,   5,   120,  0x0080ff // ventana larga 
-.word 345, 155,   5,   120,  0x0080ff // ventana  larga 2  
+.word 30 ,  170,   50,  120, 0x0202d4 // edificio 
+.word 80 ,  220,   25,   70, 0x0202d4 // edificio 
+.word 105,  185,   50,  105, 0x0202d4 // edificio 
+.word 160,  130,   40,  160, 0x0202d4 // edificio 
+.word 205,  130,   40,  160, 0x0202d4 // edificio 
+.word 125,  260,   40,   30, 0x0202d4 // edificio 
 
-.word 360, 210,   8,   70,  0x0080ff // ventana larga 
-.word 385, 210,   8,   70,  0x0080ff // ventana  larga 2 
 
-.word 360, 200,   50,   5,  0x0080ff // ventana  larga 2
+.word 460,  150,   50,  140, 0x0202d4 // edificio 
+.word 510,  190,   80,  100, 0x0202d4 // edificio 
+.word 570,  210,   50,   80, 0x0202d4 // edificio 
+.word 190,  240,   50,   50, 0x0202d4 // edificio
+.word 190,  240,   50,    5, 0x0202d4 // edificio
+//ventana 
+.word 485,  155,     5,  120, 0x0080ff // ventana larga 
+.word 505,  155,     5,  120, 0x0080ff // ventana larga 2  
+.word 520,  210,     8,   70, 0x0080ff // ventana larga 
+.word 545,  210,     8,   70, 0x0080ff // ventana larga 2 
+.word 520,  200,    50,    5, 0x0080ff // ventana larga 2
 
-.word 270, 132,   8,   8,  0x42ff8e // primera de arriba 
-.word 285, 132,   8,   8,  0x42ff8e // segunda de arriba 
 
-.word 270, 145,   8,   8,  0x42ff8e // primera de medio 
-.word 285, 145,   8,   8,  0x42ff8e // segunda de medio 
+.word 210,  132,    8,    8, 0x42ff8e // primera de arriba 
+.word 225,  132,    8,    8, 0x42ff8e // segunda de arriba 
+.word 210,  145,    8,    8, 0x42ff8e // primera de medio 
+.word 225,  145,    8,    8, 0x42ff8e // segunda de medio 
+.word 225,  158,    8,    8, 0x42ff8e // primera de abajo
+.word 210,  158,    8,    8, 0x42ff8e // segunda de abajo
 
-.word 285, 158,   8,   8,  0x42ff8e // primera de abajo
-.word 270, 158,   8,   8,  0x42ff8e //segunda de abajo
+.word 366, 0,   50,   600,   0x000052  // poste enorme
 
-.word 366, 0,   50,   600,   0x000052  // poste enorme 
 
 
 // ============================
@@ -518,6 +627,177 @@ dibujar_punto:
     add x5, x0, x5       // dirección final
     str w3, [x5]
     ret
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ============================
+// RECTANGULO
+// x0: framebuffer
+// x5: color
+// ============================
+
+dibujar_luces_verdes:
+    mov x21, lr
+    mov x0, x20
+    mov x1, 40 //x
+    mov x2, 180 //y
+    mov x3, 25 //ancho
+    mov x4, 5  //alto 
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 190
+    mov x3, 25
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 200
+    mov x3, 25
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 210
+    mov x3, 25
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 220
+    mov x3, 25
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 230
+    mov x3, 25
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 240
+    mov x3, 25
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 250
+    mov x3, 25
+    mov x4, 5
+    bl dibujar_rect
+
+    mov lr, x21
+    ret
+    
+
+
+dibujar_luces_blancas:
+    mov x21, lr
+    mov x0, x20
+    mov x1, 40 //x
+    mov x2, 180 //y
+    mov x3, 0
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 190
+    mov x3, 0
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 47
+    mov x2, 200
+    mov x3, 7
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 50
+    mov x2, 210
+    mov x3, 5
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 55
+    mov x2, 220
+    mov x3, 10
+    mov x4, 5
+    bl dibujar_rect
+
+    mov lr, x21
+    ret
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ============================
 // RECTANGULO
@@ -607,7 +887,11 @@ dibujar_linea:
 //x2 = direccion Y
 //===================
 
+
+
 dibujar_cocodrilo:
+
+    mov x21, lr
 
     mov x0, x20
     add x1, x1, 1
@@ -1231,6 +1515,6 @@ add x1, x1, 8
 ldr x3, =letra_5
 bl dibujar_letra
 
-
-    ret
+mov lr, x21
+ret
     

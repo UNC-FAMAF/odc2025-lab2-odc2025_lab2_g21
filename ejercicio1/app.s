@@ -102,9 +102,10 @@ loop_estrella:
     subs x7, x7, 1
     b.ne loop_estrella
 
+
 // === LUNA CIRCULAR BLANCA ===
-    mov x3, 100    // centro Y
-    mov x4, 500    // centro X
+    mov x3, 90    // nuevo centro Y
+    mov x4, 45    // nuevo centro X
     mov x5, 30     // radio
 
     mov x6, -30
@@ -148,8 +149,8 @@ no_pintar_luna:
     movk x11, 0x00,   lsl 16      // parte R (0x00), ya está
     movk x11, 0xFF,   lsl 32      // parte Alpha (0xFF)
 
-    mov x3, 100    // mismo centro Y
-    mov x4, 510    // X más a la derecha
+    mov x3, 90    // mismo centro Y
+    mov x4, 55    // X desplazado hacia la derecha para sombra
     mov x5, 30     // mismo radio
 
     mov x6, -30
@@ -296,6 +297,22 @@ mov x1, 100
 mov x2, 100
 bl dibujar_cocodrilo
 
+mov x0,x20
+movz x5, 0x8e, lsl 16
+movk x5, 0x42ff, lsl 0
+bl dibujar_luces_verdes
+
+mov x0,x20
+movz x5, 0xff, lsl 16
+movk x5, 0xffff, lsl 0
+bl dibujar_luces_blancas
+
+mov x0, x20
+mov x1, 100
+mov x2, 300
+bl dibujar_sus
+
+
 
 
 
@@ -378,6 +395,8 @@ mov x0,x20
 movz x5, 0x0a, lsl 16 
 movk x5, 0xecf0, lsl 0
 bl dibujar_luces_amarillas
+
+
 
 
 
@@ -500,12 +519,12 @@ tabla_detalles:
 .word 300, 100,     2,    2,   0xFFFFFFFF   // estrella 
 .word 320, 170,     2,    2,   0xFFFFFFFF   // estrella 
 .word 245, 115,     2,    2,   0xFFFFFFFF   // estrella 
-.word 120, 76,      2,    2,   0xFFFFFFFF   // estrella 
+.word 120, 76,     2,    2,   0xFFFFFFFF   // estrella 
 .word 444, 115,     2,    2,   0xFFFFFFFF   // estrella 
-.word 477, 70,      2,    2,   0xFFFFFFFF   // estrella 
+.word 477, 70,     2,    2,   0xFFFFFFFF   // estrella 
 .word 520, 152,     2,    2,   0xFFFFFFFF   // estrella 
 .word 560, 110,     2,    2,   0xFFFFFFFF   // estrella 
-.word 620, 50,      2,    2,   0xFFFFFFFF   // estrella 
+.word 620, 50,     2,    2,   0xFFFFFFFF   // estrella 
 
 .word 250, 350,    5,    10,   0x000052   // barandal izquierda 
 .word 265, 350,    5,    10,   0x000052   // barandal derecha
@@ -586,6 +605,7 @@ tabla_detalles:
 
 
 .word 366, 0,   50,   600,   0x000052  // poste enorme
+
 
 
 
@@ -876,6 +896,7 @@ dibujar_luces_amarillas:
 
 
 
+
 // ============================
 // RECTANGULO
 // x0: framebuffer
@@ -963,9 +984,6 @@ dibujar_linea:
 //x1 = direccion X
 //x2 = direccion Y
 //===================
-
-
-
 dibujar_cocodrilo:
 
     mov x21, lr
@@ -1594,4 +1612,542 @@ bl dibujar_letra
 
 mov lr, x21
 ret
+
+//=====================
+// AMONGUS_BARCO
+// x0 : framebuffer base
+// x1 : eje X
+// x2 : eje Y
+//=====================
+
+dibujar_sus:
+    mov x21, lr
+
+    mov x0, x20
+    add x1, x1, 17
+    add x2, x2, 1
+    mov x3, 10
+    mov x4, 13
+    movz x5, 0x22, lsl 16
+    movk x5, 0xB14C, lsl 0
+    bl dibujar_rect
+
+    mov x0, x20
+    add x1, x1, 10
+    add x2, x2, 8
+    mov x3, 2
+    mov x4, 4
+    bl dibujar_rect
+
+    mov x0, x20
+    sub x1, x1, 2
+    add x2, x2, 1
+    mov x3, 2
+    mov x4, 4
+    movz x5, 0x13, lsl 16
+    movk x5, 0x632A, lsl 0
+    bl dibujar_rect
+
+    mov x0, x20
+    sub x1, x1, 5
+    sub x2, x2, 1
+    mov x3, 5
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    sub x1, x1, 4
+    sub x2, x2, 4
+    mov x3, 3
+    mov x4, 6
+    bl dibujar_rect
+
+    mov x0, x20
+    sub x2, x2, 1
+    mov x3, 2
+    mov x4, 0
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 5
+    add x2, x2, 4
+    mov x3, x5
+    bl dibujar_punto
+
+    mov x0, x20
+    add x1, x1, 6
+    add x2, x2, 2
+    bl dibujar_punto
+
+    mov x0, x20
+    add x1, x1, 1
+    add x2, x2, 1
+    bl dibujar_punto
+
+    mov x0, x20
+    sub x1, x1, 4
+    sub x2, x2, 7
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0xB7EF, lsl 0
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 1
+    add x2, x2, 1
+    mov x3, 2
+    mov x4, 0
+    bl dibujar_linea
+
+    mov x0, x20
+    add x2, x2, 1
+    mov x3, x5
+    bl dibujar_punto
     
+    mov  x0,  x20
+    add x1, x1, 3
+    sub x2, x2, 3
+    bl dibujar_punto
+
+    mov x0, x20
+    sub x1, x1, 1
+    add x2, x2, 2
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x16, lsl 16
+    movk x5, 0x80A1, lsl 0
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 1
+    add x2, x2, 1
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 1
+    add x2, x2, 1
+    mov x3, x5
+    bl dibujar_punto
+
+    mov x0, x20
+    add x1, x1, 4
+    add x2, x2, 0
+    mov x3, 5
+    mov x4, 0
+    movz x5, 0x63, lsl 16
+    movk x5, 0x301A, lsl 0
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 2
+    add x2, x2, 1
+    mov x3, 8
+    mov x4, 3
+    bl dibujar_rect
+
+    mov x0, x20
+    sub x1, x1, 18
+    mov x3, 4
+    mov x4, 2
+    bl dibujar_rect
+
+    mov x0, x20
+    add x2, x2, 2
+    mov x3, 6
+    mov x4, 5
+    movz x5, 0x33, lsl 16
+    movk x5, 0x1B11, lsl 0
+    bl dibujar_rect
+
+    mov x0, x20
+    add x1, x1, 6
+    add x2, x2, 1
+    mov x3, 3
+    mov x4, 6
+    bl dibujar_rect
+
+    mov x0, x20
+    add x1, x1, 3
+    add x2, x2, 4
+    mov x3, 6
+    mov x4, 2
+    bl dibujar_rect
+
+    mov x0, x20
+    add x1, x1, 10
+    sub x2, x2, 4
+    bl dibujar_rect
+
+    mov x0, x20
+    add x1, x1, 6
+    sub x2, x2, 1
+    mov x3, 2
+    mov x4, 0
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 1
+    sub x2, x2, 1
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 7
+    add x2, x2, 1
+    mov x3, x5
+    bl dibujar_punto
+
+    mov x0,x20
+    sub x1, x1, 14
+    add x2, x2, 5
+    bl dibujar_punto
+
+    mov x0, x20
+    add x1, x1, 1
+    add x2, x2, 2
+    mov x3, 12
+    mov x4, 2
+    movz x5, 0x26, lsl 16
+    movk x5, 0x1914, lsl 0
+    bl dibujar_rect
+
+    mov x0, x20
+    add x1, x1, 9
+    sub x2, x2, 3
+    mov x3, 8
+    mov x4, 4
+    bl dibujar_rect
+
+    mov x0, x20
+    add x1, x1, 8
+    sub x2, x2, 2
+    mov x3, 4
+    mov x4, 3
+    bl dibujar_rect
+
+    mov x0, x20
+    sub x1, x1, 22
+    add x2, x2, 3
+    mov x3, 4
+    mov x4, 0
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 1
+    add x2, x2, 1
+    mov x3, 5
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 11
+    mov x3, 2
+    bl dibujar_linea
+
+    mov x0,x20
+    sub x1, x1, 12
+    sub x2, x2, 2
+    mov x3, x5
+    bl dibujar_punto
+
+    mov x0, x20
+    add x1, x1, 22
+    add x2, x2, 1
+    bl dibujar_punto
+
+    mov x0, x20
+    add x1, x1, 1
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 1
+    sub x2, x2, 4
+    mov x3, 4
+    bl dibujar_linea  
+
+    mov x0, x20
+    add x1, x1, 2
+    sub x2, x2, 1
+    mov x3, 2
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 1
+    sub x2, x2, 2
+    mov x3, 3
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 5
+    sub x2, x2, 1
+    mov x3, 7
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 6
+    sub x2, x2, 1
+    mov x3, 6
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 2
+    add x2, x2, 1
+    mov x3, 3
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 2
+    add x2, x2, 1
+    mov x3, 2
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x2, x2, 4
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 2
+    sub x2, x2, 1
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 2
+    sub x2, x2, 1
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 1
+    sub x2, x2, 1
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 2
+    sub x2, x2, 1
+    mov x3, 3
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 2
+    add x2, x2, 1
+    mov x3, 2
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 3
+    sub x2, x2, 1
+    mov x3, 4
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 1
+    add x2, x2, 1
+    mov x3, 2
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 2
+    add x2, x2, 2
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 2
+    add x2, x2, 4
+    mov x3, 3
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 2
+    add x2, x2, 1
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 1
+    add x2, x2, 3
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 2
+    add x2, x2, 1
+    mov x3, 4
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 3
+    add x2, x2, 1
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 2
+    add x2, x2, 1
+    mov x3, 12
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x2, x2, 3
+    mov x3, 3
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 2
+    add x2, x2, 1
+    mov x3, 2
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 1
+    add x2, x2, 1
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 6
+    mov x3, 8
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 2
+    sub x2, x2, 1
+    mov x3, 2
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 5
+    sub x2, x2, 1
+    mov x3,  5
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 11
+    add x2, x2, 1
+    mov x3, 2
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 24
+    add x2, x2, 2
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 1
+    add x2, x2, 2
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 1
+    add x2, x2, 1
+    mov x3, 5
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 5
+    add x2, x2, 1
+    mov x3, 4
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 4
+    add x2, x2, 1
+    mov x3, 9
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 8
+    sub x2, x2, 1
+    mov x3, 3
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 2
+    sub x2, x2, 1
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 6
+    sub x2, x2, 4
+    mov x3, 2
+    mov x4, 1
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 8
+    sub x2, x2, 4
+    mov x3, 3
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 2
+    sub x2, x2, 6
+    mov x3, 3
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 5
+    add x2, x2, 2
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 3
+    sub x2, x2, 2
+    mov x3, 8
+    bl dibujar_linea
+    mov x0,x20
+    sub x1, x1, 4
+    add x2, x2, 1
+    mov x3, 6
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 5
+    add x2, x2, 5
+    mov x3, 5
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x2, x2, 1
+    add x1, x1, 16
+    mov x3, 3
+    mov x4, 0
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 3
+    add x2, x2, 2
+    mov x3, x5
+    bl dibujar_punto
+
+    mov x0, x20
+    sub x1, x1, 7
+    bl dibujar_punto
+
+    mov x0, x20
+    sub x2, x2, 8
+    bl dibujar_punto
+
+    mov x0,x20
+    add x1, x1, 4
+    bl dibujar_punto
+
+    mov x0,x20
+    add x1, x1, 19
+    add x2, x2, 7
+    bl dibujar_punto
+
+    mov x0,x20
+    sub x1, x1, 1
+    add x2, x2, 3
+    bl dibujar_punto
+
+    mov x0,x20
+    sub x1, x1, 4
+    add x2, x2, 4 
+    bl dibujar_punto
+
+    mov x0,x20
+    sub x1, x1, 23
+    sub x2, x2, 1
+    bl dibujar_punto
+
+    mov lr, x21
+    ret

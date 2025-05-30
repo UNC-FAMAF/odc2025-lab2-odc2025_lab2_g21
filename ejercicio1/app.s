@@ -188,10 +188,11 @@ no_pintar_sombra:
     cmp x6, x5
     ble sombra_y
 
+
 // === figuaras para decorar ===
     mov x0, x20                // framebuffer
     ldr x6, =tabla_detalles
-    mov x7, 60                // cambio el ult numero segun tantas cosas ponga 
+    mov x7, 73                // cambio el ult numero segun tantas cosas ponga 
 loop_detalles:
     ldr w1, [x6], 4            // X
     ldr w2, [x6], 4            // Y
@@ -373,6 +374,11 @@ movk x5, 0xffff, lsl 0
 bl dibujar_luces_blancas
 
 
+mov x0,x20
+movz x5, 0x0a, lsl 16 
+movk x5, 0xecf0, lsl 0
+bl dibujar_luces_amarillas
+
 
 
 
@@ -494,12 +500,12 @@ tabla_detalles:
 .word 300, 100,     2,    2,   0xFFFFFFFF   // estrella 
 .word 320, 170,     2,    2,   0xFFFFFFFF   // estrella 
 .word 245, 115,     2,    2,   0xFFFFFFFF   // estrella 
-.word 120, 76,     2,    2,   0xFFFFFFFF   // estrella 
+.word 120, 76,      2,    2,   0xFFFFFFFF   // estrella 
 .word 444, 115,     2,    2,   0xFFFFFFFF   // estrella 
-.word 477, 70,     2,    2,   0xFFFFFFFF   // estrella 
+.word 477, 70,      2,    2,   0xFFFFFFFF   // estrella 
 .word 520, 152,     2,    2,   0xFFFFFFFF   // estrella 
 .word 560, 110,     2,    2,   0xFFFFFFFF   // estrella 
-.word 620, 50,     2,    2,   0xFFFFFFFF   // estrella 
+.word 620, 50,      2,    2,   0xFFFFFFFF   // estrella 
 
 .word 250, 350,    5,    10,   0x000052   // barandal izquierda 
 .word 265, 350,    5,    10,   0x000052   // barandal derecha
@@ -534,30 +540,50 @@ tabla_detalles:
 .word 30 ,  170,   50,  120, 0x0202d4 // edificio 
 .word 80 ,  220,   25,   70, 0x0202d4 // edificio 
 .word 105,  185,   50,  105, 0x0202d4 // edificio 
-.word 160,  130,   40,  160, 0x0202d4 // edificio 
-.word 205,  130,   40,  160, 0x0202d4 // edificio 
-.word 125,  260,   40,   30, 0x0202d4 // edificio 
 
+.word 105,  150,   50,  140, 0x0202d4 // edificio 
+.word 155,  190,   80,  100, 0x0202d4 // edificio 
+.word 215,  210,   50,   80, 0x0202d4 // edificio 
 
-.word 460,  150,   50,  140, 0x0202d4 // edificio 
-.word 510,  190,   80,  100, 0x0202d4 // edificio 
-.word 570,  210,   50,   80, 0x0202d4 // edificio 
-.word 190,  240,   50,   50, 0x0202d4 // edificio
-.word 190,  240,   50,    5, 0x0202d4 // edificio
 //ventana 
-.word 485,  155,     5,  120, 0x0080ff // ventana larga 
-.word 505,  155,     5,  120, 0x0080ff // ventana larga 2  
-.word 520,  210,     8,   70, 0x0080ff // ventana larga 
-.word 545,  210,     8,   70, 0x0080ff // ventana larga 2 
-.word 520,  200,    50,    5, 0x0080ff // ventana larga 2
+.word 110,  155,     5,  120, 0x0080ff // ventana larga 
+.word 130,  155,     5,  120, 0x0080ff // ventana larga 2  
+.word 145,  210,     8,   70, 0x0080ff // ventana larga 
+.word 170,  210,     8,   70, 0x0080ff // ventana larga 2 
+.word 145,  200,    50,    5, 0x0080ff // ventana larga 2
 
 
-.word 210,  132,    8,    8, 0x42ff8e // primera de arriba 
-.word 225,  132,    8,    8, 0x42ff8e // segunda de arriba 
-.word 210,  145,    8,    8, 0x42ff8e // primera de medio 
-.word 225,  145,    8,    8, 0x42ff8e // segunda de medio 
-.word 225,  158,    8,    8, 0x42ff8e // primera de abajo
-.word 210,  158,    8,    8, 0x42ff8e // segunda de abajo
+//torre teen titan
+.word 510,  155,   40,  135, 0xffffff // centro? 
+.word 435,  105,   185,  50, 0xffffff // techo? 
+
+//puente
+.word 246,  260,   4,  4, 0x009fff // puente 
+.word 250,  260,   4,  15, 0x009fff // puente 
+.word 258,  255,   4,  20, 0x009fff // puente
+.word 254,  255,   12,  4, 0x009fff // puente
+.word 268,  260,   4,  15, 0x009fff // puente
+
+//luces verdes de la calle xd
+.word 5,    284, 15, 4, 0x46f8a6  // puente
+.word 12,   284, 7,  4, 0x46f8a6  // puente
+.word 27,   284, 25, 4, 0x46f8a6  // puente
+.word 47,   284, 5,  4, 0x46f8a6  // puente
+.word 72,   284, 20, 4, 0x46f8a6  // puente
+.word 79,   284, 15, 4, 0x46f8a6  // puente
+.word 94,   284, 7,  4, 0x46f8a6  // puente
+.word 101,  284, 25, 4, 0x46f8a6  // puente
+.word 121,  284, 20, 4, 0x46f8a6  // puente
+.word 136,  284, 5,  4, 0x46f8a6  // puente
+.word 141,  284, 15, 4, 0x46f8a6  // puente
+.word 156,  284, 7,  4, 0x46f8a6  // puente
+.word 176,  284, 25, 4, 0x46f8a6  // puente
+.word 191,  284, 5,  4, 0x46f8a6  // puente
+.word 198,  284, 20, 4, 0x46f8a6  // puente
+.word 223,  284, 15, 4, 0x46f8a6  // puente
+
+.word 500,  269, 15, 500, 0x46f8a6  // donde ira la mina
+
 
 .word 366, 0,   50,   600,   0x000052  // poste enorme
 
@@ -753,7 +779,58 @@ dibujar_luces_blancas:
     ret
 
 
+dibujar_luces_amarillas:
+    mov x21, lr
 
+    // 🔸 Luces verticales del pilar (centradas en X=530)
+    mov x0, x20
+    mov x1, 515         // x = 530 - 15
+    mov x2, 245         // y
+    mov x3, 30          // ancho
+    mov x4, 40          // alto
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 515
+    mov x2, 200
+    mov x3, 30
+    mov x4, 40
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 515
+    mov x2, 155
+    mov x3, 30
+    mov x4, 40
+    bl dibujar_rect
+
+    // 🔸 Luces en el techo (centradas respecto al centro X=528)
+    // Izquierda (centro 528 - 60 = 468 → x = 440)
+    mov x0, x20
+    mov x1, 440         // x = 468 - 27.5
+    mov x2, 110
+    mov x3, 55
+    mov x4, 40
+    bl dibujar_rect
+
+    // Centro (centro 528 → x = 528 - 27.5 = 500)
+    mov x0, x20
+    mov x1, 500
+    mov x2, 110
+    mov x3, 55
+    mov x4, 40
+    bl dibujar_rect
+
+    // Derecha (centro 528 + 60 = 588 → x = 560)
+    mov x0, x20
+    mov x1, 560
+    mov x2, 110
+    mov x3, 55
+    mov x4, 40
+    bl dibujar_rect
+
+    mov lr, x21
+    ret
 
 
 

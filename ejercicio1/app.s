@@ -193,7 +193,7 @@ no_pintar_sombra:
 // === figuaras para decorar ===
     mov x0, x20                // framebuffer
     ldr x6, =tabla_detalles
-    mov x7, 89              // cambio el ult numero segun tantas cosas ponga 
+    mov x7, 98              // cambio el ult numero segun tantas cosas ponga 
 loop_detalles:
     ldr w1, [x6], 4            // X
     ldr w2, [x6], 4            // Y
@@ -262,7 +262,7 @@ siguiente_barandal:
 // === POSTES ===
     mov x0, x20
     ldr x6, =tabla_postes
-    mov x7, 18 // cambio segun tantos postes tenga
+    mov x7, 17 // cambio segun tantos postes tenga
     movz x13, 0x0052, lsl 0      // B = 82 (0x52), G = 0 (0x00)
     movk x13, 0x0000, lsl 16     // R = 0 (0x00) -> 0x000052 (O el color que quieras) 
 loop_postes:
@@ -482,8 +482,7 @@ tabla_postes:
     .word 307, 395  
 
     .word 350, 395  
-
-    .word 437, 395   
+ 
     .word 487, 395  
     .word 537, 395  
     .word 587, 395  
@@ -576,6 +575,10 @@ tabla_detalles:
 .word 505,  155,   50,  135, 0xffffff // centro? 
 .word 435,  105,   185,  50, 0xffffff // techo? 
 
+.word 272, 245,   100,  45, 0x2b69fc // edificios detras del puente a lo largo 
+.word 292, 220,   30,  50, 0x2b69fc // edificios detras del puente 
+.word 322, 230,   30,  40, 0x2b69fc // edificios detras del puente
+
 //puente
 .word 271, 260,   4,  4, 0x009fff // puente 
 .word 275, 260,   4, 15, 0x009fff // puente 
@@ -600,6 +603,8 @@ tabla_detalles:
 .word 358, 252,   4, 20, 0x009fff // puente
 .word 358, 258,   4, 20, 0x009fff // puente
 
+.word 437, 395,   10,105,0x000052 //poste   
+
 //luces verdes de la calle xd
 .word 5,    284, 15, 4, 0x46f8a6  // puente
 .word 12,   284, 7,  4, 0x46f8a6  // puente
@@ -618,13 +623,22 @@ tabla_detalles:
 .word 198,  284, 20, 4, 0x46f8a6  // puente
 .word 223,  284, 15, 4, 0x46f8a6  // puente
 
+
+//tachito 
+
+
+
 .word 500,  269, 15, 500, 0x46f8a6  // donde ira la mina
 
 
 .word 366, 0,   50,   600,   0x000052  // poste enorme
 
-
-
+.word 362,  430,  30, 20, 0x38004d  // agarre1 
+.word 375,  430,  30, 20, 0x600079  // agarre1
+.word 380,  400, 50, 90, 0x38004d  // atras
+.word 400,  400, 50, 90, 0x600079  // tapa
+.word 400,  405, 50, 8, 0x38004d  // atras
+.word 400,  400, 54, 8, 0x600079  // atras
 
 // ============================
 // Dibuja letra bitmap 5x7

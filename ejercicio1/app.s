@@ -579,6 +579,8 @@ tabla_detalles:
 .word 292, 220,   30,  50, 0x2b69fc // edificios detras del puente 
 .word 322, 230,   30,  40, 0x2b69fc // edificios detras del puente
 
+
+
 //puente
 .word 271, 260,   4,  4, 0x009fff // puente 
 .word 275, 260,   4, 15, 0x009fff // puente 

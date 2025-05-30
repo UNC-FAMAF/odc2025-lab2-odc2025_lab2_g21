@@ -193,7 +193,7 @@ no_pintar_sombra:
 // === figuaras para decorar ===
     mov x0, x20                // framebuffer
     ldr x6, =tabla_detalles
-    mov x7, 73                // cambio el ult numero segun tantas cosas ponga 
+    mov x7, 89              // cambio el ult numero segun tantas cosas ponga 
 loop_detalles:
     ldr w1, [x6], 4            // X
     ldr w2, [x6], 4            // Y
@@ -562,7 +562,7 @@ tabla_detalles:
 
 .word 105,  150,   50,  140, 0x0202d4 // edificio 
 .word 155,  190,   80,  100, 0x0202d4 // edificio 
-.word 215,  210,   50,   80, 0x0202d4 // edificio 
+.word 221,  210,   50,   80, 0x0202d4 // edificio 
 
 //ventana 
 .word 110,  155,     5,  120, 0x0080ff // ventana larga 
@@ -573,15 +573,32 @@ tabla_detalles:
 
 
 //torre teen titan
-.word 510,  155,   40,  135, 0xffffff // centro? 
+.word 505,  155,   50,  135, 0xffffff // centro? 
 .word 435,  105,   185,  50, 0xffffff // techo? 
 
 //puente
-.word 246,  260,   4,  4, 0x009fff // puente 
-.word 250,  260,   4,  15, 0x009fff // puente 
-.word 258,  255,   4,  20, 0x009fff // puente
-.word 254,  255,   12,  4, 0x009fff // puente
-.word 268,  260,   4,  15, 0x009fff // puente
+.word 271, 260,   4,  4, 0x009fff // puente 
+.word 275, 260,   4, 15, 0x009fff // puente 
+.word 283, 250,   4, 25, 0x009fff // puente
+.word 279, 255,  12,  4, 0x009fff // puente
+.word 292, 260,   4, 23, 0x009fff // puente
+.word 292, 260,   8,  4, 0x009fff // puente
+.word 301, 264,  12,  4, 0x009fff // puente
+.word 301, 264,   4, 19, 0x009fff // puente
+.word 310, 264,   4, 19, 0x009fff // puente
+.word 314, 268,  20,  4, 0x009fff // puente
+.word 318, 268,   4, 16, 0x009fff // puente
+.word 326, 268,   4, 16, 0x009fff // puente
+.word 334, 264,   4, 20, 0x009fff // puente
+.word 334, 264,   4, 20, 0x009fff // puente
+.word 334, 264,  12,  4, 0x009fff // puente
+.word 342, 264,   4, 16, 0x009fff // puente
+.word 346, 260,   8,  4, 0x009fff // puente
+.word 350, 260,   4, 20, 0x009fff // puente
+
+.word 354, 256,  12,  4, 0x009fff // puente
+.word 358, 252,   4, 20, 0x009fff // puente
+.word 358, 258,   4, 20, 0x009fff // puente
 
 //luces verdes de la calle xd
 .word 5,    284, 15, 4, 0x46f8a6  // puente
@@ -819,25 +836,25 @@ dibujar_luces_amarillas:
 
     mov x0, x20
     mov x1, 515
-    mov x2, 155
+    mov x2, 152
     mov x3, 30
-    mov x4, 40
+    mov x4, 43
     bl dibujar_rect
 
-    // 🔸 Luces en el techo (centradas respecto al centro X=528)
+    // Luces en el techo (centradas respecto al centro X=528)
     // Izquierda (centro 528 - 60 = 468 → x = 440)
     mov x0, x20
-    mov x1, 440         // x = 468 - 27.5
+    mov x1, 435
     mov x2, 110
-    mov x3, 55
+    mov x3, 60
     mov x4, 40
     bl dibujar_rect
 
     // Centro (centro 528 → x = 528 - 27.5 = 500)
     mov x0, x20
-    mov x1, 500
+    mov x1, 498
     mov x2, 110
-    mov x3, 55
+    mov x3, 59
     mov x4, 40
     bl dibujar_rect
 
@@ -845,7 +862,7 @@ dibujar_luces_amarillas:
     mov x0, x20
     mov x1, 560
     mov x2, 110
-    mov x3, 55
+    mov x3, 60
     mov x4, 40
     bl dibujar_rect
 

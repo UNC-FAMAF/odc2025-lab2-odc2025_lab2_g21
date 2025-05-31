@@ -298,8 +298,8 @@ mov x2, 100
 bl dibujar_cocodrilo
 
 mov x0,x20
-movz x5, 0x8e, lsl 16
-movk x5, 0x42ff, lsl 0
+movz x5, 0x7D, lsl 16
+movk x5, 0xDA58, lsl 0
 bl dibujar_luces_verdes
 
 mov x0,x20
@@ -312,121 +312,20 @@ mov x1, 100
 mov x2, 300
 bl dibujar_sus
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 mov x0,x20
-movz x5, 0x8e, lsl 16
-movk x5, 0x42ff, lsl 0
+movz x5, 0x7D, lsl 16
+movk x5, 0xDA58, lsl 0
 bl dibujar_luces_verdes
-
-
-
-
-
-
 
 mov x0,x20
 movz x5, 0xff, lsl 16
 movk x5, 0xffff, lsl 0
 bl dibujar_luces_blancas
 
-
 mov x0,x20
-movz x5, 0x0a, lsl 16 
-movk x5, 0xecf0, lsl 0
+movz x5, 0xFF, lsl 16 
+movk x5, 0xDE59, lsl 0
 bl dibujar_luces_amarillas
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // === LOOP INFINITO ===
 InfLoop:
@@ -628,13 +527,8 @@ tabla_detalles:
 
 //tachito 
 
-
-
 .word 500,  269, 15, 500, 0x46f8a6  // donde ira la mina
-
-
 .word 366, 0,   50,   600,   0x000052  // poste enorme
-
 .word 362,  430,  30, 20, 0x38004d  // agarre1 
 .word 375,  430,  30, 20, 0x600079  // agarre1
 .word 380,  400, 50, 90, 0x38004d  // atras
@@ -706,229 +600,6 @@ dibujar_punto:
     add x5, x0, x5       // dirección final
     str w3, [x5]
     ret
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ============================
-// RECTANGULO
-// x0: framebuffer
-// x5: color
-// ============================
-
-dibujar_luces_verdes:
-    mov x21, lr
-    mov x0, x20
-    mov x1, 40 //x
-    mov x2, 180 //y
-    mov x3, 25 //ancho
-    mov x4, 5  //alto 
-    bl dibujar_rect
-
-    mov x0, x20
-    mov x1, 40
-    mov x2, 190
-    mov x3, 25
-    mov x4, 5
-    bl dibujar_rect
-
-    mov x0, x20
-    mov x1, 40
-    mov x2, 200
-    mov x3, 25
-    mov x4, 5
-    bl dibujar_rect
-
-    mov x0, x20
-    mov x1, 40
-    mov x2, 210
-    mov x3, 25
-    mov x4, 5
-    bl dibujar_rect
-
-    mov x0, x20
-    mov x1, 40
-    mov x2, 220
-    mov x3, 25
-    mov x4, 5
-    bl dibujar_rect
-
-    mov x0, x20
-    mov x1, 40
-    mov x2, 230
-    mov x3, 25
-    mov x4, 5
-    bl dibujar_rect
-
-    mov x0, x20
-    mov x1, 40
-    mov x2, 240
-    mov x3, 25
-    mov x4, 5
-    bl dibujar_rect
-
-    mov x0, x20
-    mov x1, 40
-    mov x2, 250
-    mov x3, 25
-    mov x4, 5
-    bl dibujar_rect
-
-    mov lr, x21
-    ret
-    
-
-
-dibujar_luces_blancas:
-    mov x21, lr
-    mov x0, x20
-    mov x1, 40 //x
-    mov x2, 180 //y
-    mov x3, 0
-    mov x4, 5
-    bl dibujar_rect
-
-    mov x0, x20
-    mov x1, 40
-    mov x2, 190
-    mov x3, 0
-    mov x4, 5
-    bl dibujar_rect
-
-    mov x0, x20
-    mov x1, 47
-    mov x2, 200
-    mov x3, 7
-    mov x4, 5
-    bl dibujar_rect
-
-    mov x0, x20
-    mov x1, 50
-    mov x2, 210
-    mov x3, 5
-    mov x4, 5
-    bl dibujar_rect
-
-    mov x0, x20
-    mov x1, 55
-    mov x2, 220
-    mov x3, 10
-    mov x4, 5
-    bl dibujar_rect
-
-    mov lr, x21
-    ret
-
-
-dibujar_luces_amarillas:
-    mov x21, lr
-
-    // 🔸 Luces verticales del pilar (centradas en X=530)
-    mov x0, x20
-    mov x1, 515         // x = 530 - 15
-    mov x2, 245         // y
-    mov x3, 30          // ancho
-    mov x4, 40          // alto
-    bl dibujar_rect
-
-    mov x0, x20
-    mov x1, 515
-    mov x2, 200
-    mov x3, 30
-    mov x4, 40
-    bl dibujar_rect
-
-    mov x0, x20
-    mov x1, 515
-    mov x2, 152
-    mov x3, 30
-    mov x4, 43
-    bl dibujar_rect
-
-    // Luces en el techo (centradas respecto al centro X=528)
-    // Izquierda (centro 528 - 60 = 468 → x = 440)
-    mov x0, x20
-    mov x1, 435
-    mov x2, 110
-    mov x3, 60
-    mov x4, 40
-    bl dibujar_rect
-
-    // Centro (centro 528 → x = 528 - 27.5 = 500)
-    mov x0, x20
-    mov x1, 498
-    mov x2, 110
-    mov x3, 59
-    mov x4, 40
-    bl dibujar_rect
-
-    // Derecha (centro 528 + 60 = 588 → x = 560)
-    mov x0, x20
-    mov x1, 560
-    mov x2, 110
-    mov x3, 60
-    mov x4, 40
-    bl dibujar_rect
-
-    mov lr, x21
-    ret
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // ============================
 // RECTANGULO
@@ -2181,6 +1852,168 @@ dibujar_sus:
     sub x1, x1, 23
     sub x2, x2, 1
     bl dibujar_punto
+
+    mov lr, x21
+    ret
+// ============================
+// LUCES
+// x0: framebuffer
+// x5: color
+// ============================
+
+dibujar_luces_verdes:
+    mov x21, lr
+    mov x0, x20
+    mov x1, 40 //x
+    mov x2, 180 //y
+    mov x3, 25 //ancho
+    mov x4, 5  //alto 
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 190
+    mov x3, 25
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 200
+    mov x3, 25
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 210
+    mov x3, 25
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 220
+    mov x3, 25
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 230
+    mov x3, 25
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 240
+    mov x3, 25
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 250
+    mov x3, 25
+    mov x4, 5
+    bl dibujar_rect
+
+    mov lr, x21
+    ret
+    
+
+
+dibujar_luces_blancas:
+    mov x21, lr
+    mov x0, x20
+    mov x1, 40 //x
+    mov x2, 180 //y
+    mov x3, 0
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 190
+    mov x3, 0
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 47
+    mov x2, 200
+    mov x3, 7
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 50
+    mov x2, 210
+    mov x3, 5
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 55
+    mov x2, 220
+    mov x3, 10
+    mov x4, 5
+    bl dibujar_rect
+
+    mov lr, x21
+    ret
+
+
+dibujar_luces_amarillas:
+    mov x21, lr
+
+    // 🔸 Luces verticales del pilar (centradas en X=530)
+    mov x0, x20
+    mov x1, 515         // x = 530 - 15
+    mov x2, 245         // y
+    mov x3, 30          // ancho
+    mov x4, 40          // alto
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 515
+    mov x2, 200
+    mov x3, 30
+    mov x4, 40
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 515
+    mov x2, 152
+    mov x3, 30
+    mov x4, 43
+    bl dibujar_rect
+
+    // Luces en el techo (centradas respecto al centro X=528)
+    // Izquierda (centro 528 - 60 = 468 → x = 440)
+    mov x0, x20
+    mov x1, 435
+    mov x2, 110
+    mov x3, 60
+    mov x4, 40
+    bl dibujar_rect
+
+    // Centro (centro 528 → x = 528 - 27.5 = 500)
+    mov x0, x20
+    mov x1, 498
+    mov x2, 110
+    mov x3, 59
+    mov x4, 40
+    bl dibujar_rect
+
+    // Derecha (centro 528 + 60 = 588 → x = 560)
+    mov x0, x20
+    mov x1, 560
+    mov x2, 110
+    mov x3, 60
+    mov x4, 40
+    bl dibujar_rect
 
     mov lr, x21
     ret

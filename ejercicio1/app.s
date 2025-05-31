@@ -36,20 +36,20 @@ fondo_loop_y:
     // Interpolamos hacia negro (R=0, G=0, B=0)
 
     // Red (159 -> 0)
+      // Red (0 -> 159)
     mov x4, 159
     mul x5, x3, x4
     mov x6, 255
-    udiv x5, x5, x6       // x5 = R interpolado
-    sub x4, x4, x5        // x4 = nuevo R
+    udiv x4, x5, x6        // x4 = nuevo R
 
-    // Green (0 -> 0)
-    mov x5, 0             // verde sigue siendo 0
+    // Green (0 → 0)
+    mov x5, 0
 
-    // Blue (255 -> 0)
+    // Blue (0 -> 255)
     mov x6, 255
     mul x7, x3, x6
-    udiv x7, x7, x6       // x7 = B interpolado
-    sub x6, x6, x7        // x6 = nuevo B
+    udiv x6, x7, x6        // x6 = nuevo B
+
 
     // Alpha = 0xFF
     lsl x8, x6, 0         // B
@@ -102,9 +102,10 @@ loop_estrella:
     subs x7, x7, 1
     b.ne loop_estrella
 
+
 // === LUNA CIRCULAR BLANCA ===
-    mov x3, 100    // centro Y
-    mov x4, 500    // centro X
+    mov x3, 90    // nuevo centro Y
+    mov x4, 45    // nuevo centro X
     mov x5, 30     // radio
 
     mov x6, -30
@@ -144,11 +145,12 @@ no_pintar_luna:
     ble luna_y
 
 // === SOMBRA (MEDIA LUNA con color del fondo) ===
-    movk x11, 0xFF, lsl 16     // mismo color que el fondo
-    movz x11, 0x009F, lsl 0
+    movz x11, 0x20FF, lsl 0       // parte baja: 0x0085FF
+    movk x11, 0x00,   lsl 16      // parte R (0x00), ya está
+    movk x11, 0xFF,   lsl 32      // parte Alpha (0xFF)
 
-    mov x3, 100    // mismo centro Y
-    mov x4, 510    // X más a la derecha
+    mov x3, 90    // mismo centro Y
+    mov x4, 55    // X desplazado hacia la derecha para sombra
     mov x5, 30     // mismo radio
 
     mov x6, -30
@@ -187,10 +189,11 @@ no_pintar_sombra:
     cmp x6, x5
     ble sombra_y
 
+
 // === figuaras para decorar ===
     mov x0, x20                // framebuffer
     ldr x6, =tabla_detalles
-    mov x7, 60                // cambio el ult numero segun tantas cosas ponga 
+    mov x7, 98              // cambio el ult numero segun tantas cosas ponga 
 loop_detalles:
     ldr w1, [x6], 4            // X
     ldr w2, [x6], 4            // Y
@@ -259,7 +262,7 @@ siguiente_barandal:
 // === POSTES ===
     mov x0, x20
     ldr x6, =tabla_postes
-    mov x7, 18 // cambio segun tantos postes tenga
+    mov x7, 17 // cambio segun tantos postes tenga
     movz x13, 0x0052, lsl 0      // B = 82 (0x52), G = 0 (0x00)
     movk x13, 0x0000, lsl 16     // R = 0 (0x00) -> 0x000052 (O el color que quieras) 
 loop_postes:
@@ -294,6 +297,137 @@ mov x1, 100
 mov x2, 100
 bl dibujar_cocodrilo
 
+mov x0,x20
+movz x5, 0x8e, lsl 16
+movk x5, 0x42ff, lsl 0
+bl dibujar_luces_verdes
+
+mov x0,x20
+movz x5, 0xff, lsl 16
+movk x5, 0xffff, lsl 0
+bl dibujar_luces_blancas
+
+mov x0, x20
+mov x1, 100
+mov x2, 300
+bl dibujar_sus
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mov x0,x20
+movz x5, 0x8e, lsl 16
+movk x5, 0x42ff, lsl 0
+bl dibujar_luces_verdes
+
+
+
+
+
+
+
+mov x0,x20
+movz x5, 0xff, lsl 16
+movk x5, 0xffff, lsl 0
+bl dibujar_luces_blancas
+
+
+mov x0,x20
+movz x5, 0x0a, lsl 16 
+movk x5, 0xecf0, lsl 0
+bl dibujar_luces_amarillas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // === LOOP INFINITO ===
 InfLoop:
     b InfLoop
@@ -301,6 +435,7 @@ InfLoop:
 // === DATOS ===
 .section .data
 
+.word  50,  60,     2,    2,   0xFFFFFFFF   // estrella 
 // Letras bitmap 5x7
 letra_O: 
     .word 0b01110, 0b10001, 0b10001, 0b10001, 0b10001, 0b10001, 0b01110
@@ -347,8 +482,7 @@ tabla_postes:
     .word 307, 395  
 
     .word 350, 395  
-
-    .word 437, 395   
+ 
     .word 487, 395  
     .word 537, 395  
     .word 587, 395  
@@ -372,6 +506,7 @@ tabla_barandales:
 
 tabla_detalles:
 //    x     y    ancho alto    color
+.word  0,  295,     640,    185,   0x014fed   // mar  
 //estrellas 
 .word  50,  60,     2,    2,   0x0050ec   // estrella 
 
@@ -420,38 +555,92 @@ tabla_detalles:
  
 .word 0, 290,   640,  5,   0x46f8a6   // calle 
 
-.word 50 ,  170,   50,  120,  0x024fea // edificio 
-.word 100, 220,   25,   70,  0x024fea // edificio 
-.word 125, 185,   50,  105,  0x024fea // edificio 
-.word 155, 250,   70,   40,  0x024fea // edificio 
-.word 220, 130,   40,  160,  0x024fea // edificio 
-.word 265, 130,   40,  160,  0x024fea // edificio
-.word 295, 260,   40,   30,  0x024fea // edificio 
-.word 320, 150,   50,  140,  0x024fea // edificio 
-.word 370, 190,   80,  100,  0x024fea // edificio 
-.word 430, 210,   50,   80,  0x024fea // edificio 
-.word 240, 240,   50,  50,  0x024fea // edificio
-.word 240, 240,   50,  5,  0x0080ff // edificio
-//ventanas 
-.word 325, 155,   5,   120,  0x0080ff // ventana larga 
-.word 345, 155,   5,   120,  0x0080ff // ventana  larga 2  
+.word 30 ,  170,   50,  120, 0x0202d4 // edificio 
+.word 80 ,  220,   25,   70, 0x0202d4 // edificio 
+.word 105,  185,   50,  105, 0x0202d4 // edificio 
 
-.word 360, 210,   8,   70,  0x0080ff // ventana larga 
-.word 385, 210,   8,   70,  0x0080ff // ventana  larga 2 
+.word 105,  150,   50,  140, 0x0202d4 // edificio 
+.word 155,  190,   80,  100, 0x0202d4 // edificio 
+.word 221,  210,   50,   80, 0x0202d4 // edificio 
 
-.word 360, 200,   50,   5,  0x0080ff // ventana  larga 2
+//ventana 
+.word 110,  155,     5,  120, 0x0080ff // ventana larga 
+.word 130,  155,     5,  120, 0x0080ff // ventana larga 2  
+.word 145,  210,     8,   70, 0x0080ff // ventana larga 
+.word 170,  210,     8,   70, 0x0080ff // ventana larga 2 
+.word 145,  200,    50,    5, 0x0080ff // ventana larga 2
 
-.word 270, 132,   8,   8,  0x42ff8e // primera de arriba 
-.word 285, 132,   8,   8,  0x42ff8e // segunda de arriba 
 
-.word 270, 145,   8,   8,  0x42ff8e // primera de medio 
-.word 285, 145,   8,   8,  0x42ff8e // segunda de medio 
+//torre teen titan
+.word 505,  155,   50,  135, 0xffffff // centro? 
+.word 435,  105,   185,  50, 0xffffff // techo? 
 
-.word 285, 158,   8,   8,  0x42ff8e // primera de abajo
-.word 270, 158,   8,   8,  0x42ff8e //segunda de abajo
+.word 272, 245,   100,  45, 0x2b69fc // edificios detras del puente a lo largo 
+.word 292, 220,   30,  50, 0x2b69fc // edificios detras del puente 
+.word 322, 230,   30,  40, 0x2b69fc // edificios detras del puente
 
-.word 366, 0,   50,   600,   0x000052  // poste enorme 
 
+
+//puente
+.word 271, 260,   4,  4, 0x009fff // puente 
+.word 275, 260,   4, 15, 0x009fff // puente 
+.word 283, 250,   4, 25, 0x009fff // puente
+.word 279, 255,  12,  4, 0x009fff // puente
+.word 292, 260,   4, 23, 0x009fff // puente
+.word 292, 260,   8,  4, 0x009fff // puente
+.word 301, 264,  12,  4, 0x009fff // puente
+.word 301, 264,   4, 19, 0x009fff // puente
+.word 310, 264,   4, 19, 0x009fff // puente
+.word 314, 268,  20,  4, 0x009fff // puente
+.word 318, 268,   4, 16, 0x009fff // puente
+.word 326, 268,   4, 16, 0x009fff // puente
+.word 334, 264,   4, 20, 0x009fff // puente
+.word 334, 264,   4, 20, 0x009fff // puente
+.word 334, 264,  12,  4, 0x009fff // puente
+.word 342, 264,   4, 16, 0x009fff // puente
+.word 346, 260,   8,  4, 0x009fff // puente
+.word 350, 260,   4, 20, 0x009fff // puente
+
+.word 354, 256,  12,  4, 0x009fff // puente
+.word 358, 252,   4, 20, 0x009fff // puente
+.word 358, 258,   4, 20, 0x009fff // puente
+
+.word 437, 395,   10,105,0x000052 //poste   
+
+//luces verdes de la calle xd
+.word 5,    284, 15, 4, 0x46f8a6  // puente
+.word 12,   284, 7,  4, 0x46f8a6  // puente
+.word 27,   284, 25, 4, 0x46f8a6  // puente
+.word 47,   284, 5,  4, 0x46f8a6  // puente
+.word 72,   284, 20, 4, 0x46f8a6  // puente
+.word 79,   284, 15, 4, 0x46f8a6  // puente
+.word 94,   284, 7,  4, 0x46f8a6  // puente
+.word 101,  284, 25, 4, 0x46f8a6  // puente
+.word 121,  284, 20, 4, 0x46f8a6  // puente
+.word 136,  284, 5,  4, 0x46f8a6  // puente
+.word 141,  284, 15, 4, 0x46f8a6  // puente
+.word 156,  284, 7,  4, 0x46f8a6  // puente
+.word 176,  284, 25, 4, 0x46f8a6  // puente
+.word 191,  284, 5,  4, 0x46f8a6  // puente
+.word 198,  284, 20, 4, 0x46f8a6  // puente
+.word 223,  284, 15, 4, 0x46f8a6  // puente
+
+
+//tachito 
+
+
+
+.word 500,  269, 15, 500, 0x46f8a6  // donde ira la mina
+
+
+.word 366, 0,   50,   600,   0x000052  // poste enorme
+
+.word 362,  430,  30, 20, 0x38004d  // agarre1 
+.word 375,  430,  30, 20, 0x600079  // agarre1
+.word 380,  400, 50, 90, 0x38004d  // atras
+.word 400,  400, 50, 90, 0x600079  // tapa
+.word 400,  405, 50, 8, 0x38004d  // atras
+.word 400,  400, 54, 8, 0x600079  // atras
 
 // ============================
 // Dibuja letra bitmap 5x7
@@ -517,6 +706,229 @@ dibujar_punto:
     add x5, x0, x5       // dirección final
     str w3, [x5]
     ret
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ============================
+// RECTANGULO
+// x0: framebuffer
+// x5: color
+// ============================
+
+dibujar_luces_verdes:
+    mov x21, lr
+    mov x0, x20
+    mov x1, 40 //x
+    mov x2, 180 //y
+    mov x3, 25 //ancho
+    mov x4, 5  //alto 
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 190
+    mov x3, 25
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 200
+    mov x3, 25
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 210
+    mov x3, 25
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 220
+    mov x3, 25
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 230
+    mov x3, 25
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 240
+    mov x3, 25
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 250
+    mov x3, 25
+    mov x4, 5
+    bl dibujar_rect
+
+    mov lr, x21
+    ret
+    
+
+
+dibujar_luces_blancas:
+    mov x21, lr
+    mov x0, x20
+    mov x1, 40 //x
+    mov x2, 180 //y
+    mov x3, 0
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 40
+    mov x2, 190
+    mov x3, 0
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 47
+    mov x2, 200
+    mov x3, 7
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 50
+    mov x2, 210
+    mov x3, 5
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 55
+    mov x2, 220
+    mov x3, 10
+    mov x4, 5
+    bl dibujar_rect
+
+    mov lr, x21
+    ret
+
+
+dibujar_luces_amarillas:
+    mov x21, lr
+
+    // 🔸 Luces verticales del pilar (centradas en X=530)
+    mov x0, x20
+    mov x1, 515         // x = 530 - 15
+    mov x2, 245         // y
+    mov x3, 30          // ancho
+    mov x4, 40          // alto
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 515
+    mov x2, 200
+    mov x3, 30
+    mov x4, 40
+    bl dibujar_rect
+
+    mov x0, x20
+    mov x1, 515
+    mov x2, 152
+    mov x3, 30
+    mov x4, 43
+    bl dibujar_rect
+
+    // Luces en el techo (centradas respecto al centro X=528)
+    // Izquierda (centro 528 - 60 = 468 → x = 440)
+    mov x0, x20
+    mov x1, 435
+    mov x2, 110
+    mov x3, 60
+    mov x4, 40
+    bl dibujar_rect
+
+    // Centro (centro 528 → x = 528 - 27.5 = 500)
+    mov x0, x20
+    mov x1, 498
+    mov x2, 110
+    mov x3, 59
+    mov x4, 40
+    bl dibujar_rect
+
+    // Derecha (centro 528 + 60 = 588 → x = 560)
+    mov x0, x20
+    mov x1, 560
+    mov x2, 110
+    mov x3, 60
+    mov x4, 40
+    bl dibujar_rect
+
+    mov lr, x21
+    ret
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ============================
 // RECTANGULO
@@ -605,8 +1017,9 @@ dibujar_linea:
 //x1 = direccion X
 //x2 = direccion Y
 //===================
-
 dibujar_cocodrilo:
+
+    mov x21, lr
 
     mov x0, x20
     add x1, x1, 1
@@ -1230,6 +1643,544 @@ add x1, x1, 8
 ldr x3, =letra_5
 bl dibujar_letra
 
+mov lr, x21
+ret
 
-    ret
+//=====================
+// AMONGUS_BARCO
+// x0 : framebuffer base
+// x1 : eje X
+// x2 : eje Y
+//=====================
+
+dibujar_sus:
+    mov x21, lr
+
+    mov x0, x20
+    add x1, x1, 17
+    add x2, x2, 1
+    mov x3, 10
+    mov x4, 13
+    movz x5, 0x22, lsl 16
+    movk x5, 0xB14C, lsl 0
+    bl dibujar_rect
+
+    mov x0, x20
+    add x1, x1, 10
+    add x2, x2, 8
+    mov x3, 2
+    mov x4, 4
+    bl dibujar_rect
+
+    mov x0, x20
+    sub x1, x1, 2
+    add x2, x2, 1
+    mov x3, 2
+    mov x4, 4
+    movz x5, 0x13, lsl 16
+    movk x5, 0x632A, lsl 0
+    bl dibujar_rect
+
+    mov x0, x20
+    sub x1, x1, 5
+    sub x2, x2, 1
+    mov x3, 5
+    mov x4, 5
+    bl dibujar_rect
+
+    mov x0, x20
+    sub x1, x1, 4
+    sub x2, x2, 4
+    mov x3, 3
+    mov x4, 6
+    bl dibujar_rect
+
+    mov x0, x20
+    sub x2, x2, 1
+    mov x3, 2
+    mov x4, 0
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 5
+    add x2, x2, 4
+    mov x3, x5
+    bl dibujar_punto
+
+    mov x0, x20
+    add x1, x1, 6
+    add x2, x2, 2
+    bl dibujar_punto
+
+    mov x0, x20
+    add x1, x1, 1
+    add x2, x2, 1
+    bl dibujar_punto
+
+    mov x0, x20
+    sub x1, x1, 4
+    sub x2, x2, 7
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0xB7EF, lsl 0
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 1
+    add x2, x2, 1
+    mov x3, 2
+    mov x4, 0
+    bl dibujar_linea
+
+    mov x0, x20
+    add x2, x2, 1
+    mov x3, x5
+    bl dibujar_punto
     
+    mov  x0,  x20
+    add x1, x1, 3
+    sub x2, x2, 3
+    bl dibujar_punto
+
+    mov x0, x20
+    sub x1, x1, 1
+    add x2, x2, 2
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x16, lsl 16
+    movk x5, 0x80A1, lsl 0
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 1
+    add x2, x2, 1
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 1
+    add x2, x2, 1
+    mov x3, x5
+    bl dibujar_punto
+
+    mov x0, x20
+    add x1, x1, 4
+    add x2, x2, 0
+    mov x3, 5
+    mov x4, 0
+    movz x5, 0x63, lsl 16
+    movk x5, 0x301A, lsl 0
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 2
+    add x2, x2, 1
+    mov x3, 8
+    mov x4, 3
+    bl dibujar_rect
+
+    mov x0, x20
+    sub x1, x1, 18
+    mov x3, 4
+    mov x4, 2
+    bl dibujar_rect
+
+    mov x0, x20
+    add x2, x2, 2
+    mov x3, 6
+    mov x4, 5
+    movz x5, 0x33, lsl 16
+    movk x5, 0x1B11, lsl 0
+    bl dibujar_rect
+
+    mov x0, x20
+    add x1, x1, 6
+    add x2, x2, 1
+    mov x3, 3
+    mov x4, 6
+    bl dibujar_rect
+
+    mov x0, x20
+    add x1, x1, 3
+    add x2, x2, 4
+    mov x3, 6
+    mov x4, 2
+    bl dibujar_rect
+
+    mov x0, x20
+    add x1, x1, 10
+    sub x2, x2, 4
+    bl dibujar_rect
+
+    mov x0, x20
+    add x1, x1, 6
+    sub x2, x2, 1
+    mov x3, 2
+    mov x4, 0
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 1
+    sub x2, x2, 1
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 7
+    add x2, x2, 1
+    mov x3, x5
+    bl dibujar_punto
+
+    mov x0,x20
+    sub x1, x1, 14
+    add x2, x2, 5
+    bl dibujar_punto
+
+    mov x0, x20
+    add x1, x1, 1
+    add x2, x2, 2
+    mov x3, 12
+    mov x4, 2
+    movz x5, 0x26, lsl 16
+    movk x5, 0x1914, lsl 0
+    bl dibujar_rect
+
+    mov x0, x20
+    add x1, x1, 9
+    sub x2, x2, 3
+    mov x3, 8
+    mov x4, 4
+    bl dibujar_rect
+
+    mov x0, x20
+    add x1, x1, 8
+    sub x2, x2, 2
+    mov x3, 4
+    mov x4, 3
+    bl dibujar_rect
+
+    mov x0, x20
+    sub x1, x1, 22
+    add x2, x2, 3
+    mov x3, 4
+    mov x4, 0
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 1
+    add x2, x2, 1
+    mov x3, 5
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 11
+    mov x3, 2
+    bl dibujar_linea
+
+    mov x0,x20
+    sub x1, x1, 12
+    sub x2, x2, 2
+    mov x3, x5
+    bl dibujar_punto
+
+    mov x0, x20
+    add x1, x1, 22
+    add x2, x2, 1
+    bl dibujar_punto
+
+    mov x0, x20
+    add x1, x1, 1
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 1
+    sub x2, x2, 4
+    mov x3, 4
+    bl dibujar_linea  
+
+    mov x0, x20
+    add x1, x1, 2
+    sub x2, x2, 1
+    mov x3, 2
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 1
+    sub x2, x2, 2
+    mov x3, 3
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 5
+    sub x2, x2, 1
+    mov x3, 7
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 6
+    sub x2, x2, 1
+    mov x3, 6
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 2
+    add x2, x2, 1
+    mov x3, 3
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 2
+    add x2, x2, 1
+    mov x3, 2
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x2, x2, 4
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 2
+    sub x2, x2, 1
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 2
+    sub x2, x2, 1
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 1
+    sub x2, x2, 1
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 2
+    sub x2, x2, 1
+    mov x3, 3
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 2
+    add x2, x2, 1
+    mov x3, 2
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 3
+    sub x2, x2, 1
+    mov x3, 4
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 1
+    add x2, x2, 1
+    mov x3, 2
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 2
+    add x2, x2, 2
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 2
+    add x2, x2, 4
+    mov x3, 3
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 2
+    add x2, x2, 1
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 1
+    add x2, x2, 3
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 2
+    add x2, x2, 1
+    mov x3, 4
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 3
+    add x2, x2, 1
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 2
+    add x2, x2, 1
+    mov x3, 12
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x2, x2, 3
+    mov x3, 3
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 2
+    add x2, x2, 1
+    mov x3, 2
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 1
+    add x2, x2, 1
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 6
+    mov x3, 8
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 2
+    sub x2, x2, 1
+    mov x3, 2
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 5
+    sub x2, x2, 1
+    mov x3,  5
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 11
+    add x2, x2, 1
+    mov x3, 2
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 24
+    add x2, x2, 2
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 1
+    add x2, x2, 2
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 1
+    add x2, x2, 1
+    mov x3, 5
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 5
+    add x2, x2, 1
+    mov x3, 4
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 4
+    add x2, x2, 1
+    mov x3, 9
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 8
+    sub x2, x2, 1
+    mov x3, 3
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 2
+    sub x2, x2, 1
+    bl dibujar_linea
+
+    mov x0, x20
+    add x1, x1, 6
+    sub x2, x2, 4
+    mov x3, 2
+    mov x4, 1
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 8
+    sub x2, x2, 4
+    mov x3, 3
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 2
+    sub x2, x2, 6
+    mov x3, 3
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 5
+    add x2, x2, 2
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 3
+    sub x2, x2, 2
+    mov x3, 8
+    bl dibujar_linea
+    mov x0,x20
+    sub x1, x1, 4
+    add x2, x2, 1
+    mov x3, 6
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 5
+    add x2, x2, 5
+    mov x3, 5
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x2, x2, 1
+    add x1, x1, 16
+    mov x3, 3
+    mov x4, 0
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 3
+    add x2, x2, 2
+    mov x3, x5
+    bl dibujar_punto
+
+    mov x0, x20
+    sub x1, x1, 7
+    bl dibujar_punto
+
+    mov x0, x20
+    sub x2, x2, 8
+    bl dibujar_punto
+
+    mov x0,x20
+    add x1, x1, 4
+    bl dibujar_punto
+
+    mov x0,x20
+    add x1, x1, 19
+    add x2, x2, 7
+    bl dibujar_punto
+
+    mov x0,x20
+    sub x1, x1, 1
+    add x2, x2, 3
+    bl dibujar_punto
+
+    mov x0,x20
+    sub x1, x1, 4
+    add x2, x2, 4 
+    bl dibujar_punto
+
+    mov x0,x20
+    sub x1, x1, 23
+    sub x2, x2, 1
+    bl dibujar_punto
+
+    mov lr, x21
+    ret

@@ -195,7 +195,7 @@ no_pintar_sombra:
 // === figuaras para decorar ===
     mov x0, x20                // framebuffer
     ldr x6, =tabla_detalles
-    mov x7, 117           // cambio el ult numero segun tantas cosas ponga 
+    mov x7, 267             // cambio el ult numero segun tantas cosas ponga 
 loop_detalles:
     ldr w1, [x6], 4            // X
     ldr w2, [x6], 4            // Y
@@ -354,11 +354,10 @@ bl dibujar_sus
 
 
 
-
-
-
-
-
+mov x0,x20
+movz x5, 0x, lsl 16 
+movk x5, 0x0052, lsl 0
+bl dibujar_poste
 
 mov x0,x20
 movz x5, 0xFF, lsl 16 
@@ -576,16 +575,85 @@ tabla_detalles:
 .word 505,  155,   50,  135, 0xffffff // centro? 
 .word 435,  105,   185,  50, 0xffffff // techo? 
 
+//kirbi
+.word 465,  99,   3,  3, 0x000000 // pie
+.word 468,  99,   3,  3, 0x000000 // pie
+.word 471,  96,   3,  3, 0x000000 // pie
+.word 471,  93,   3,  3, 0x000000 // pie
+.word 468,  90,   3,  3, 0x000000 // pie
+.word 465,  87,   3,  3, 0x000000 // pie
+.word 462,  90,   3,  3, 0x000000 // pie
+.word 462,  93,   3,  3, 0x000000 // pie
+.word 462,  96,   3,  3, 0x000000 // pie
+.word 465,  84,   3,  3, 0x000000 // pie
+.word 462,  81,   3,  3, 0x000000 // costadito 
+.word 462,  78,   3,  3, 0x000000 // costadito 
+.word 462,  75,   3,  3, 0x000000 // costadito 
+.word 462,  81,   3,  3, 0x000000 // costadito (repetido)
+.word 462,  78,   3,  3, 0x000000 // costadito (repetido)
+.word 462,  75,   3,  3, 0x000000 // costadito (repetido)
+.word 459,  72,   3,  3, 0x000000 // costadito 
+.word 459,  69,   3,  3, 0x000000 // costadito 
+.word 459,  66,   3,  3, 0x000000 // costadito
+.word 462,  63,   3,  3, 0x000000 // costadito 
+.word 465,  63,   3,  3, 0x000000 // costadito
+.word 468,  66,   3,  3, 0x000000 // costadito 
+.word 471,  63,   3,  3, 0x000000 // cabeza
+.word 474,  63,   3,  3, 0x000000 // cabeza
+.word 477,  63,   3,  3, 0x000000 // cabeza
+.word 480,  63,   3,  3, 0x000000 // cabeza
+.word 483,  63,   3,  3, 0x000000 // cabeza
+.word 486,  66,   3,  3, 0x000000 // cabeza
+.word 489,  63,   3,  3, 0x000000 // manito 
+.word 492,  63,   3,  3, 0x000000 // manito 
+.word 495,  66,   3,  3, 0x000000 // manito 
+.word 495,  69,   3,  3, 0x000000 // manito 
+.word 495,  72,   3,  3, 0x000000 // manito 
+.word 492,  75,   3,  3, 0x000000 // costado derecho 
+.word 492,  78,   3,  3, 0x000000 // costado derecho 
+.word 492,  81,   3,  3, 0x000000 // costado derecho 
+.word 492,  84,   3,  3, 0x000000 // costado derecho 
+.word 489,  87,   3,  3, 0x000000 // costado derecho 
+.word 489,  90,   3,  3, 0x000000 // costado derecho  
+.word 486,  93,   3,  3, 0x000000 // pansita   
+.word 483,  93,   3,  3, 0x000000 // pansita   
+.word 480,  93,   3,  3, 0x000000 // pansita   
+.word 477,  93,   3,  3, 0x000000 // pansita   
+.word 474,  93,   3,  3, 0x000000 // pansita   
+.word 486,  96,   3,  3, 0x000000 // pie  
+.word 483,  99,   3,  3, 0x000000 // pie
+.word 480,  99,   3,  3, 0x000000 // pie
+.word 477,  96,   3,  3, 0x000000 // pie
+.word 486,  72,   3,  3, 0x000000 // ojo derecho
+.word 486,  75,   3,  3, 0x000000 // ojo derecho
+.word 486,  78,   3,  3, 0x000000 // ojo derecho
+.word 480,  72,   3,  3, 0x000000 // ojo izq
+.word 480,  75,   3,  3, 0x000000 // ojo izq
+.word 480,  78,   3,  3, 0x000000 // ojo izq
+.word 474,  81,   6,  3, 0xdc7094 // sonrojado? izq
+.word 489,  81,   3,  3, 0xdc7094 // sonrojado? der
+.word 483,  84,   3,  3, 0x000000 // boca
+//relleno
+.word 486,  84,   6,  3, 0xe7a8ae // rosa cuepo
+.word 468,  84,   15,  3, 0xe7a8ae //
+.word 468,  87,   21,  3, 0xe7a8ae //
+.word 471,  90,   18,  3, 0xe7a8ae //
+.word 480,  81,   9,  3, 0xe7a8ae //
+.word 465,  81,   9,  3, 0xe7a8ae // 
+.word 465,  69,   15,  12, 0xe7a8ae // 
+.word 462,  66,   6,  9, 0xe7a8ae // 
+.word 471,  66,   15,  6, 0xe7a8ae // 
+.word 489,  66,   6,  9, 0xe7a8ae // 
+.word 486,  69,   3,  3, 0xe7a8ae // 
+.word 483,  69,   3,  12, 0xe7a8ae //
+.word 489,  72,   3,  9, 0xe7a8ae // 
 
+//pie
 
+.word 465,  93,   6,  6, 0xc1315d // izq
+.word 465,  90,   3,  3, 0xc1315d // izq
 
-
-
-
-
-
-
-
+.word 480,  96,   6,  3, 0xc1315d // pie  
 
 // Edificios detrás del puente
 .word 272, 235,   100,  55, 0x2b69fc //
@@ -617,10 +685,42 @@ tabla_detalles:
 .word 358, 248,   4, 20, 0x009fff //
 
 
+.word 358, 236, 4, 4, 0xffffff  // parte blanca
+.word 283, 236, 4, 4, 0xffffff  // parte blanca
 // Poste
 
 
 .word 437, 395,   10,105,0x000052 //poste   
+
+//luces verdes de la calle xd
+
+.word 0,  280, 400, 10, 0x009fff  // fondo luces calle 
+
+.word 16,  273, 15, 12, 0x009fff  // fondo luces calle 
+.word 20,  276, 8, 8, 0xffffff  // fondo luces calle 
+
+.word 56,  270, 15, 12, 0x009fff  // fondo de lo blanco 
+.word 60,  273, 8, 8, 0xffffff  // parte blanca
+
+
+.word 80,  276, 30, 12, 0x009fff  // fondo de lo blanco 
+.word 84,  278, 4, 4, 0xffffff  // parte blanca
+.word 92,  278, 4, 4, 0xffffff  // parte blanca
+.word 102,  278, 4, 4, 0xffffff  // parte blanca
+
+.word 36,  272, 8, 12, 0x009fff  // fondo de lo blanco 
+.word 38,  274, 4, 4, 0x46f8a6  // parte blanca
+
+.word 156,  272, 8, 12, 0x009fff  // fondo de lo blanco 
+.word 158,  274, 4, 4, 0x46f8a6  // parte blanca
+.word 176,  274, 8, 12, 0x009fff  // fondo de lo blanco 
+.word 178,  276, 4, 4, 0x46f8a6  // parte blanca
+.word 186,  272, 8, 12, 0x009fff  // fondo de lo blanco 
+.word 188,  274, 4, 4, 0x46f8a6  // parte blanca
+.word 230,  266, 15, 12, 0x009fff  // fondo de lo blanco 
+.word 234,  270, 8, 8, 0xffffff  // parte blanca
+
+
 //mas luces edifico 
  
 .word 129,  155, 6, 3, 0x51a1fc  // parte blanca
@@ -670,9 +770,45 @@ tabla_detalles:
 
 
 
+.word 196,  272, 8, 12, 0x009fff  // fondo de lo blanco 
+.word 198,  274, 4, 4, 0x46f8a6  // parte blanca
+.word 202,  274, 8, 12, 0x009fff  // fondo de lo blanco 
+.word 204,  276, 4, 4, 0x46f8a6  // parte blanca
+.word 212,  272, 8, 12, 0x009fff  // fondo de lo blanco 
+.word 216,  274, 4, 4, 0x46f8a6  // parte blanca
 
+.word 5,    284, 15, 4, 0x46f8a6  // luces verdes calle 
+.word 12,   284, 7,  4, 0xFFFFFF  // luces verdes calle 
+.word 27,   284, 25, 4, 0x46f8a6  // luces verdes calle 
+.word 47,   284, 5,  4, 0x46f8a6  // luces verdes calle 
+.word 72,   284, 20, 4, 0x46f8a6  // luces verdes calle 
+.word 79,   284, 15, 4, 0x46f8a6  // luces verdes calle 
+.word 94,   284, 7,  4, 0xFFFFFF  // luces verdes calle 
+.word 101,  284, 25, 4, 0x46f8a6  // luces verdes calle 
+.word 121,  284, 20, 4, 0x46f8a6  // luces verdes calle 
+.word 136,  284, 5,  4, 0xFFFFFF  // luces verdes calle 
+.word 141,  284, 15, 4, 0x46f8a6  // luces verdes calle 
+.word 156,  284, 7,  4, 0xFFFFFF  // luces verdes calle 
+.word 176,  284, 25, 4, 0x46f8a6  // luces verdes calle 
+.word 191,  284, 5,  4, 0x46f8a6  // luces verdes calle 
+.word 198,  284, 20, 4, 0x46f8a6  // luces verdes calle 
+.word 223,  284, 15, 4, 0x46f8a6  // luces verdes calle 
+.word 223,  284, 15, 4, 0xFFFFFF  // luces verdes calle 
+.word 240,  284, 20, 4, 0x46f8a6  // luces verdes calle 
+.word 255,  284, 15, 4, 0x46f8a6  // luces verdes calle 
+.word 265,  284, 15, 4, 0xFFFFFF  // luces verdes calle 
+.word 285,  284, 20, 4, 0x46f8a6  // luces verdes calle 
+.word 305,  284, 15, 4, 0xffffff  // luces verdes calle 
+.word 325,  284, 35, 4, 0x46f8a6  // luces verdes calle
+
+.word 120,  276, 15, 12, 0x009fff  // fondo de lo blanco 
+.word 124,  279, 8, 8, 0xffffff  // parte blanca
+
+.word 250,  276, 15, 12, 0x009fff  // fondo de lo blanco 
+.word 254,  279, 8, 8, 0xffffff  // parte blanca
 //tachito 
-.word 366, 0,   50,   600,   0x000052  // poste enorme
+.word 366, 300,   50,   300,   0x000052  // poste 
+
 .word 362,  430,  30, 20, 0x38004d  // agarre1 
 .word 375,  430,  30, 20, 0x600079  // agarre1
 .word 380,  400, 50, 90, 0x38004d  // atras
@@ -680,9 +816,32 @@ tabla_detalles:
 .word 400,  405, 50, 8, 0x38004d  // atras
 .word 400,  400, 54, 8, 0x600079  // atras
 
+//sticker sin cara    
 
 
-     
+.word 407,  433,  17, 43, 0xffffff  // parte blanca sticker   
+.word 411,  435,  12, 39, 0x000000  // cuerpo 1               
+.word 424,  435,  4, 41, 0xffffff   // parte blanca sticker 2 
+.word 428,  439,  2, 37, 0xffffff  // parte blanca sticker 3  
+.word 423,  437,  3, 37, 0x000000  // cuerpo 2            
+.word 426,  440,  2, 34, 0x000000  // cuerpo 3            
+.word 411,  437,  7, 18, 0xffffff  // cara                
+.word 418,  439,  2, 14, 0xffffff  // cara 2              
+.word 411,  452,  5, 2, 0x000000  // boca                 
+.word 409,  447,  2, 5, 0xcea0e6  // mofletes izq         
+.word 416,  447,  2, 5, 0xcea0e6  // mofletes der         
+.word 416,  443,  2, 2, 0x000000  // ojos                 
+.word 416,  439,  2, 2, 0xcea0e6  // ceja                 
+.word 409,  443,  2, 2, 0x000000  // ojos                 
+.word 409,  439,  2, 2, 0xcea0e6  // ceja                 
+.word 420,  456,  2, 7, 0x6c6c6c  // brazo cuerpo        
+.word 417,  463,  3, 3, 0x6c6c6c  // mano cuerpo         
+.word 401,  450,  6, 9, 0xffffff // sticker blanco mano  
+.word 403,  459,  6, 3, 0xffffff // sticker blanco mano  
+.word 405,  458,  5, 2, 0x6c6c6c  // brazo moneda        
+.word 403,  456,  4, 2, 0x6c6c6c // mano moneda          
+.word 403,  452,  2, 4, 0xffe240  // moneda clara         
+.word 405,  452,  2, 4, 0xe4c82b  // moneda oscura        
 
 // ============================
 // Dibuja letra bitmap 5x7
@@ -1387,7 +1546,18 @@ dibujar_luces_rosa:
 
 
 
+dibujar_poste:
+    mov x21, lr
 
+    mov x0, x20
+    mov x1, 366 //x
+    mov x2, 0
+    mov x3, 50 //ancho
+    mov x4, 300  //alto 
+    bl dibujar_rect
+
+    mov lr, x21
+    ret
 
 dibujar_luces_roja:
     mov x21, lr

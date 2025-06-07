@@ -337,30 +337,30 @@ movz x5, 0xFF, lsl 16
 movk x5, 0xDE59, lsl 0
 bl dibujar_luces_amarillas
 
+mov x0, x20
+mov x1, 465
+mov x2, 206
+bl dibujar_piernas_capa_raven
 
+mov x0, x20
+mov x1, 465
+mov x2, 206
+bl dibujar_cintura_capa_raven
 
+mov x0, x20
+mov x1, 465
+mov x2, 206
+bl dibujar_torso_capa_raven
 
+mov x0, x20
+mov x1, 465
+mov x2, 206
+bl dibujar_cabeza
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+mov x0, x20
+mov x1, 465
+mov x2, 206
+bl dibujar_cara_contorno
 
 // === LOOP INFINITO ===
 InfLoop:
@@ -3292,3 +3292,12436 @@ dibujar_sus:
 
     mov lr, x21
     ret
+    
+    //x = 465
+//y = 206
+dibujar_piernas_capa_raven: 
+    mov x21, lr
+    
+    mov x0, x20
+    add x1, x1, 73          //538
+    add x2, x2, 203         //409
+    mov x3, 31
+    mov x4, 72
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 5           //533
+    add x2, x2, 11          //420
+    mov x3, 5
+    mov x4, 61
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 4           //529
+    add x2, x2, 10          //430
+    mov x3, 4
+    mov x4, 52
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 5           //524
+    add x2, x2, 22          //452
+    mov x3, 5
+    mov x4, 29
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 2           //526
+    sub x2, x2, 7           //445
+    mov x3, 3
+    mov x4, 7
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 1           //527
+    sub x2, x2, 4           //441
+    mov x3, 2
+    mov x4, 4
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 4           //523    
+    add x2, x2, 19          //460
+    mov x3, 18
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2           //525    
+    sub x2, x2, 11          //449
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 44          //569  
+    sub x2, x2, 2           //447
+    mov x3, 15
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 41          //528
+    sub x2, x2, 9           //438
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 4            //532
+    sub x2, x2, 15           //423
+    mov x3, 7
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1            //531
+    add x2, x2, 3            //426
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1            //530
+    add x2, x2, 3            //429
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 7             //537
+    sub x2, x2, 18            //411
+    mov x3, 9
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1             //536
+    add x2, x2, 2             //413
+    mov x3, 7
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1             //535
+    add x2, x2, 2             //415
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1             //534
+    add x2, x2, 3             //418
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 18            //552
+    sub x2, x2, 19            //399
+    mov x3, 13
+    mov x4, 10
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 10            //542
+    add x2, x2, 6             //405
+    mov x3, 10
+    mov x4, 4
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 3             //539
+    add x2, x2, 2             //407
+    mov x3, 3
+    mov x4, 2
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 2             //541
+    sub x2, x2, 1             //406
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 6             //547
+    sub x2, x2, 2             //404
+    mov x3, 5
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //548
+    sub x2, x2, 1             //403
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2             //550
+    sub x2, x2, 1             //402
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //551
+    sub x2, x2, 1             //401
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 4             //555
+    sub x2, x2, 3             //398
+    mov x3, 9
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 3             //558
+    sub x2, x2, 1             //397
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 7             //565
+    add x2, x2, 4             //401
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //566
+    add x2, x2, 1             //402
+    mov x3, 7
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //567
+    add x2, x2, 2             //404
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 64            //503
+    add x2, x2, 38            //442
+    mov x3, 19
+    mov x4, 39
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 19            //522
+    add x2, x2, 37            //479
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 25            //497
+    sub x2, x2, 61            //418
+    mov x3, 8
+    mov x4, 47
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 8             //505
+    add x2, x2, 16            //434
+    mov x3, 9
+    mov x4, 8
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 9             //514
+    add x2, x2, 2             //436
+    mov x3, 2
+    mov x4, 6
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 9             //505
+    sub x2, x2, 8             //428
+    mov x3, 5
+    mov x4, 6
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 4             //501
+    sub x2, x2, 12            //416
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 3             //498
+    add x2, x2, 1             //417
+    mov x3, 6
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 7             //505
+    add x2, x2, 4             //421
+    mov x3, 7
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //506
+    add x2, x2, 3             //424
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //507
+    add x2, x2, 2             //426
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //508
+    add x2, x2, 1             //427
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2             //510
+    add x2, x2, 3             //430
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //511
+    add x2, x2, 2             //432
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //512
+    add x2, x2, 1             //433
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 4            //516
+    add x2, x2, 5            //438
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //517
+    add x2, x2, 1            //439
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //518
+    add x2, x2, 1            //440
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 0            //518
+    add x2, x2, 1            //441
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 4            //522
+    add x2, x2, 2            //443
+    mov x3, 16
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //523
+    add x2, x2, 0            //443
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //524
+    add x2, x2, 1            //444
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 28           //496
+    sub x2, x2, 22           //422
+    mov x3, 35
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1            //495
+    add x2, x2, 3            //425
+    mov x3, 27
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1            //494
+    add x2, x2, 8            //433
+    mov x3, 15
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 4            //498
+    add x2, x2, 32           //465
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //499
+    add x2, x2, 0            //465
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //500
+    add x2, x2, 0            //465
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //501
+    add x2, x2, 0            //465
+    mov x3, 11
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //502
+    add x2, x2, 0            //465
+    mov x3, 13
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 9            //493
+    sub x2, x2, 33           //432
+    mov x3, 16
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //494
+    add x2, x2, 16           //448
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //495
+    add x2, x2, 4            //452
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //496
+    add x2, x2, 5            //457
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //497
+    add x2, x2, 8            //465
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //498
+    add x2, x2, 2            //467
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //499
+    add x2, x2, 3            //470
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //500
+    add x2, x2, 3            //473
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //501
+    add x2, x2, 3            //476
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //502
+    add x2, x2, 2            //478
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 8            //494
+    sub x2, x2, 54           //424
+    mov x3, 9
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //495
+    sub x2, x2, 2            //422
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //496
+    sub x2, x2, 5            //417
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //497
+    sub x2, x2, 1            //416
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 0            //497
+    sub x2, x2, 0            //416
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 3            //500
+    sub x2, x2, 1            //415
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2            //502
+    sub x2, x2, 1            //414
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2            //504
+    add x2, x2, 3            //417
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //505
+    add x2, x2, 1            //418
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //506
+    add x2, x2, 2            //420
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //506
+    add x2, x2, 2            //420
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //507
+    add x2, x2, 4            //424
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //508
+    add x2, x2, 0            //424
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //509
+    add x2, x2, 2            //426
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //510
+    add x2, x2, 2            //428
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //511
+    add x2, x2, 1            //429
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //512
+    add x2, x2, 2            //431
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //513
+    add x2, x2, 1            //432
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //514
+    add x2, x2, 1            //433
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 0            //514
+    add x2, x2, 2            //435
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2            //516
+    add x2, x2, 1            //436
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //517
+    add x2, x2, 1            //437
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //518
+    add x2, x2, 1             //438
+    mov x3, 2
+    mov x4, 2
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 2            //520
+    add x2, x2, 1            //439
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //521
+    add x2, x2, 1            //440
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //522
+    add x2, x2, 1             //441
+    mov x3, 2
+    mov x4, 2
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 2            //524
+    add x2, x2, 1            //442
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1            //524
+    add x2, x2, 4            //448
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1            //523
+    add x2, x2, 3            //451
+    mov x3, 9
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1            //522
+    add x2, x2, 8            //459
+    mov x3, 20
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //523
+    add x2, x2, 19           //478
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 3            //526
+    sub x2, x2, 38           //440
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //527
+    sub x2, x2, 4            //436
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //528
+    sub x2, x2, 6            //430
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //529
+    sub x2, x2, 3            //427
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //530
+    sub x2, x2, 2            //425
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //531
+    sub x2, x2, 3            //422
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //532
+    sub x2, x2, 2            //420
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //533
+    sub x2, x2, 3            //417
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //534
+    sub x2, x2, 2            //415
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //535
+    sub x2, x2, 2            //413
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //536
+    sub x2, x2, 2            //411
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //537
+    sub x2, x2, 2            //409
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //538
+    sub x2, x2, 2            //407
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //539
+    sub x2, x2, 1            //406
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //540
+    sub x2, x2, 1            //405
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1            //539
+    sub x2, x2, 1            //404
+    mov x3, 8
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 7            //546
+    sub x2, x2, 1            //403
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2            //548
+    sub x2, x2, 1            //402
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //549
+    sub x2, x2, 1            //401
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //550
+    sub x2, x2, 2             //399
+    mov x3, 2
+    mov x4, 2
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 1            //551
+    sub x2, x2, 1            //398
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 4            //555
+    sub x2, x2, 1            //397
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2            //557
+    sub x2, x2, 1            //396
+    mov x3, 7
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 5            //562
+    add x2, x2, 1            //397
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2            //564
+    add x2, x2, 1            //398
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //565
+    add x2, x2, 1             //399
+    mov x3, 2
+    mov x4, 2
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 1            //566
+    add x2, x2, 2            //401
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //567
+    add x2, x2, 1             //392
+    mov x3, 2
+    mov x4, 2
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 1            //568
+    sub x2, x2, 12           //380
+    mov x3, 29
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //569
+    add x2, x2, 28           //408
+    mov x3, 39
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //570
+    add x2, x2, 39           //447
+    mov x3, 16
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1            //569
+    add x2, x2, 15           //462
+    mov x3, 19
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 0            //569
+    sub x2, x2, 15           //447
+    mov x3, 16
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //570
+    sub x2, x2, 37             //410
+    mov x3, 22
+    mov x4, 37
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 1              //571
+    add x2, x2, 37             //447
+    mov x3, 26
+    mov x4, 34
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 1             //570
+    add x2, x2, 16            //463
+    mov x3, 18
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 22            //592
+    sub x2, x2, 43            //420
+    mov x3, 27
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //593
+    add x2, x2, 5             //425
+    mov x3, 22
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //594
+    add x2, x2, 4             //429
+    mov x3, 18
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //595
+    add x2, x2, 6             //435
+    mov x3, 12
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //596
+    add x2, x2, 8             //443
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //597
+    add x2, x2, 5             //448
+    mov x3, 33
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //598
+    add x2, x2, 5             //453
+    mov x3, 28
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //599
+    add x2, x2, 6             //459
+    mov x3, 22
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //600
+    add x2, x2, 5             //464
+    mov x3, 17
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //601
+    add x2, x2, 10            //474
+    mov x3, 7
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //601
+    add x2, x2, 3             //477
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2             //603
+    add x2, x2, 1             //478
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 34            //569
+    sub x2, x2, 145           //333
+    mov x3, 14
+    mov x4, 75
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 1             //570
+    add x2, x2, 75            //408
+    mov x3, 21
+    mov x4, 2
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 15            //583
+    sub x2, x2, 69            //339
+    mov x3, 69
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //584
+    add x2, x2, 10            //349
+    mov x3, 59
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //585
+    add x2, x2, 10            //359
+    mov x3, 49
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //586
+    add x2, x2, 6            //365
+    mov x3, 43
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //587
+    add x2, x2, 14           //379
+    mov x3, 29
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //588
+    add x2, x2, 7            //386
+    mov x3, 22
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //589
+    add x2, x2, 14           //400
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //590
+    add x2, x2, 6            //406
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 106           //484
+    sub x2, x2, 37            //369
+    mov x3, 5
+    mov x4, 14       
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 2            //486
+    sub x2, x2, 1            //368
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 2             //484
+    add x2, x2, 15            //383
+    mov x3, 4
+    mov x4, 16       
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 2             //482
+    add x2, x2, 16            //399
+    mov x3, 5
+    mov x4, 23       
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 2             //480
+    add x2, x2, 23            //422
+    mov x3, 6
+    mov x4, 11       
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 2             //478
+    add x2, x2, 11            //433
+    mov x3, 7
+    mov x4, 7       
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 1             //477
+    add x2, x2, 6             //439
+    mov x3, 7
+    mov x4, 10       
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 2            //475
+    add x2, x2, 6            //445
+    mov x3, 8
+    mov x4, 36       
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 1            //474
+    add x2, x2, 5            //450
+    mov x3, 31
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1            //473
+    add x2, x2, 5            //455
+    mov x3, 26
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1            //472
+    add x2, x2, 3            //458
+    mov x3, 23
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1            //471
+    add x2, x2, 5            //463
+    mov x3, 18
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1            //470
+    add x2, x2, 5            //479
+    mov x3, 13
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 13            //483
+    sub x2, x2, 12            //461
+    mov x3, 20
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //484
+    add x2, x2, 7             //468
+    mov x3, 13
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //485
+    add x2, x2, 3             //477
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //486
+    add x2, x2, 3             //480
+    mov x3, 9
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 5             //481
+    sub x2, x2, 56            //413
+    mov x3, 9
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1             //480
+    add x2, x2, 4             //417
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea 
+    
+    mov x0, x20
+    sub x1, x1, 1             //479
+    add x2, x2, 9             //426
+    mov x3, 7
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea 
+    
+    mov x0, x20
+    add x1, x1, 3              //482
+    sub x2, x2, 30             //396
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //483
+    sub x2, x2, 12             //384
+    mov x3, 15
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 6             //489
+    sub x2, x2, 15            //369
+    mov x3, 8
+    mov x4, 38       
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 1              //488
+    add x2, x2, 14             //383
+    mov x3, 90
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1              //487
+    add x2, x2, 16             //399
+    mov x3, 76
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2             //489
+    add x2, x2, 8             //417
+    mov x3, 3
+    mov x4, 65      
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 3              //486
+    add x2, x2, 5              //422
+    mov x3, 57
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1              //485
+    add x2, x2, 11             //433
+    mov x3, 43
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1              //485
+    add x2, x2, 11             //433
+    mov x3, 29
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1              //483
+    add x2, x2, 14             //449
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 9              //492
+    sub x2, x2, 41             //408
+    mov x3, 15
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //492
+    sub x2, x2, 0             //408
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //492
+    sub x2, x2, 0             //408
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov lr, x21
+    ret
+// x = 465
+// y = 206
+dibujar_cintura_capa_raven:
+    mov x21, lr
+    
+    mov x0, x20
+    add x1, x1, 28             //493
+    add x2, x2, 242            //448
+    mov x3, 33
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //494
+    add x2, x2, 4              //452
+    mov x3, 29
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //495
+    add x2, x2, 5              //457
+    mov x3, 24
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //496
+    add x2, x2, 8              //465
+    mov x3, 16
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //497
+    add x2, x2, 3              //468
+    mov x3, 13
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //498
+    add x2, x2, 2              //470
+    mov x3, 11
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //499
+    add x2, x2, 3              //473
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //500
+    add x2, x2, 3              //476
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //501
+    add x2, x2, 2              //478
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 4              //497
+    sub x2, x2, 104            //374
+    mov x3, 39
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //498
+    add x2, x2, 2              //376
+    mov x3, 34
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //499
+    add x2, x2, 0              //376
+    mov x3, 32
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //500
+    add x2, x2, 1              //377
+    mov x3, 29
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //501
+    add x2, x2, 1              //378
+    mov x3, 19
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //502
+    add x2, x2, 1              //379
+    mov x3, 16
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //503
+    add x2, x2, 0              //379
+    mov x3, 14
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //504
+    add x2, x2, 0              //379
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //505
+    add x2, x2, 0              //379
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //506
+    add x2, x2, 0              //379
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 17             //489
+    sub x2, x2, 10             //369
+    mov x3, 8
+    mov x4, 12
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_rect
+
+    mov x0, x20
+    sub x1, x1, 5              //484
+    sub x2, x2, 0              //369
+    mov x3, 5
+    mov x4, 14
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 0               //484
+    add x2, x2, 14              //383
+    mov x3, 12
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //483
+    add x2, x2, 1               //384
+    mov x3, 24
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //482
+    add x2, x2, 12              //396
+    mov x3, 27
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //481
+    add x2, x2, 17              //413
+    mov x3, 14
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //480
+    add x2, x2, 4               //417
+    mov x3, 20
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //479
+    add x2, x2, 9               //426
+    mov x3, 18
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //478
+    add x2, x2, 5               //431
+    mov x3, 18
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //477
+    add x2, x2, 8               //439
+    mov x3, 18
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //476
+    add x2, x2, 3               //442
+    mov x3, 18
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //475
+    add x2, x2, 3               //445
+    mov x3, 18
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //474
+    add x2, x2, 5               //450
+    mov x3, 18
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //473
+    add x2, x2, 5               //455
+    mov x3, 18
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //472
+    add x2, x2, 3               //458
+    mov x3, 18
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //471
+    add x2, x2, 5               //463
+    mov x3, 18
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //470
+    add x2, x2, 5               //468
+    mov x3, 15
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //469
+    add x2, x2, 2               //470
+    mov x3, 15
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //468
+    add x2, x2, 4               //474
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //467
+    add x2, x2, 2               //476
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //466
+    add x2, x2, 2               //478
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //465
+    add x2, x2, 1               //479
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 51              //516
+    sub x2, x2, 100             //379
+    mov x3, 12
+    mov x4, 57
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 0               //516
+    add x2, x2, 57              //436
+    mov x3, 11
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //517
+    add x2, x2, 1               //437
+    mov x3, 10
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //518
+    add x2, x2, 1               //438
+    mov x3, 9
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //519
+    add x2, x2, 1               //439
+    mov x3, 8
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //520
+    add x2, x2, 1               //440
+    mov x3, 6
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //521
+    add x2, x2, 1               //441
+    mov x3, 5
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2               //523
+    add x2, x2, 1               //442
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //524
+    add x2, x2, 1               //443
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 16              //508
+    sub x2, x2, 64              //379
+    mov x3, 8
+    mov x4, 47
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 7               //515
+    add x2, x2, 45              //424
+    mov x3, 11
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1              //514
+    add x2, x2, 0              //424
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1              //513
+    add x2, x2, 0              //424
+    mov x3, 9
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1              //512
+    add x2, x2, 0              //424
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1              //511
+    add x2, x2, 0              //424
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1              //510
+    add x2, x2, 0              //424
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 18             //528
+    sub x2, x2, 43             //381
+    mov x3, 11
+    mov x4, 26
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 10             //538
+    add x2, x2, 24             //405
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 10             //528
+    add x2, x2, 2              //407
+    mov x3, 23
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //529
+    add x2, x2, 0              //407
+    mov x3, 20
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //530
+    add x2, x2, 0              //407
+    mov x3, 18
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //531
+    add x2, x2, 0              //407
+    mov x3, 15
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //532
+    add x2, x2, 0              //407
+    mov x3, 13
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //533
+    add x2, x2, 0              //407
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //534
+    add x2, x2, 0              //407
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //535
+    add x2, x2, 0              //407
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //536
+    add x2, x2, 0              //407
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //537
+    add x2, x2, 0              //407
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 30              //507
+    sub x2, x2, 26              //381
+    mov x3, 43
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //506
+    add x2, x2, 3               //384
+    mov x3, 36
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //505
+    add x2, x2, 5               //389
+    mov x3, 28
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //504
+    add x2, x2, 4               //393
+    mov x3, 24
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //503
+    add x2, x2, 2               //395
+    mov x3, 22
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //502
+    add x2, x2, 2               //397
+    mov x3, 17
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //501
+    add x2, x2, 10              //407
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //500
+    add x2, x2, 2               //409
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //499
+    add x2, x2, 2               //411
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //498
+    add x2, x2, 3               //414
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 9               //507
+    sub x2, x2, 33              //381
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 32              //539
+    add x2, x2, 1               //382
+    mov x3, 7
+    mov x4, 22
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 7               //546
+    add x2, x2, 0               //382
+    mov x3, 2
+    mov x4, 21
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 2               //548
+    sub x2, x2, 1               //381
+    mov x3, 21
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //549
+    sub x2, x2, 1               //380
+    mov x3, 21
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //550
+    sub x2, x2, 0               //380
+    mov x3, 19
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //551
+    sub x2, x2, 1               //379
+    mov x3, 19
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //552
+    sub x2, x2, 1               //378
+    mov x3, 20
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //553
+    sub x2, x2, 2               //376
+    mov x3, 22
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //554
+    add x2, x2, 4               //380
+    mov x3, 18
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //555
+    add x2, x2, 2               //382
+    mov x3, 15
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //556
+    add x2, x2, 3               //385
+    mov x3, 12
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //557
+    add x2, x2, 3               //388
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //558
+    add x2, x2, 2               //390
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //559
+    add x2, x2, 3               //393
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //560
+    add x2, x2, 1               //394
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 32               //528
+    sub x2, x2, 14               //380
+    mov x3, 5
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 20               //508
+    sub x2, x2, 2                //378
+    mov x3, 17
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2                //510
+    sub x2, x2, 1                //377
+    mov x3, 11
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //511
+    sub x2, x2, 1                //376
+    mov x3, 6
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 0                //511
+    sub x2, x2, 1                //375
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 56               //567
+    add x2, x2, 5                //380
+    mov x3, 21
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //566
+    sub x2, x2, 8                //372
+    mov x3, 27
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //565
+    sub x2, x2, 6                //366
+    mov x3, 32
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //564
+    sub x2, x2, 7                //359
+    mov x3, 38
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //563
+    sub x2, x2, 5                //354
+    mov x3, 42
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //562
+    sub x2, x2, 2                //352
+    mov x3, 43
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //561
+    add x2, x2, 3                //355
+    mov x3, 38
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //560
+    add x2, x2, 4                //359
+    mov x3, 33
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //559
+    add x2, x2, 2                //361
+    mov x3, 28
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //558
+    add x2, x2, 3                //364
+    mov x3, 23
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //557
+    add x2, x2, 2                //366
+    mov x3, 18
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //556
+    add x2, x2, 2                //368
+    mov x3, 13
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //555
+    add x2, x2, 4                //372
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 58               //497
+    add x2, x2, 41               //413
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //498
+    sub x2, x2, 3                //410
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //499
+    sub x2, x2, 2                //408
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //500
+    sub x2, x2, 2                //406
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //501
+    sub x2, x2, 9                //397
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //502
+    sub x2, x2, 2                //395
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //503
+    sub x2, x2, 2                //393
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //504
+    sub x2, x2, 4                //389
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //505
+    sub x2, x2, 5                //384
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //506
+    sub x2, x2, 3                //381
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //507
+    sub x2, x2, 4                //377
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //508
+    sub x2, x2, 0                //377
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2                //510
+    sub x2, x2, 3                //374
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //511
+    sub x2, x2, 0                //374
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //512
+    add x2, x2, 1                //375
+    mov x3, 6
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 5                //517
+    add x2, x2, 1                //376
+    mov x3, 5
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 4                //521
+    add x2, x2, 1                //377
+    mov x3, 5
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 4                //525
+    add x2, x2, 1                //378
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 3                //528
+    add x2, x2, 1                //379
+    mov x3, 6
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 5                //533
+    add x2, x2, 1                //380
+    mov x3, 6
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 6                //539
+    add x2, x2, 1                //381
+    mov x3, 9
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 8                //547
+    sub x2, x2, 1                //380
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //548
+    sub x2, x2, 1                //379
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2                //550
+    sub x2, x2, 1                //378
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //551
+    sub x2, x2, 1                //377
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //552
+    sub x2, x2, 2                //375
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //553
+    sub x2, x2, 3                //372
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //554
+    sub x2, x2, 3                //369
+    mov x3, 11
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //555
+    add x2, x2, 11               //380
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //556
+    add x2, x2, 1               //381
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //557
+    add x2, x2, 3               //384
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //558
+    add x2, x2, 3               //387
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea 
+    
+    mov x0, x20
+    add x1, x1, 1               //559
+    add x2, x2, 2               //389
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //560
+    add x2, x2, 3               //392
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //561
+    add x2, x2, 1               //393
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 6               //555
+    sub x2, x2, 26              //367
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //556
+    sub x2, x2, 2               //365
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //557
+    sub x2, x2, 3               //362
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //558
+    sub x2, x2, 2               //360
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //559
+    sub x2, x2, 2               //358
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //560
+    sub x2, x2, 4               //354
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //561
+    sub x2, x2, 7               //347
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //562
+    sub x2, x2, 0               //347
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //563
+    add x2, x2, 3               //350
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //564
+    add x2, x2, 3               //353
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //565
+    add x2, x2, 5               //358
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //566
+    add x2, x2, 7               //365
+    mov x3, 15
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2               //568
+    add x2, x2, 15              //380
+    mov x3, 12
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //567
+    sub x2, x2, 1               //379
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2               //569
+    add x2, x2, 40              //419
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov lr, x21
+    ret
+    
+// x = 465
+// y = 206
+
+dibujar_torso_capa_raven:
+    mov x21,lr
+    
+    mov x0, x20
+    add x1, x1, 45              //510
+    add x2, x2, 155             //361
+    mov x3, 28
+    mov x4, 13
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 29              //539
+    add x2, x2, 2               //363
+    mov x3, 8
+    mov x4, 18
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 8               //547
+    sub x2, x2, 25              //338
+    mov x3, 9
+    mov x4, 29
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 1               //546
+    add x2, x2, 1               //339
+    mov x3, 24
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //545
+    add x2, x2, 2               //341
+    mov x3, 22
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //544
+    add x2, x2, 2               //343
+    mov x3, 20
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //543
+    add x2, x2, 3               //346
+    mov x3, 17
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //542
+    add x2, x2, 3               //349
+    mov x3, 14
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //541
+    add x2, x2, 2               //351
+    mov x3, 12
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //540
+    add x2, x2, 2               //353
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //539
+    add x2, x2, 2               //356
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 17              //556
+    sub x2, x2, 16              //340
+    mov x3, 26
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //557
+    add x2, x2, 2               //342
+    mov x3, 21
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //558
+    add x2, x2, 2               //344
+    mov x3, 17
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //559
+    add x2, x2, 2               //346
+    mov x3, 13
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //560
+    add x2, x2, 2               //346
+    mov x3, 7
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 12              //548
+    sub x2, x2, 9               //337
+    mov x3, 7
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //549
+    sub x2, x2, 1               //336
+    mov x3, 6
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 0               //549
+    sub x2, x2, 1               //335
+    mov x3, 5
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //550
+    sub x2, x2, 1               //334
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //551
+    sub x2, x2, 1               //333
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 4               //547
+    add x2, x2, 33              //366
+    mov x3, 14
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //548
+    add x2, x2, 0               //366
+    mov x3, 13
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //550
+    add x2, x2, 0               //366
+    mov x3, 12
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //551
+    add x2, x2, 0               //366
+    mov x3, 11
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //552
+    add x2, x2, 0               //366
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //553
+    add x2, x2, 0               //366
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //554
+    add x2, x2, 0               //366
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //555
+    add x2, x2, 0               //366
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 16              //538
+    sub x2, x2, 5               //362
+    mov x3, 18
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 25              //513
+    add x2, x2, 12              //374
+    mov x3, 25
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 5               //518
+    add x2, x2, 1               //375
+    mov x3, 20
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 4               //522
+    add x2, x2, 1               //376
+    mov x3, 16
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 4               //526
+    add x2, x2, 1               //377
+    mov x3, 12
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 3               //529
+    add x2, x2, 1               //378
+    mov x3, 9
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 5               //534
+    add x2, x2, 1               //379
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 14              //520
+    sub x2, x2, 19              //360
+    mov x3, 8
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 11              //509
+    add x2, x2, 3               //363
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //508
+    add x2, x2, 2               //365
+    mov x3, 7
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //507
+    add x2, x2, 1               //366
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 9               //498
+    add x2, x2, 0               //366
+    mov x3, 7
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //499
+    sub x2, x2, 2               //364
+    mov x3, 11
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //500
+    sub x2, x2, 5               //359
+    mov x3, 16
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //501
+    sub x2, x2, 1               //358
+    mov x3, 18
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //502
+    sub x2, x2, 2               //356
+    mov x3, 21
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //503
+    sub x2, x2, 1               //355
+    mov x3, 22
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //504
+    sub x2, x2, 0               //355
+    mov x3, 23
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //505
+    sub x2, x2, 0               //355
+    mov x3, 23
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //506
+    sub x2, x2, 0               //355
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //507
+    sub x2, x2, 0               //355
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //508
+    sub x2, x2, 0               //355
+    mov x3, 7
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //509
+    add x2, x2, 1               //356
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //510
+    add x2, x2, 1               //357
+    mov x3, 2
+    mov x4, 3
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 2               //512
+    add x2, x2, 1               //358
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 6               //506
+    add x2, x2, 15              //373
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //507
+    add x2, x2, 1               //374
+    mov x3, 2
+    mov x4, 3
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 2               //509
+    add x2, x2, 1               //375
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 9               //500
+    sub x2, x2, 20              //355
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //499
+    sub x2, x2, 2               //353
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //498
+    sub x2, x2, 1               //352
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //497
+    add x2, x2, 2               //354
+    mov x3, 11
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //496
+    add x2, x2, 2               //356
+    mov x3, 11
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //495
+    add x2, x2, 3               //359
+    mov x3, 9
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //494
+    add x2, x2, 1               //360
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //493
+    add x2, x2, 2               //362
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //492
+    add x2, x2, 1               //363
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //491
+    add x2, x2, 1               //364
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //490
+    add x2, x2, 1               //365
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //489
+    add x2, x2, 2               //367
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 17              //506
+    add x2, x2, 10              //377
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 4               //502
+    add x2, x2, 1               //378
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //501
+    sub x2, x2, 1               //377
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //500
+    sub x2, x2, 1               //376
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 2               //498
+    sub x2, x2, 1               //375
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 0               //498
+    sub x2, x2, 2               //373
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //497
+    sub x2, x2, 8               //365
+    mov x3, 9
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //498
+    sub x2, x2, 3               //362
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //499
+    sub x2, x2, 4               //358
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //500
+    sub x2, x2, 1               //357
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //501
+    sub x2, x2, 3               //354
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //502
+    sub x2, x2, 0               //354
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //503
+    sub x2, x2, 0               //354
+    mov x3, 7
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 6               //509
+    sub x2, x2, 2               //352
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //510
+    add x2, x2, 3               //355
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //511
+    add x2, x2, 1               //356
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //512
+    add x2, x2, 1               //357
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //513
+    add x2, x2, 1               //358
+    mov x3, 2
+    mov x4, 2
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 4               //509
+    add x2, x2, 2               //360
+    mov x3, 11
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 0               //509
+    add x2, x2, 1               //361
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //508
+    add x2, x2, 1               //362
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //507
+    add x2, x2, 1               //363
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //506
+    add x2, x2, 2               //365
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //507
+    add x2, x2, 7               //372
+    mov x3, 2
+    mov x4, 2
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 2               //509
+    add x2, x2, 1               //373
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 10              //519
+    sub x2, x2, 14              //359
+    mov x3, 9
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 9               //528
+    add x2, x2, 1               //360
+    mov x3, 10
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 10              //538
+    sub x2, x2, 5               //355
+    mov x3, 7
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //539
+    add x2, x2, 5               //360
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 0               //539
+    sub x2, x2, 8               //352
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //540
+    sub x2, x2, 1               //351
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //541
+    sub x2, x2, 3               //348
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //542
+    sub x2, x2, 3               //345
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //543
+    sub x2, x2, 2               //343
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //544
+    sub x2, x2, 3               //340
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //545
+    sub x2, x2, 2               //338
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //546
+    sub x2, x2, 1               //337
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //547
+    sub x2, x2, 1               //336
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //548
+    sub x2, x2, 1               //335
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //549
+    sub x2, x2, 1               //334
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //550
+    sub x2, x2, 3               //330
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //551
+    add x2, x2, 1               //331
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //552
+    add x2, x2, 1               //332
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //553
+    add x2, x2, 1               //333
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //554
+    add x2, x2, 1               //334
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //555
+    add x2, x2, 1               //335
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //556
+    add x2, x2, 2               //337
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //557
+    add x2, x2, 3               //340
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //558
+    add x2, x2, 2               //342
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //559
+    add x2, x2, 2               //344
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //560
+    add x2, x2, 1               //345
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 64              //496
+    add x2, x2, 21              //366
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 8               //488
+    add x2, x2, 1               //368
+    mov x3, 8
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 7               //481
+    add x2, x2, 0               //368
+    mov x3, 5
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 4               //485
+    sub x2, x2, 1               //367
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //486
+    add x2, x2, 1               //368
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 3               //483
+    add x2, x2, 1               //369
+    mov x3, 15
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //482
+    add x2, x2, 14              //383
+    mov x3, 13
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //481
+    add x2, x2, 12              //395
+    mov x3, 18
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //480
+    add x2, x2, 17              //412
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //479
+    add x2, x2, 5               //417
+    mov x3, 9
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //478
+    add x2, x2, 8               //425
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //477
+    add x2, x2, 6               //431
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //476
+    add x2, x2, 7               //438
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //475
+    add x2, x2, 1               //439
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //474
+    add x2, x2, 5               //444
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //473
+    add x2, x2, 5               //449
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //472
+    add x2, x2, 5               //454
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //471
+    add x2, x2, 4               //458
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //470
+    add x2, x2, 4               //462
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //469
+    add x2, x2, 5               //467
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //468
+    add x2, x2, 3               //470
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //467
+    add x2, x2, 3               //473
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //466
+    add x2, x2, 3               //476
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //465
+    add x2, x2, 1               //477
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //464
+    add x2, x2, 2               //479
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 16              //480
+    sub x2, x2, 112             //367
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //479
+    sub x2, x2, 1               //366
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //478
+    sub x2, x2, 1               //365
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //477
+    sub x2, x2, 3               //362
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //476
+    sub x2, x2, 10              //352
+    mov x3, 12
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //477
+    sub x2, x2, 3               //349
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //478
+    sub x2, x2, 2               //347
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //479
+    sub x2, x2, 2               //345
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //480
+    sub x2, x2, 1               //344
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //481
+    sub x2, x2, 2               //342
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //482
+    sub x2, x2, 2               //340
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //483
+    sub x2, x2, 2               //338
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //484
+    sub x2, x2, 2               //336
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //485
+    sub x2, x2, 2               //334
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //486
+    sub x2, x2, 2               //332
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //487
+    sub x2, x2, 1               //331
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //488
+    sub x2, x2, 3               //328
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //489
+    sub x2, x2, 5               //323
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //490
+    add x2, x2, 3               //326
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //491
+    add x2, x2, 2               //328
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //492
+    add x2, x2, 1               //329
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //493
+    add x2, x2, 1               //330
+    mov x3, 5
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 5               //498
+    add x2, x2, 1               //331
+    mov x3, 8
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 6               //504
+    add x2, x2, 1               //332
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //503
+    add x2, x2, 2               //334
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //502
+    add x2, x2, 3               //337
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //501
+    add x2, x2, 2               //339
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //500
+    add x2, x2, 5               //344
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //499
+    add x2, x2, 2               //346
+    mov x3, 7
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //500
+    add x2, x2, 6               //352
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 2               //498
+    sub x2, x2, 6               //346
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //497
+    add x2, x2, 4               //350
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //496
+    add x2, x2, 2               //352
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //495
+    add x2, x2, 3               //355
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //494
+    add x2, x2, 3               //358
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //493
+    add x2, x2, 1               //359
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //492
+    add x2, x2, 2               //361
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //491
+    add x2, x2, 1               //362
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //490
+    add x2, x2, 1               //363
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //489
+    add x2, x2, 1               //364
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 2               //487
+    add x2, x2, 2               //366
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 17              //504
+    sub x2, x2, 25              //341
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //505
+    add x2, x2, 3               //344
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //506
+    add x2, x2, 2               //346
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //507
+    add x2, x2, 1               //347
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //508
+    add x2, x2, 1               //348
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 3               //505
+    sub x2, x2, 19              //329
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 2              //503
+    add x2, x2, 1              //330
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 3              //506
+    sub x2, x2, 3              //327
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //507
+    sub x2, x2, 6              //321
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //508
+    add x2, x2, 2              //323
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //509
+    add x2, x2, 2              //325
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //510
+    add x2, x2, 0              //325
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2              //512
+    sub x2, x2, 1              //324
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2              //514
+    sub x2, x2, 1              //323
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2              //516
+    sub x2, x2, 1              //322
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2              //518
+    sub x2, x2, 1              //321
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2              //520
+    sub x2, x2, 1              //320
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //521
+    sub x2, x2, 1              //319
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 3              //524
+    add x2, x2, 1              //320
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //525
+    add x2, x2, 1              //321
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2              //527
+    add x2, x2, 1              //322
+    mov x3, 7
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 6              //533
+    sub x2, x2, 1              //321
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //534
+    sub x2, x2, 1              //320
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //535
+    sub x2, x2, 1              //319
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2              //537
+    add x2, x2, 1              //320
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //538
+    add x2, x2, 1              //321
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2              //540
+    add x2, x2, 1              //322
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //541
+    add x2, x2, 1              //323
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //542
+    add x2, x2, 1              //324
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //543
+    add x2, x2, 1              //325
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //544
+    add x2, x2, 1              //326
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //545
+    add x2, x2, 1              //327
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2              //547
+    add x2, x2, 1              //328
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //548
+    add x2, x2, 1              //329
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1              //549
+    add x2, x2, 0              //329
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 26              //575
+    sub x2, x2, 24              //305
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //576
+    add x2, x2, 2               //307
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //577
+    add x2, x2, 1               //308
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //578
+    add x2, x2, 3               //311
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //579
+    add x2, x2, 3               //314
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //580
+    add x2, x2, 4               //318
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //581
+    add x2, x2, 4               //322
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //582
+    add x2, x2, 4               //326
+    mov x3, 7
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //583
+    add x2, x2, 6               //332
+    mov x3, 7
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //584
+    add x2, x2, 6               //338
+    mov x3, 11
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //585
+    add x2, x2, 10              //348
+    mov x3, 11
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //586
+    add x2, x2, 10              //358
+    mov x3, 7
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //587
+    add x2, x2, 7               //365
+    mov x3, 14
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //588
+    add x2, x2, 13              //378
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //589
+    add x2, x2, 8               //385
+    mov x3, 15
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //590
+    add x2, x2, 15              //400
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //591
+    add x2, x2, 5               //405
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //592
+    add x2, x2, 4               //409
+    mov x3, 11
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //593
+    add x2, x2, 10              //419
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //594
+    add x2, x2, 5               //424
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //595
+    add x2, x2, 5               //429
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //596
+    add x2, x2, 5               //434
+    mov x3, 9
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //597
+    add x2, x2, 8               //442
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //598
+    add x2, x2, 5               //447
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //599
+    add x2, x2, 5               //453
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //600
+    add x2, x2, 6               //459
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //601
+    add x2, x2, 5               //464
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //602
+    add x2, x2, 9               //473
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //603
+    add x2, x2, 3               //476
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //604
+    add x2, x2, 1               //477
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 76              //528
+    sub x2, x2, 154             //323
+    mov x3, 10
+    mov x4, 37
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 6               //534
+    sub x2, x2, 1               //322
+    mov x3, 6
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //535
+    sub x2, x2, 1               //321
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //536
+    sub x2, x2, 1               //320
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2               //538
+    add x2, x2, 3               //323
+    mov x3, 32
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //539
+    add x2, x2, 0               //323
+    mov x3, 29
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //540
+    add x2, x2, 0               //323
+    mov x3, 28
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //541
+    add x2, x2, 1               //324
+    mov x3, 24
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //542
+    add x2, x2, 1               //325
+    mov x3, 20
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //543
+    add x2, x2, 1               //326
+    mov x3, 17
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //544
+    add x2, x2, 1               //327
+    mov x3, 13
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //545
+    add x2, x2, 1               //328
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //546
+    add x2, x2, 0               //328
+    mov x3, 9
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //547
+    add x2, x2, 1               //329
+    mov x3, 7
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //548
+    add x2, x2, 1               //330
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //549
+    add x2, x2, 1               //331
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 22              //527
+    sub x2, x2, 8               //323
+    mov x3, 36
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //526
+    sub x2, x2, 1               //322
+    mov x3, 37
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //525
+    sub x2, x2, 0               //322
+    mov x3, 37
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //524
+    sub x2, x2, 1               //321
+    mov x3, 38
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 2               //522
+    sub x2, x2, 1               //320
+    mov x3, 2
+    mov x4, 39
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 2               //520
+    add x2, x2, 1               //321
+    mov x3, 2
+    mov x4, 38
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 1               //519
+    add x2, x2, 1               //322
+    mov x3, 37
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 2               //517
+    add x2, x2, 1               //323
+    mov x3, 2
+    mov x4, 37
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 1               //516
+    add x2, x2, 1               //324
+    mov x3, 36
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //515
+    add x2, x2, 1               //325
+    mov x3, 35
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //514
+    add x2, x2, 0               //325
+    mov x3, 33
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //513
+    add x2, x2, 0               //325
+    mov x3, 32
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 2               //511
+    add x2, x2, 1               //326
+    mov x3, 2
+    mov x4, 30
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 1               //510
+    add x2, x2, 0               //326
+    mov x3, 29
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //509
+    add x2, x2, 1               //327
+    mov x3, 25
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //508
+    add x2, x2, 1               //328
+    mov x3, 20
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //507
+    add x2, x2, 1               //329
+    mov x3, 18
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //506
+    add x2, x2, 1               //330
+    mov x3, 16
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //505
+    add x2, x2, 3               //333
+    mov x3, 11
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //504
+    add x2, x2, 5               //338
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 27              //477
+    add x2, x2, 14              //352
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //478
+    sub x2, x2, 3               //349
+    mov x3, 16
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //479
+    sub x2, x2, 2               //347
+    mov x3, 18
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //480
+    sub x2, x2, 1               //346
+    mov x3, 20
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //481
+    sub x2, x2, 2               //344
+    mov x3, 23
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //482
+    sub x2, x2, 2               //342
+    mov x3, 26
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //483
+    sub x2, x2, 2               //340
+    mov x3, 28
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //484
+    sub x2, x2, 2               //338
+    mov x3, 30
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //485
+    sub x2, x2, 2               //336
+    mov x3, 31
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //486
+    sub x2, x2, 2               //334
+    mov x3, 33
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //487
+    sub x2, x2, 1               //333
+    mov x3, 33
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //488
+    sub x2, x2, 1               //332
+    mov x3, 34
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //489
+    sub x2, x2, 1               //331
+    mov x3, 33
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //490
+    sub x2, x2, 2               //329
+    mov x3, 34
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //491
+    add x2, x2, 1               //330
+    mov x3, 32
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //492
+    add x2, x2, 0               //330
+    mov x3, 31
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //493
+    add x2, x2, 1               //331
+    mov x3, 28
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //494
+    add x2, x2, 0               //331
+    mov x3, 27
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //495
+    add x2, x2, 0               //331
+    mov x3, 24
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //496
+    add x2, x2, 0               //331
+    mov x3, 21
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //497
+    add x2, x2, 0               //331
+    mov x3, 19
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //498
+    add x2, x2, 1               //332
+    mov x3, 2
+    mov x4, 14
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 2               //500
+    add x2, x2, 0               //332
+    mov x3, 12
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //501
+    add x2, x2, 0               //332
+    mov x3, 7
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //502
+    add x2, x2, 0               //332
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //503
+    add x2, x2, 0               //332
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 2               //501
+    add x2, x2, 20              //352
+    mov x3, 8
+    mov x4, 2
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 1               //500
+    sub x2, x2, 3               //349
+    mov x3, 8
+    mov x4, 3
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 0               //500
+    sub x2, x2, 1               //348
+    mov x3, 7
+    mov x4, 0
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 0               //500
+    sub x2, x2, 1               //347
+    mov x3, 6
+    mov x4, 0
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //501
+    sub x2, x2, 2               //345
+    mov x3, 4
+    mov x4, 2
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 1               //502
+    sub x2, x2, 5               //340
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //503
+    add x2, x2, 2               //342
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 96               //599
+    add x2, x2, 136              //478
+    mov x3, 5
+    mov x4, 3
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 1                //600
+    sub x2, x2, 1                //477
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //601
+    sub x2, x2, 3                //474
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //600
+    sub x2, x2, 10               //464
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //599
+    sub x2, x2, 5                //459
+    mov x3, 14
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //598
+    sub x2, x2, 6                //453
+    mov x3, 15
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //597
+    sub x2, x2, 5                //448
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //596
+    sub x2, x2, 5                //443
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //595
+    sub x2, x2, 8                //435
+    mov x3, 12
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //594
+    sub x2, x2, 6                //429
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //593
+    sub x2, x2, 4                //425
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //592
+    sub x2, x2, 5                //420
+    mov x3, 15
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //591
+    sub x2, x2, 10               //410
+    mov x3, 15
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //590
+    sub x2, x2, 4                //406
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 2                //588
+    sub x2, x2, 20               //386
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 2                //586
+    sub x2, x2, 21               //365
+    mov x3, 10
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 17               //569
+    sub x2, x2, 62               //303
+    mov x3, 115
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+
+    mov x0, x20
+    sub x1, x1, 1                //568
+    sub x2, x2, 0                //303
+    mov x3, 77
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //567
+    sub x2, x2, 1                //302
+    mov x3, 77
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //566
+    sub x2, x2, 0                //302
+    mov x3, 63
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //565
+    sub x2, x2, 0                //302
+    mov x3, 56
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 5                //570
+    add x2, x2, 1                //303
+    mov x3, 40
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //571
+    add x2, x2, 1                //304
+    mov x3, 39
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //572
+    add x2, x2, 1                //305
+    mov x3, 2
+    mov x4, 38
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 2                //574
+    add x2, x2, 1                //306
+    mov x3, 37
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //575
+    add x2, x2, 2                //308
+    mov x3, 35
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //576
+    add x2, x2, 1                //309
+    mov x3, 34
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //577
+    add x2, x2, 4                //313
+    mov x3, 30
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //578
+    add x2, x2, 2                //315
+    mov x3, 28
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //579
+    add x2, x2, 4                //319
+    mov x3, 24
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //580
+    add x2, x2, 4                //323
+    mov x3, 20
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //581
+    add x2, x2, 3                //326
+    mov x3, 17
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //582
+    add x2, x2, 7                //333
+    mov x3, 17
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //583
+    add x2, x2, 6                //339
+    mov x3, 17
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 19               //564
+    sub x2, x2, 37               //302
+    mov x3, 51
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //563
+    sub x2, x2, 0                //302
+    mov x3, 48
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 2                //561
+    sub x2, x2, 0                //302
+    mov x3, 2
+    mov x4, 45
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 1                //560
+    sub x2, x2, 0                //302
+    mov x3, 44
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //559
+    sub x2, x2, 0                //302
+    mov x3, 43
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //558
+    sub x2, x2, 5                //297
+    mov x3, 46
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //557
+    sub x2, x2, 0                //297
+    mov x3, 44
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //556
+    add x2, x2, 1                //298
+    mov x3, 40
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //555
+    add x2, x2, 0                //298
+    mov x3, 38
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //554
+    add x2, x2, 1                //299
+    mov x3, 36
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //553
+    add x2, x2, 0                //299
+    mov x3, 35
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //552
+    add x2, x2, 0                //299
+    mov x3, 34
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //551
+    add x2, x2, 1                //300
+    mov x3, 32
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //550
+    add x2, x2, 0                //300
+    mov x3, 31
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //549
+    add x2, x2, 0                //300
+    mov x3, 30
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //548
+    add x2, x2, 1                //301
+    mov x3, 28
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //547
+    add x2, x2, 0                //301
+    mov x3, 27
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //546
+    add x2, x2, 1                //302
+    mov x3, 25
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //545
+    add x2, x2, 0                //302
+    mov x3, 24
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //544
+    add x2, x2, 1                //303
+    mov x3, 22
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //543
+    add x2, x2, 0                //303
+    mov x3, 21
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //542
+    add x2, x2, 0                //303
+    mov x3, 20
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //541
+    add x2, x2, 1                //304
+    mov x3, 18
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 2                //539
+    add x2, x2, 0                //304
+    mov x3, 2
+    mov x4, 17
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 1                //538
+    add x2, x2, 1                //305
+    mov x3, 15
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //537
+    add x2, x2, 0                //305
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1                //536
+    add x2, x2, 0                //305
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 3                //533
+    add x2, x2, 1                //306
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1                //534
+    add x2, x2, 1                //307
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 7                //541
+    add x2, x2, 6                //313
+    mov x3, 16
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 15               //556
+    add x2, x2, 1                //314
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 3                //559
+    add x2, x2, 1                //315
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2                //561
+    add x2, x2, 1                //316
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 3                //564
+    add x2, x2, 1                //317
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 22               //542
+    sub x2, x2, 2                //315
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //543
+    add x2, x2, 1               //316
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //544
+    add x2, x2, 1               //317
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //545
+    add x2, x2, 1               //318
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //546
+    add x2, x2, 1               //319
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2               //548
+    add x2, x2, 1               //320
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //549
+    add x2, x2, 1               //321
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //550
+    add x2, x2, 1               //322
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2               //552
+    add x2, x2, 1               //323
+    mov x3, 2
+    mov x4, 2
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 1               //553
+    add x2, x2, 2               //325
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2               //555
+    add x2, x2, 1               //326
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //556
+    add x2, x2, 1               //327
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //557
+    add x2, x2, 1               //328
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //558
+    add x2, x2, 1               //329
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //559
+    add x2, x2, 1               //330
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 0               //559
+    sub x2, x2, 29              //301
+    mov x3, 10
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 9               //568
+    add x2, x2, 1               //302
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 3               //571
+    add x2, x2, 1               //303
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //572
+    add x2, x2, 1               //304
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2               //574
+    sub x2, x2, 1               //303
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //575
+    sub x2, x2, 4               //299
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //574
+    sub x2, x2, 4               //295
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //573
+    sub x2, x2, 2               //293
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //572
+    sub x2, x2, 1               //292
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //571
+    sub x2, x2, 3               //289
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 45              //526
+    add x2, x2, 18              //307
+    mov x3, 8
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 7               //533
+    add x2, x2, 1               //308
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 3               //536
+    add x2, x2, 1               //309
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //537
+    add x2, x2, 1               //310
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //538
+    add x2, x2, 1               //311
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //537
+    add x2, x2, 5               //316
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //536
+    add x2, x2, 2               //318
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 14              //522
+    add x2, x2, 0               //318
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //523
+    sub x2, x2, 2               //316
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //522
+    sub x2, x2, 4               //312
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //523
+    sub x2, x2, 2               //310
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //522
+    sub x2, x2, 1               //309
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 3               //525
+    sub x2, x2, 1               //308
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+ 
+    mov x0, x20
+    add x1, x1, 1               //526
+    add x2, x2, 5               //313
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 0               //526
+    sub x2, x2, 2               //311
+    mov x3, 2
+    mov x4, 2
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 2               //528
+    sub x2, x2, 1               //310
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //529
+    sub x2, x2, 0               //310
+    mov x3, 5
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 4               //533
+    add x2, x2, 1               //311
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //534
+    add x2, x2, 1               //312
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //533
+    add x2, x2, 3               //315
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //532
+    add x2, x2, 2               //317
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 4               //528
+    add x2, x2, 1               //318
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //527
+    sub x2, x2, 1               //317
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 39              //488
+    add x2, x2, 3               //320
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //489
+    sub x2, x2, 1               //319
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //490
+    sub x2, x2, 1               //318
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //491
+    sub x2, x2, 1               //317
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //492
+    sub x2, x2, 1               //316
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //493
+    sub x2, x2, 0               //316
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2               //495
+    add x2, x2, 1               //317
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //496
+    add x2, x2, 2               //319
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //497
+    add x2, x2, 2               //321
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //498
+    add x2, x2, 1               //322
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 4               //502
+    sub x2, x2, 1               //321
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //503
+    sub x2, x2, 1               //320
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //504
+    sub x2, x2, 3               //317
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //505
+    add x2, x2, 2               //319
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //506
+    add x2, x2, 0               //319
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 3               //503
+    sub x2, x2, 7               //312
+    mov x3, 2
+    mov x4, 2
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 1               //504
+    add x2, x2, 2               //314
+    mov x3, 2
+    mov x4, 3
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 2               //506
+    add x2, x2, 2               //316
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 2               //504
+    sub x2, x2, 9               //307
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2               //506
+    add x2, x2, 1               //308
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //507
+    add x2, x2, 1               //309
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //508
+    add x2, x2, 0               //309
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //509
+    add x2, x2, 5               //314
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //510
+    add x2, x2, 0               //314
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 11              //499
+    sub x2, x2, 11              //303
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //500
+    sub x2, x2, 1               //302
+    mov x3, 9
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 7               //507
+    add x2, x2, 1               //303
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2               //509
+    add x2, x2, 1               //304
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //510
+    add x2, x2, 1               //305
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //511
+    add x2, x2, 1               //306
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //512
+    add x2, x2, 6               //312
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 3               //515
+    add x2, x2, 1               //313
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 3               //518
+    add x2, x2, 1               //314
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 5               //513
+    sub x2, x2, 3               //311
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //514
+    sub x2, x2, 8               //303
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //515
+    add x2, x2, 1               //304
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2               //517
+    add x2, x2, 1               //305
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //518
+    add x2, x2, 1               //306
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //519
+    add x2, x2, 1               //307
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //520
+    add x2, x2, 1               //308
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 32              //488
+    add x2, x2, 6               //314
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //489
+    sub x2, x2, 2               //312
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //490
+    sub x2, x2, 1               //311
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //491
+    sub x2, x2, 2               //309
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //492
+    sub x2, x2, 1               //308
+    mov x3, 2
+    mov x4, 2
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 2               //494
+    sub x2, x2, 3               //305
+    mov x3, 11
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //495
+    sub x2, x2, 7               //298
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //496
+    sub x2, x2, 0               //298
+    mov x3, 2
+    mov x4, 2
+    movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 2               //498
+    add x2, x2, 32              //330
+    mov x3, 5
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 4               //494
+    sub x2, x2, 1               //329
+    mov x3, 11
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 2               //492
+    sub x2, x2, 1               //328
+    mov x3, 14
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //491
+    sub x2, x2, 1               //327
+    mov x3, 15
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 0               //491
+    sub x2, x2, 1               //326
+    mov x3, 16
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //490
+    sub x2, x2, 3               //323
+    mov x3, 17
+    mov x4, 3
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 1               //489
+    sub x2, x2, 1               //322
+    mov x3, 8
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 0               //489
+    sub x2, x2, 1               //321
+    mov x3, 7
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //490
+    sub x2, x2, 1               //320
+    mov x3, 6
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //491
+    sub x2, x2, 1               //319
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //492
+    sub x2, x2, 1               //318
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //493
+    sub x2, x2, 1               //317
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 4               //489
+    sub x2, x2, 2               //315
+    mov x3, 4
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //490
+    sub x2, x2, 2               //313
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //491
+    sub x2, x2, 1               //312
+    mov x3, 5
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //492
+    sub x2, x2, 2               //310
+    mov x3, 2
+    mov x4, 6
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 11              //503
+    add x2, x2, 12              //322
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //504
+    sub x2, x2, 1               //321
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //505
+    sub x2, x2, 1               //320
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 4               //509
+    add x2, x2, 4               //324
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 0               //509
+    sub x2, x2, 1               //323
+    mov x3, 5
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //508
+    sub x2, x2, 1               //322
+    mov x3, 8
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 0               //508
+    sub x2, x2, 1               //321
+    mov x3, 10
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1               //507
+    sub x2, x2, 1               //320
+    mov x3, 13
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 0               //507
+    sub x2, x2, 1               //319
+    mov x3, 14
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 2               //505
+    sub x2, x2, 1               //318
+    mov x3, 17
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 0               //505
+    sub x2, x2, 1               //317
+    mov x3, 18
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 5               //510
+    sub x2, x2, 2               //315
+    mov x3, 12
+    mov x4, 2
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 2               //512
+    sub x2, x2, 1               //314
+    mov x3, 6
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 0               //512
+    sub x2, x2, 1               //313
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 3               //515
+    sub x2, x2, 8               //305
+    mov x3, 7
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //516
+    sub x2, x2, 0               //305
+    mov x3, 8
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //517
+    add x2, x2, 1               //306
+    mov x3, 7
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //518
+    add x2, x2, 1               //307
+    mov x3, 7
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //519
+    add x2, x2, 1               //308
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1               //520
+    add x2, x2, 1               //309
+    mov x3, 2
+    mov x4, 5
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 2               //522
+    add x2, x2, 1               //310
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 37              //559
+    sub x2, x2, 11              //299
+    mov x3, 15
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 0              //559
+    add x2, x2, 1              //300
+    mov x3, 16
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 10             //569
+    add x2, x2, 1              //301
+    mov x3, 6
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2              //571
+    add x2, x2, 1              //302
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2              //573
+    add x2, x2, 0              //302
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 45             //528
+    add x2, x2, 19             //321
+    mov x3, 5
+    mov x4, 0
+    movz x5, 0xff, lsl 16
+    movk x5, 0xc20e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 2             //526
+    sub x2, x2, 1             //320
+    mov x3, 8
+    mov x4, 0
+    movz x5, 0xff, lsl 16
+    movk x5, 0xc20e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1             //525
+    sub x2, x2, 1             //319
+    mov x3, 10
+    mov x4, 0
+    movz x5, 0xff, lsl 16
+    movk x5, 0xc20e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //526
+    sub x2, x2, 2             //317
+    mov x3, 2
+    mov x4, 1
+    movz x5, 0xff, lsl 16
+    movk x5, 0xc20e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 3             //523
+    sub x2, x2, 4             //313
+    mov x3, 3
+    mov x4, 1
+    movz x5, 0xff, lsl 16
+    movk x5, 0xc20e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //524
+    sub x2, x2, 3             //310
+    mov x3, 2
+    mov x4, 9
+    movz x5, 0xff, lsl 16
+    movk x5, 0xc20e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 2             //526
+    sub x2, x2, 0             //310
+    mov x3, 2
+    mov x4, 0
+    movz x5, 0xff, lsl 16
+    movk x5, 0xc20e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 0             //526
+    sub x2, x2, 1             //309
+    mov x3, 10
+    mov x4, 0
+    movz x5, 0xff, lsl 16
+    movk x5, 0xc20e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //527
+    sub x2, x2, 1             //308
+    mov x3, 6
+    mov x4, 0
+    movz x5, 0xff, lsl 16
+    movk x5, 0xc20e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 7             //534
+    add x2, x2, 2             //310
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0xff, lsl 16
+    movk x5, 0xc20e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //535
+    add x2, x2, 1             //311
+    mov x3, 3
+    mov x4, 5
+    movz x5, 0xff, lsl 16
+    movk x5, 0xc20e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 1             //534
+    add x2, x2, 5             //316
+    mov x3, 3
+    mov x4, 2
+    movz x5, 0xff, lsl 16
+    movk x5, 0xc20e, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 1             //533
+    add x2, x2, 2             //318
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0xff, lsl 16
+    movk x5, 0xc20e, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 5             //528
+    sub x2, x2, 1             //317
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0xff, lsl 16
+    movk x5, 0x0015, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1             //527
+    sub x2, x2, 2             //315
+    mov x3, 6
+    mov x4, 2
+    movz x5, 0xff, lsl 16
+    movk x5, 0x0015, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 0             //527
+    sub x2, x2, 2             //313
+    mov x3, 7
+    mov x4, 2
+    movz x5, 0xff, lsl 16
+    movk x5, 0x0015, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 1             //528
+    sub x2, x2, 1             //312
+    mov x3, 6
+    mov x4, 0
+    movz x5, 0xff, lsl 16
+    movk x5, 0x0015, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1             //529
+    sub x2, x2, 1             //311
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0xff, lsl 16
+    movk x5, 0x0015, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 31            //498
+    add x2, x2, 10            //321
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1            //497
+    sub x2, x2, 1            //320
+    mov x3, 6
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 0            //497
+    sub x2, x2, 1            //319
+    mov x3, 7
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 1            //496
+    sub x2, x2, 3            //316
+    mov x3, 8
+    mov x4, 3
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 1            //495
+    sub x2, x2, 2            //314
+    mov x3, 9
+    mov x4, 2
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 0            //495
+    sub x2, x2, 2            //312
+    mov x3, 8
+    mov x4, 2
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 0            //495
+    sub x2, x2, 1            //311
+    mov x3, 13
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 0            //495
+    sub x2, x2, 2            //309
+    mov x3, 12
+    mov x4, 2
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 0            //495
+    sub x2, x2, 1            //308
+    mov x3, 11
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 0            //495
+    sub x2, x2, 1            //307
+    mov x3, 9
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 0            //495
+    sub x2, x2, 1            //306
+    mov x3, 16
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //496
+    sub x2, x2, 1            //305
+    mov x3, 14
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 0            //496
+    sub x2, x2, 1            //304
+    mov x3, 13
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 0            //496
+    sub x2, x2, 1            //303
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 0            //496
+    sub x2, x2, 1            //302
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 0            //496
+    sub x2, x2, 1            //301
+    mov x3, 16
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 0            //496
+    sub x2, x2, 1            //300
+    mov x3, 15
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2            //498
+    sub x2, x2, 1            //299
+    mov x3, 12
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 11           //509
+    add x2, x2, 3            //302
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //510
+    add x2, x2, 1            //303
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //511
+    add x2, x2, 1            //304
+    mov x3, 3
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //512
+    add x2, x2, 1            //305
+    mov x3, 7
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 1            //513
+    add x2, x2, 0            //305
+    mov x3, 6
+    mov x4, 1
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    sub x1, x1, 12           //501
+    sub x2, x2, 2            //303
+    mov x3, 6
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 6            //507
+    add x2, x2, 4            //307
+    mov x3, 4
+    mov x4, 0
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_linea
+    
+    mov x0, x20
+    add x1, x1, 2            //509
+    add x2, x2, 1            //308
+    mov x3, 2
+    mov x4, 6
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    sub x1, x1, 4            //505
+    add x2, x2, 4            //312
+    mov x3, 3
+    mov x4, 2
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_rect
+    
+    mov x0, x20
+    add x1, x1, 1            //506
+    add x2, x2, 2            //314
+    mov x3, 2
+    mov x4, 2
+    movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+    bl dibujar_rect
+    
+    mov lr,x21
+    ret
+    
+dibujar_cabeza:
+	mov x21, lr
+
+	mov x0, x20
+	add x1, x1, 25
+	add x2, x2, 26
+	mov x3, 14
+	mov x4, 42
+	movz x5, 0x09, lsl 16
+	movk x5, 0x0f3b, lsl 0
+	bl dibujar_rect
+
+	mov x0, x20
+	sub x1, x1, 4
+	add x2, x2, 33
+	mov x3, 4
+	mov x4, 9
+	bl dibujar_rect
+
+	mov x0, x20
+	sub x1, x1, 5
+	add x2, x2, 9
+	mov x3, 70
+	mov x4, 13
+	bl dibujar_rect
+
+	mov x0, x20
+	add x1, x1, 9
+	add x2, x2, 13
+	mov x3, 61
+	mov x4, 9
+	bl dibujar_rect
+
+	mov x0, x20
+	add x1, x1, 54
+	add x2, x2, 3
+	mov x3, 4
+	mov x4, 9
+	movz x5, 0x07, lsl 16
+	movk x5, 0x136e, lsl 0
+	bl dibujar_rect
+
+	mov x0, x20
+	add x1, x1, 27
+	sub x2, x2, 26
+	mov x3, 10
+	mov x4, 20
+	bl dibujar_rect
+
+	mov x0, x20
+	sub x2, x2, 11
+	mov x3, 5
+	mov x4, 11
+	bl dibujar_rect
+	
+	mov x0, x20
+	add x1, x1, 1
+	sub x2, x2, 24
+	mov x3, 6
+	mov x4, 7
+	bl dibujar_rect
+
+	mov x0, x20
+	sub x1, x1, 6
+	sub x2, x2, 5
+	mov x3, 6
+	mov x4, 8
+	bl dibujar_rect
+
+	mov x0, x20
+	sub x1, x1, 15
+	sub x2, x2, 7
+	mov x3, 15
+	mov x4, 15
+	bl dibujar_rect
+
+	mov x0, x20
+	sub x2, x2, 5
+	mov x3, 9
+	mov x4, 5
+	bl dibujar_rect
+
+	mov x0, x20
+	sub x1, x1, 20
+	sub x2, x2, 5
+	mov x3, 20
+	mov x4, 25
+	bl dibujar_rect
+
+	mov x0, x20
+	sub x1, x1, 11
+	add x2, x2, 3
+	mov x3, 11
+	mov x4, 4
+	bl dibujar_rect
+
+	mov x0, x20
+	sub x1, x1, 5
+	add x2, x2, 4
+	mov x3, 16
+	mov x4, 4
+	bl dibujar_rect
+
+	mov x0, x20
+	sub x1, x1, 10
+	add x2, x2, 4
+	mov x3, 26
+	mov x4, 6
+	bl dibujar_rect
+
+	mov x0, x20
+	sub x1, x1, 7
+	add x2, x2, 6
+	mov x3, 33
+	mov x4, 8
+	bl dibujar_rect
+
+	mov x0, x20
+	sub x1, x1, 8
+	add x2, x2, 8
+	mov x3, 5
+	mov x4, 10
+	bl dibujar_rect
+
+	mov x0, x20
+	add x1, x1, 15
+	mov x3, 15
+	mov x4, 13
+	bl dibujar_rect
+	
+	mov x0, x20
+	add x1, x1, 15
+	mov x3, 6
+	mov x4, 7
+	bl dibujar_rect
+
+	mov x0, x20
+	add x1, x1, 21
+	mov x3, 7
+	mov x4, 11
+	bl dibujar_rect
+
+	mov x0, x20
+	add x1, x1, 7
+	mov x3, 23
+	mov x4, 67
+	bl dibujar_rect
+
+	mov x0, x20
+	sub x1, x1, 63
+	add x2, x2, 21
+	mov x3, 6
+	mov x4, 10
+	bl dibujar_rect
+
+	mov x0, x20
+	sub x1, x1, 4
+	add x2, x2, 18
+	mov x3, 4
+	mov x4, 16
+	bl dibujar_rect
+
+	mov x0, x20
+	sub x1, x1, 1
+	add x2, x2, 7
+	mov x3, 3
+	mov x4, 1
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 4
+	add x2, x2, 9
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	sub x2, x2, 3
+	mov x3, 5
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	add x2, x2, 2
+	mov x3, 5
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	add x2, x2, 1
+	mov x3, 4
+	bl dibujar_linea
+	
+	mov x0, x20
+	add x1, x1, 1
+	add x2, x2, 1
+	mov x3, 4
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	add x2, x2, 2
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	add x2, x2, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	add x2, x2, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	add x2, x2, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	add x2, x2, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	add x2, x2, 2
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 51
+	sub x2, x2, 8
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 24
+	add x2, x2, 5
+	mov x3, 6
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	add x2, x2, 2
+	mov x3, 4
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	add x2, x2, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 10
+	sub x2, x2, 24
+	mov x3, 5
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 8
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	sub x2, x2, 2
+	mov x3, 11
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 3
+	sub x2, x2, 6
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	sub x2, x2, 2
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	sub x2, x2, 2
+	mov x3, 5
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 3
+	sub x2, x2, 8
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	sub x2, x2, 3
+	mov x3, 6
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x2, x2, 15
+	mov x3, 4
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 7
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 10
+	sub x2, x2, 9
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	sub x2, x2, 2
+	mov x3, 4
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 69
+	add x2, x2, 7
+	mov x3, 5
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	mov x3, 5
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	add x2, x2, 1
+	mov x3, 6
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	add x2, x2, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	add x2, x2, 1
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	add x2, x2, 1
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 8
+	add x2, x2, 1
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	mov x3, 5
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	mov x3, 7
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	mov x3, 8
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 22
+	mov x3, 4
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 9
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	mov x3, 4
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	mov x3, 5
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 3
+	add x2, x2, 11
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	mov x3, 5
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	mov x3, 7
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	mov x3, 11
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 55
+	sub x2, x2, 1
+	mov x3, 5
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	mov x3, 9
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	mov x3, 11
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	add x2, x2, 2
+	mov x3, 9
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	add x2, x2, 5
+	mov x3, 4
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	add x2, x2, 2
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	add x2, x2, 12
+	mov x3, 4
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	mov x3, 6
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	mov x3, 8
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	mov x3, 11
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	add x2, x2, 3
+	mov x3, 5
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	add x2, x2, 3
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 54
+	add x2, x2, 29
+	mov x3, 7
+	mov x4, 0
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 6
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 2
+	sub x2, x2, 1
+	mov x3, 4
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 28
+	sub x2, x2, 5
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x2, x2, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x2, x2, 1
+	mov x3, 4
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x2, x2, 1
+	mov x3, 6
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x2, x2, 1
+	mov x3, 6
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x2, x2, 48
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	sub x2, x2, 8
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x2, x2, 1
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 12
+	sub x2, x2, 11
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x2, x2, 1
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 9
+	sub x2, x2, 4
+	mov x3, 5
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x2, x2, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x2, x2, 1
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 23
+	sub x2, x2, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 3
+	add x2, x2, 1
+	mov x3, 6
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 7
+	add x2, x2, 4
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 4
+	add x2, x2, 2
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 2
+	add x2, x2, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 3
+	add x2, x2, 1
+	mov x3, 6
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 5
+	add x2, x2, 3
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	add x2, x2, 1
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	add x2, x2, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	add x2, x2, 1
+	mov x3, 4
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 6
+	add x2, x2, 22
+	mov x3, 10
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 2
+	add x2, x2, 1
+	mov x3, 7
+	bl dibujar_linea
+
+	mov x0, x20
+	add x2, x2, 1
+	mov x3, 6
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	add x2, x2, 1
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 10
+	sub x2, x2, 7
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x2, x2, 1
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x2, x2, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0,x20
+	add x1, x1, 7
+	sub x2, x2, 2
+	mov x3, 14
+	mov x4, 7
+	movz x5, 0x9C, lsl 16
+	movk x5, 0x9C9C, lsl 0
+	bl dibujar_rect
+
+	mov x0,x20
+	add x2, x2, 7
+	mov x3, 17
+	mov x4, 48
+	bl dibujar_rect
+
+	mov x0,x20
+	sub x1, x1, 11
+	add x2, x2, 3
+	mov x3, 11
+	mov x4, 44
+	bl dibujar_rect
+
+	mov x0,x20
+	sub x1, x1, 9
+	add x2, x2, 3
+	mov x3, 9
+	mov x4, 20
+	bl dibujar_rect
+
+	mov x0,x20
+	sub x1, x1, 8
+	sub x2, x2, 10
+	mov x3, 6
+	mov x4, 5
+	bl dibujar_rect
+
+	mov x0,x20
+	sub x1, x1, 2
+	add x2, x2, 5
+	mov x3, 10
+	mov x4, 25
+	bl dibujar_rect
+
+	mov x0,x20
+	add x1, x1, 7
+	add x2, x2, 25
+	mov x3, 12
+	mov x4, 12
+	bl dibujar_rect
+
+	mov x0, x20
+	sub x1, x1, 1
+	mov x3, 9
+	mov x4, 1
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	mov x3, 8
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	mov x3, 6
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	mov x3, 5
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	sub x2, x2, 27
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 2
+	sub x2, x2, 5
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	add x2, x2, 1
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 43
+	add x2, x2, 10
+	mov x3, 31
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	add x2, x2, 2
+	mov x3, 28
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	add x2, x2, 4
+	mov x3, 23
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	add x2, x2, 4
+	mov x3, 16
+	bl dibujar_linea
+
+	mov x0,x20
+	sub x1, x1, 19
+	add x2, x2, 33
+	mov x3, 10
+	mov x4, 0
+	bl dibujar_linea
+
+	mov x0,x20
+	add x2, x2, 1
+	mov x3, 7
+	bl dibujar_linea
+
+	mov x0,x20
+	add x2, x2, 1
+	mov x3, 4
+	bl dibujar_linea
+
+	mov x0,x20
+	add x1, x1, 1
+	add x2, x2, 1
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0,x20
+	sub x1, x1, 9
+	sub x2, x2, 4
+	mov x3, 4
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 22
+	add x2, x2, 7
+	mov x3, 16
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 2
+	sub x2, x2, 1
+	mov x3, 13
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x2, x2, 1
+	mov x3, 13
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 11
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 10
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 2
+	sub x2, x2, 1
+	mov x3, 7
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 6
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 2
+	sub x2, x2, 1
+	mov x3, 4
+	bl dibujar_linea
+
+	mov x0, x20
+	add x1, x1, 7
+	sub x2, x2, 3
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 2
+	sub x2, x2, 1
+	mov x3, 5
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 6
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 7
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 2
+	sub x2, x2, 1
+	mov x3, 9
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 10
+	bl dibujar_linea
+
+	mov x0,x20
+	add x1, x1, 1
+	sub x2, x2, 33
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0,x20
+	sub x2, x2, 1
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0,x20
+	add x1, x1, 11
+	sub x2, x2, 1
+	mov x3, 9
+	bl dibujar_linea
+
+	mov x0,x20
+	add x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 8
+	bl dibujar_linea
+
+	mov x0,x20
+	add x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 7
+	bl dibujar_linea
+
+	mov x0,x20
+	add x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 6
+	bl dibujar_linea
+
+	mov x0,x20
+	add x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 5
+	bl dibujar_linea
+
+	mov x0,x20
+	add x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 4
+	bl dibujar_linea
+
+	mov x0,x20
+	add x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0,x20
+	add x1, x1, 2
+	sub x2, x2, 1
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0,x20
+	add x1, x1, 4
+	sub x2, x2, 3
+	mov x3, 7
+	bl dibujar_linea
+
+	mov x0,x20
+	add x1, x1, 2
+	sub x2, x2, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0,x20
+	sub x1, x1, 22
+	add x2, x2, 14
+	mov x3, 5
+	mov x4, 3
+	movz x5, 0xff, lsl 16
+	movk x5, 0x0015, lsl 0
+	bl dibujar_rect
+
+	mov x0, x20
+	add x1, x1, 2
+	add x2, x2, 3
+	mov x3, 1
+	mov x4, 1
+	bl dibujar_rect
+
+	mov x0,x20
+	add x1, x1, 3
+	add x2, x2, 45
+	mov x3, 4
+	mov x4, 2
+	movz x5, 0xff, lsl 16
+	movk x5, 0xffff,lsl 0
+	bl dibujar_rect
+
+	mov x0,x20
+	add x1, x1, 3
+	sub x2, x2, 1
+	mov x3, 10
+	mov x4, 3
+	bl dibujar_rect
+
+	mov x0,x20
+	add x1, x1, 10
+	add x2, x2, 1
+	mov x3, 7
+	mov x4, 2
+	bl dibujar_rect
+
+	mov x0,x20
+	add x1, x1, 5
+	sub x2, x2, 3
+	mov x3, 6
+	mov x4, 3
+	bl dibujar_rect
+
+	mov x0,x20
+	add x1, x1, 6
+	sub x2, x2, 1
+	mov x3, 2
+	mov x4, 0
+	bl dibujar_linea
+
+	mov x0, x20
+	sub x1, x1, 8
+	add x2, x2, 3
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0,x20
+	sub x1, x1, 7
+	sub x2, x2, 1
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0,x20
+	sub x1, x1, 10
+	add x2, x2, 2
+	mov x3, x5
+	bl dibujar_punto
+
+	mov x0,x20
+	add x1, x1, 12
+	sub x2, x2, 3
+	bl dibujar_punto
+
+	mov x0,x20
+	add x1, x1, 9
+	add x2, x2, 3
+	bl dibujar_punto
+
+	mov x0,x20
+	add x1, x1, 4
+	sub x2, x2, 3
+	bl dibujar_punto
+
+	mov x0,x20
+	add x1, x1, 2
+	sub x2, x2, 2
+	bl dibujar_punto
+
+	mov x0,x20
+	add x1, x1, 1
+	sub x2, x2, 1
+	bl dibujar_punto
+
+	mov x0,x20
+	add x1, x1, 1
+	sub x2, x2, 1
+	bl dibujar_punto
+
+	mov x0,x20
+	sub x1, x1, 18
+	sub x2, x2, 51
+	mov x3, 1
+	mov x4, 0
+	movz x5, 0x30, lsl 16
+	movk x5, 0x1270, lsl 0
+	bl dibujar_linea
+
+	mov x0,x20
+	add x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0,x20
+	add x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0,x20
+	add x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 2
+	bl dibujar_linea
+
+	mov x0,x20
+	sub x2, x2, 1
+	mov x3, 4
+	bl dibujar_linea
+
+	mov x0,x20
+	add x1, x1, 1
+	sub x2, x2, 1
+	mov x3, 8
+	bl dibujar_linea
+
+	mov x0,x20
+	add x1, x1, 2
+	sub x2, x2, 1
+	mov x3, 5
+	bl dibujar_linea
+
+	mov x0,x20
+	add x1, x1, 2
+	sub x2, x2, 1
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0,x20
+	add x1, x1, 2
+	add x2, x2, 3
+	mov x3, 3
+	bl dibujar_linea
+
+	mov x0,x20
+	add x1, x1, 2
+	add x2, x2, 1
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0,x20
+	sub x1, x1, 37
+	add x2, x2, 1
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0,x20
+	add x1, x1, 1
+	add x2, x2, 1
+	mov x3, 1
+	bl dibujar_linea
+
+	mov x0,x20
+	sub x1, x1, 4
+	add x2, x2, 14
+	mov x3, 4
+	mov x4, 4
+	movz x5, 0x00, lsl 16
+	movk x5, 0x0000, lsl 0
+	bl dibujar_rect
+
+	mov x0,x20
+	add x1, x1, 4
+	add x2, x2, 1
+	mov x3, 3
+	mov x4, 3
+	bl dibujar_rect
+
+	mov x0,x20
+	add x1, x1, 3
+	add x2, x2, 1
+	mov x3, 2
+	mov x4, 3
+	bl dibujar_rect
+
+	mov x0,x20
+	add x1, x1, 2
+	add x2, x2, 2
+	mov x3, 3
+	mov x4, 2
+	bl dibujar_rect
+
+	mov x0,x20
+	add x1, x1, 1
+	add x2, x2, 3
+	mov x3, 6
+	mov x4, 7
+	bl dibujar_rect
+
+	mov x0,x20
+	sub x1, x1, 7
+	mov x3, 2
+	mov x4, 7
+	bl dibujar_rect
+
+	mov x0,x20
+	add x1, x1, 5
+	add x2, x2, 4
+	mov x3, 2
+	mov x4, 3
+	bl dibujar_rect
+
+	mov x0,x20
+	add x1, x1, 3
+	add x2, x2, 3
+	mov x3, 4
+	mov x4, 3
+	bl dibujar_rect
+
+	mov x0,x20
+	add x1, x1, 22
+	sub x2, x2, 14
+	mov x3, 3
+	mov x4, 3
+	bl dibujar_rect
+
+	mov x0,x20
+	add x1, x1, 3
+	sub x2, x2, 1
+	mov x3, 9
+	mov x4, 3
+	bl dibujar_rect
+
+	mov x0,x20
+	add x1, x1, 3
+	add x2, x2, 8
+	mov x3, 7
+	mov x4, 2
+	bl dibujar_rect
+
+	mov x0,x20
+	add x1, x1, 5
+	add x2, x2, 2
+	mov x3, 2
+	mov x4, 2
+	bl dibujar_rect
+
+	mov x0,x20
+	sub x1, x1, 7
+	mov x3, 7
+	mov x4, 6
+	bl dibujar_rect
+
+	mov x0,x20
+	add x1, x1, 2
+	add x2, x2, 6
+	mov x3, 3
+	mov x4, 2
+	bl dibujar_rect	/////72x62
+
+
+	mov lr, x21
+	ret
+// x = 465
+// y = 206
+dibujar_cara_contorno:
+    mov x21, lr
+    
+    mov x0,x20
+	add x1, x1, 63       //528
+	add x2, x2, 100      //306
+	mov x3, 5
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 4        //532
+	sub x2, x2, 1        //305
+	mov x3, 4
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 3        //535
+	sub x2, x2, 1        //304
+	mov x3, 4
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 3        //538
+	sub x2, x2, 1        //303
+	mov x3, 4
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 3        //541
+	sub x2, x2, 1        //302
+	mov x3, 4
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 3        //544
+	sub x2, x2, 1        //301
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 3        //547
+	sub x2, x2, 1        //300
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //549
+	sub x2, x2, 1        //299
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //551
+	sub x2, x2, 1        //298
+	mov x3, 4
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 3        //554
+	sub x2, x2, 1        //297
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //556
+	sub x2, x2, 1        //296
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //558
+	sub x2, x2, 1        //295
+	mov x3, 4
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 3        //561
+	sub x2, x2, 1        //294
+	mov x3, 4
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 4        //565
+	sub x2, x2, 1        //293
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //567
+	sub x2, x2, 1        //292
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //568
+	sub x2, x2, 1        //291
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 4        //572
+	sub x2, x2, 2        //289
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //573
+	sub x2, x2, 1        //288
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //574
+	sub x2, x2, 1        //287
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //575
+	sub x2, x2, 1        //286
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //577
+	sub x2, x2, 2        //284
+	mov x3, 2
+	mov x4, 2
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_rect
+	
+	mov x0,x20
+	add x1, x1, 2        //579
+	sub x2, x2, 0        //284
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //581
+	sub x2, x2, 4        //280
+	mov x3, 4
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //582
+	sub x2, x2, 1        //279
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //583
+	sub x2, x2, 2        //277
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //584
+	sub x2, x2, 6        //271
+	mov x3, 7
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //583
+	sub x2, x2, 2        //269
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //582
+	sub x2, x2, 1        //268
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //581
+	sub x2, x2, 2        //266
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //580
+	sub x2, x2, 2        //264
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //579
+	sub x2, x2, 2        //262
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //578
+	sub x2, x2, 2        //260
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //577
+	sub x2, x2, 2        //258
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //576
+	sub x2, x2, 3        //255
+	mov x3, 4
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //575
+	sub x2, x2, 2        //253
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //574
+	sub x2, x2, 2        //251
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //573
+	sub x2, x2, 3        //248
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //572
+	sub x2, x2, 2        //246
+	mov x3, 4
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //571
+	sub x2, x2, 6        //240
+	mov x3, 7
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //570
+	sub x2, x2, 4        //236
+	mov x3, 5
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //569
+	sub x2, x2, 1        //235
+	mov x3, 4
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //568
+	sub x2, x2, 1        //234
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //567
+	sub x2, x2, 1        //233
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //566
+	sub x2, x2, 2        //231
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //565
+	sub x2, x2, 1        //230
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 6        //571
+	add x2, x2, 7        //237
+	mov x3, 4
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 3        //574
+	sub x2, x2, 1        //236
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //576
+	sub x2, x2, 1        //235
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //578
+	sub x2, x2, 1        //234
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //579
+	sub x2, x2, 3        //231
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //578
+	sub x2, x2, 3        //228
+	mov x3, 4
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 3        //575
+	sub x2, x2, 0        //228
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2        //573
+	sub x2, x2, 1        //227
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //572
+	sub x2, x2, 1        //226
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //571
+	sub x2, x2, 3        //223
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2        //569
+	sub x2, x2, 0        //223
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //568
+	sub x2, x2, 1        //222
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //567
+	sub x2, x2, 1        //221
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 0        //567
+	sub x2, x2, 2        //219
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //566
+	sub x2, x2, 2        //217
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 3        //563
+	sub x2, x2, 1        //216
+	mov x3, 4
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2        //561
+	sub x2, x2, 1        //215
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //560
+	sub x2, x2, 1        //214
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //559
+	sub x2, x2, 1        //213
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2        //557
+	sub x2, x2, 1        //212
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //556
+	sub x2, x2, 1        //211
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2        //554
+	sub x2, x2, 1        //210
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2        //552
+	sub x2, x2, 1        //209
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2        //550
+	sub x2, x2, 1        //208
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2        //548
+	sub x2, x2, 1        //207
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 17       //531
+	sub x2, x2, 1        //206
+	mov x3, 18
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 4        //527
+	add x2, x2, 1        //207
+	mov x3, 6
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 3        //524
+	add x2, x2, 1        //208
+	mov x3, 4
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2        //522
+	add x2, x2, 1        //209
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2        //520
+	add x2, x2, 1        //210
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2        //518
+	add x2, x2, 1        //211
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //517
+	add x2, x2, 1        //212
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2        //515
+	add x2, x2, 1        //213
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2        //513
+	add x2, x2, 1        //214
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2        //511
+	add x2, x2, 1        //215
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2        //509
+	add x2, x2, 1        //216
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 3        //506
+	add x2, x2, 1        //217
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //505
+	add x2, x2, 1        //218
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2        //503
+	add x2, x2, 1        //219
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //502
+	add x2, x2, 1        //220
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //501
+	add x2, x2, 1        //221
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //500
+	add x2, x2, 1        //222
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //499
+	add x2, x2, 1        //223
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //498
+	add x2, x2, 1        //224
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //497
+	add x2, x2, 1        //225
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2        //495
+	add x2, x2, 1        //226
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //494
+	add x2, x2, 1        //227
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //493
+	add x2, x2, 1        //228
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //492
+	add x2, x2, 1        //229
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //491
+	add x2, x2, 1        //230
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //490
+	add x2, x2, 1        //231
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 0        //490
+	add x2, x2, 1        //232
+	mov x3, 9
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //489
+	add x2, x2, 8        //240
+	mov x3, 4
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //488
+	add x2, x2, 3        //243
+	mov x3, 6
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //487
+	add x2, x2, 5        //248
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //486
+	add x2, x2, 1        //249
+	mov x3, 5
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //485
+	add x2, x2, 4        //253
+	mov x3, 9
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //484
+	add x2, x2, 8        //261
+	mov x3, 5
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //483
+	add x2, x2, 5        //266
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //482
+	add x2, x2, 2        //268
+	mov x3, 4
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //481
+	add x2, x2, 3        //271
+	mov x3, 4
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //480
+	add x2, x2, 3        //274
+	mov x3, 4
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //479
+	add x2, x2, 3        //277
+	mov x3, 5
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //480
+	add x2, x2, 4        //281
+	mov x3, 5
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //481
+	add x2, x2, 3        //284
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //482
+	add x2, x2, 2        //286
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //483
+	add x2, x2, 1        //287
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //484
+	add x2, x2, 1        //288
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //485
+	add x2, x2, 1        //289
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //486
+	add x2, x2, 2        //291
+	mov x3, 2
+	mov x4, 2
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_rect
+	
+	mov x0,x20
+	add x1, x1, 2        //488
+	add x2, x2, 1        //292
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //489
+	add x2, x2, 1        //293
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //490
+	add x2, x2, 1        //294
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //491
+	add x2, x2, 1        //295
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //492
+	add x2, x2, 1        //296
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //493
+	add x2, x2, 1        //297
+	mov x3, 2
+	mov x4, 2
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_rect
+	
+	mov x0,x20
+	add x1, x1, 4        //497
+	sub x2, x2, 1        //296
+	mov x3, 3
+	mov x4, 2
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_rect
+	
+	mov x0,x20
+	add x1, x1, 2        //499
+	sub x2, x2, 1        //295
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //500
+	sub x2, x2, 1        //294
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //501
+	sub x2, x2, 1        //293
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //503
+	sub x2, x2, 1        //292
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //504
+	sub x2, x2, 1        //291
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //506
+	sub x2, x2, 1        //290
+	mov x3, 5
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 4        //510
+	add x2, x2, 1        //291
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //511
+	add x2, x2, 1        //292
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //512
+	add x2, x2, 1        //293
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //513
+	add x2, x2, 2        //295
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //514
+	add x2, x2, 3        //298
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //513
+	add x2, x2, 2        //300
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //512
+	add x2, x2, 0        //300
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //511
+	sub x2, x2, 2        //298
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //510
+	sub x2, x2, 1        //297
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //509
+	sub x2, x2, 1        //296
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 7        //502
+	add x2, x2, 2        //298
+	mov x3, 7
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //504
+	sub x2, x2, 1        //297
+	mov x3, 5
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //505
+	sub x2, x2, 1        //296
+	mov x3, 4
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //507
+	sub x2, x2, 1        //295
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 5        //512
+	add x2, x2, 3        //298
+	mov x3, 2
+	mov x4, 2
+	movz x5, 0x9c, lsl 16
+    movk x5, 0x9c9c, lsl 0
+	bl dibujar_rect
+	
+	mov x0,x20
+	add x1, x1, 2        //514
+	sub x2, x2, 2        //296
+	mov x3, 4
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 3        //517
+	sub x2, x2, 1        //295
+	mov x3, 7
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 7        //524
+	sub x2, x2, 1        //294
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //525
+	sub x2, x2, 1        //293
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //527
+	sub x2, x2, 2        //291
+	mov x3, 4
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 8        //519
+	add x2, x2, 1        //292
+	mov x3, 6
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 5        //524
+	sub x2, x2, 1        //291
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //526
+	sub x2, x2, 1        //290
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //528
+	sub x2, x2, 1        //289
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //530
+	sub x2, x2, 1        //288
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //532
+	sub x2, x2, 1        //287
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //534
+	sub x2, x2, 1        //286
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //536
+	sub x2, x2, 1        //285
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //537
+	sub x2, x2, 1        //284
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //538
+	sub x2, x2, 1        //283
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //540
+	sub x2, x2, 1        //282
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //541
+	sub x2, x2, 1        //281
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //543
+	sub x2, x2, 1        //280
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //545
+	sub x2, x2, 1        //279
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //546
+	sub x2, x2, 1        //278
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //548
+	sub x2, x2, 20       //258
+	mov x3, 28
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //547
+	add x2, x2, 17       //275
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 4        //543
+	add x2, x2, 7        //282
+	mov x3, 7
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //542
+	add x2, x2, 7        //289
+	mov x3, 5
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //541
+	add x2, x2, 1        //290
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2        //539
+	add x2, x2, 1        //291
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //538
+	add x2, x2, 1        //292
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 3        //535
+	add x2, x2, 1        //293
+	mov x3, 4
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 3        //532
+	add x2, x2, 1        //294
+	mov x3, 4
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2        //530
+	add x2, x2, 1        //295
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2        //528
+	add x2, x2, 1        //296
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //527
+	sub x2, x2, 1        //295
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //528
+	add x2, x2, 10       //305
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //529
+	sub x2, x2, 1        //304
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //530
+	sub x2, x2, 1        //303
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //531
+	sub x2, x2, 1        //302
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //533
+	sub x2, x2, 2        //300
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //534
+	sub x2, x2, 1        //299
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //535
+	sub x2, x2, 1        //298
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //536
+	sub x2, x2, 1        //297
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //537
+	sub x2, x2, 1        //296
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //538
+	sub x2, x2, 0        //296
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //539
+	sub x2, x2, 1        //295
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //540
+	sub x2, x2, 1        //294
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //541
+	sub x2, x2, 1        //293
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //542
+	sub x2, x2, 1        //292
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //543
+	sub x2, x2, 1        //291
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //544
+	sub x2, x2, 1        //290
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //546
+	sub x2, x2, 3        //287
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //547
+	sub x2, x2, 1        //286
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 25       //522
+	add x2, x2, 22       //308
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //521
+	sub x2, x2, 1        //307
+	mov x3, 5
+	mov x4, 0
+	movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //520
+	sub x2, x2, 1        //306
+	mov x3, 8
+	mov x4, 0
+	movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //519
+	sub x2, x2, 1        //305
+	mov x3, 9
+	mov x4, 0
+	movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //518
+	sub x2, x2, 1        //304
+	mov x3, 11
+	mov x4, 0
+	movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 3        //515
+	sub x2, x2, 1        //303
+	mov x3, 15
+	mov x4, 0
+	movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //514
+	sub x2, x2, 1        //302
+	mov x3, 17
+	mov x4, 0
+	movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 0        //514
+	sub x2, x2, 1        //301
+	mov x3, 19
+	mov x4, 0
+	movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //515
+	sub x2, x2, 1        //300
+	mov x3, 18
+	mov x4, 0
+	movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 0        //515
+	sub x2, x2, 1        //299
+	mov x3, 19
+	mov x4, 0
+	movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 0        //515
+	sub x2, x2, 1        //298
+	mov x3, 20
+	mov x4, 0
+	movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //514
+	sub x2, x2, 1        //297
+	mov x3, 22
+	mov x4, 0
+	movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 4        //518
+	sub x2, x2, 1        //296
+	mov x3, 10
+	mov x4, 0
+	movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 6        //524
+	sub x2, x2, 1        //295
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 7        //531
+	add x2, x2, 1        //296
+	mov x3, 6
+	mov x4, 0
+	movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //533
+	sub x2, x2, 1        //295
+	mov x3, 6
+	mov x4, 0
+	movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 3        //536
+	sub x2, x2, 1        //294
+	mov x3, 4
+	mov x4, 0
+	movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 3        //539
+	sub x2, x2, 1        //293
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //540
+	sub x2, x2, 1        //292
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+	bl dibujar_linea
+    
+    mov x0,x20
+	add x1, x1, 1        //541
+	sub x2, x2, 1        //291
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //542
+	sub x2, x2, 1        //290
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x01, lsl 16
+    movk x5, 0x0233, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 12       //530
+	add x2, x2, 15       //305
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1       //531
+	sub x2, x2, 1       //304
+	mov x3, 4
+	mov x4, 0
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1       //532
+	sub x2, x2, 1       //303
+	mov x3, 6
+	mov x4, 0
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2       //534
+	sub x2, x2, 1       //302
+	mov x3, 7
+	mov x4, 0
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 0       //534
+	sub x2, x2, 1       //301
+	mov x3, 10
+	mov x4, 0
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1       //535
+	sub x2, x2, 1       //300
+	mov x3, 12
+	mov x4, 0
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1       //536
+	sub x2, x2, 1       //299
+	mov x3, 13
+	mov x4, 0
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2       //538
+	sub x2, x2, 2       //297
+	mov x3, 14
+	mov x4, 0
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 8        //530
+	sub x2, x2, 39       //258
+	mov x3, 13
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 4        //526
+	add x2, x2, 1        //259
+	mov x3, 5
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //525
+	add x2, x2, 1        //260
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2        //523
+	add x2, x2, 1        //261
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 0        //523
+	add x2, x2, 1        //262
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 0        //523
+	add x2, x2, 3        //265
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //524
+	add x2, x2, 1        //266
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //525
+	add x2, x2, 1        //267
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //526
+	add x2, x2, 1        //268
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //528
+	add x2, x2, 1        //269
+	mov x3, 9
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 8        //536
+	sub x2, x2, 10       //259
+	mov x3, 7
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //535
+	add x2, x2, 1        //260
+	mov x3, 8
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //534
+	add x2, x2, 1        //261
+	mov x3, 9
+	mov x4, 2
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_rect
+	
+	mov x0,x20
+	sub x1, x1, 1        //533
+	add x2, x2, 2        //263
+	mov x3, 9
+	mov x4, 2
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_rect
+	
+	mov x0,x20
+	sub x1, x1, 0        //533
+	add x2, x2, 2        //265
+	mov x3, 8
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 4        //529
+	add x2, x2, 3        //268
+	mov x3, 7
+	mov x4, 0
+	movz x5, 0xff, lsl 16
+    movk x5, 0xffff, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2        //527
+	sub x2, x2, 1        //267
+	mov x3, 8
+	mov x4, 0
+	movz x5, 0xff, lsl 16
+    movk x5, 0xffff, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //526
+	sub x2, x2, 1        //266
+	mov x3, 8
+	mov x4, 0
+	movz x5, 0xff, lsl 16
+    movk x5, 0xffff, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //525
+	sub x2, x2, 1        //265
+	mov x3, 8
+	mov x4, 0
+	movz x5, 0xff, lsl 16
+    movk x5, 0xffff, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //524
+	sub x2, x2, 2        //263
+	mov x3, 9
+	mov x4, 2
+	movz x5, 0xff, lsl 16
+    movk x5, 0xffff, lsl 0
+	bl dibujar_rect
+	
+	mov x0,x20
+	sub x1, x1, 0        //524
+	sub x2, x2, 1        //262
+	mov x3, 10
+	mov x4, 0
+	movz x5, 0xff, lsl 16
+    movk x5, 0xffff, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //525
+	sub x2, x2, 1        //261
+	mov x3, 9
+	mov x4, 0
+	movz x5, 0xff, lsl 16
+    movk x5, 0xffff, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //527
+	sub x2, x2, 1        //260
+	mov x3, 8
+	mov x4, 0
+	movz x5, 0xff, lsl 16
+    movk x5, 0xffff, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 4        //531
+	sub x2, x2, 1        //259
+	mov x3, 5
+	mov x4, 0
+	movz x5, 0xff, lsl 16
+    movk x5, 0xffff, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 31       //500
+	sub x2, x2, 0        //259
+	mov x3, 13
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 0        //500
+	add x2, x2, 1        //260
+	mov x3, 2
+	mov x4, 6
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_rect
+	
+	mov x0,x20
+	add x1, x1, 1        //501
+	add x2, x2, 6        //266
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //502
+	add x2, x2, 0        //266
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 0        //502
+	add x2, x2, 2        //268
+	mov x3, 4
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 4        //506
+	add x2, x2, 1        //269
+	mov x3, 4
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1        //507
+	sub x2, x2, 9        //260
+	mov x3, 6
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //506
+	add x2, x2, 1        //261
+	mov x3, 7
+	mov x4, 2
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_rect
+	
+	mov x0,x20
+	sub x1, x1, 1        //505
+	add x2, x2, 2        //263
+	mov x3, 8
+	mov x4, 3
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_rect
+	
+	mov x0,x20
+	add x1, x1, 1        //506
+	add x2, x2, 3        //266
+	mov x3, 6
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //508
+	add x2, x2, 1        //267
+	mov x3, 4
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 6        //502
+	sub x2, x2, 7        //260
+	mov x3, 5
+	mov x4, 0
+	movz x5, 0xff, lsl 16
+    movk x5, 0xffff, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 0        //502
+	add x2, x2, 1        //261
+	mov x3, 4
+	mov x4, 2
+	movz x5, 0xff, lsl 16
+    movk x5, 0xffff, lsl 0
+	bl dibujar_rect
+	
+	mov x0,x20
+	sub x1, x1, 0        //502
+	add x2, x2, 2        //263
+	mov x3, 3
+	mov x4, 3
+	movz x5, 0xff, lsl 16
+    movk x5, 0xffff, lsl 0
+	bl dibujar_rect
+	
+	mov x0,x20
+	add x1, x1, 1        //503
+	add x2, x2, 3        //266
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0xff, lsl 16
+    movk x5, 0xffff, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 0        //503
+	add x2, x2, 1        //267
+	mov x3, 5
+	mov x4, 0
+	movz x5, 0xff, lsl 16
+    movk x5, 0xffff, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 3        //506
+	add x2, x2, 1        //268
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0xff, lsl 16
+    movk x5, 0xffff, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 7        //513
+	add x2, x2, 3        //271
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //512
+	add x2, x2, 1        //272
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1        //511
+	add x2, x2, 1        //273
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 0        //511
+	add x2, x2, 2        //275
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //513
+	add x2, x2, 1        //275
+	mov x3, 2
+	mov x4, 1
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 2        //515
+	add x2, x2, 7        //282
+	mov x3, 8
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 7        //522
+	add x2, x2, 1        //282
+	mov x3, 3
+	mov x4, 0
+	movz x5, 0x00, lsl 16
+    movk x5, 0x0000, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 25       //547
+	sub x2, x2, 26       //258
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 0       //547
+	sub x2, x2, 4       //254
+	mov x3, 5
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1       //546
+	sub x2, x2, 4       //250
+	mov x3, 5
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1       //545
+	sub x2, x2, 2       //248
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1       //544
+	sub x2, x2, 2       //246
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1       //543
+	sub x2, x2, 2       //244
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1       //542
+	sub x2, x2, 2       //242
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1       //541
+	sub x2, x2, 2       //240
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1       //540
+	sub x2, x2, 3       //237
+	mov x3, 4
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1       //539
+	sub x2, x2, 1       //236
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1       //538
+	sub x2, x2, 2       //234
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1       //537
+	sub x2, x2, 1       //233
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1       //536
+	sub x2, x2, 1       //232
+	mov x3, 3
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 2       //534
+	add x2, x2, 1       //233
+	mov x3, 2
+	mov x4, 0
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 7       //526
+	sub x2, x2, 3       //230
+	mov x3, 9
+	mov x4, 4
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_rect
+	
+	mov x0,x20
+	sub x1, x1, 2       //524
+	sub x2, x2, 0       //230
+	mov x3, 6
+	mov x4, 8
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_rect
+	
+	mov x0,x20
+	sub x1, x1, 7       //517
+	add x2, x2, 4       //234
+	mov x3, 9
+	mov x4, 6
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_rect
+	
+	mov x0,x20
+	sub x1, x1, 3       //514
+	add x2, x2, 4       //238
+	mov x3, 7
+	mov x4, 4
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_rect
+	
+	mov x0,x20
+	sub x1, x1, 6       //508
+	add x2, x2, 8       //246
+	mov x3, 8
+	mov x4, 4
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_rect
+	
+	mov x0,x20
+	add x1, x1, 8       //516
+	sub x2, x2, 2       //244
+	mov x3, 4
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1       //517
+	sub x2, x2, 1       //243
+	mov x3, 4
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1       //518
+	sub x2, x2, 1       //242
+	mov x3, 4
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1       //519
+	sub x2, x2, 1       //241
+	mov x3, 4
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1       //520
+	sub x2, x2, 1       //240
+	mov x3, 4
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1       //521
+	sub x2, x2, 1       //239
+	mov x3, 4
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1       //522
+	sub x2, x2, 1       //238
+	mov x3, 4
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1       //523
+	sub x2, x2, 1       //237
+	mov x3, 4
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 15      //508
+	add x2, x2, 8       //245
+	mov x3, 4
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1       //507
+	sub x2, x2, 1       //241
+	mov x3, 4
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1       //506
+	sub x2, x2, 1       //240
+	mov x3, 5
+	mov x4, 1
+	movz x5, 0x07, lsl 16
+    movk x5, 0x136e, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 18      //488
+	add x2, x2, 42      //282
+	mov x3, 5
+	mov x4, 1
+	movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	sub x1, x1, 1      //488
+	sub x2, x2, 1      //282
+	mov x3, 5
+	mov x4, 1
+	movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+	bl dibujar_linea
+	
+	mov x0,x20
+	add x1, x1, 1      //489
+	sub x2, x2, 21     //261
+	mov x3, 5
+	mov x4, 1
+	movz x5, 0x09, lsl 16
+    movk x5, 0x0f3b, lsl 0
+	bl dibujar_linea
+	
+	
+    mov lr, x21
+    ret
+                                           
+

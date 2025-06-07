@@ -345,7 +345,7 @@ mov x1, 465
 mov x2, 206
 bl dibujar_cara_contorno
 
-movz x1, 0xff9, lsl 16  ////// DELAY de 0XFF90000 = 267911168 ciclos
+movz x1, 0x9ff, lsl 16  ////// DELAY de 0X9FF0000
 bl delay
 
 

@@ -1,8 +1,8 @@
 Nombre y apellido
-Integrante 1: Acosta Maximiliano
-Integrante 2: Emir Aquino Joel
-Integrante 3: Quiñones Maximo Hugo
-Integrante 4: Wortley Tiziano
+Integrante 1: Acosta, Maximiliano Ezequiel
+Integrante 2: Aquino ,Emir Martin Joel
+Integrante 3: Quiñones, Maximo Hugo
+Integrante 4: Wortley, Tiziano Angel
 
 Descripción ejercicio 1:
 
